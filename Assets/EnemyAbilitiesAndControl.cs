@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyAbilitiesAndControl : MonoBehaviour
+{
+    BattleCharacter me;
+
+    [Header("Basic Attack Variables")]
+    bool isBasicAttacking = false;
+    Vector3 basicAttackTargetPos;
+    public float basicAttackAnimSpeed;
+    public float basicAttackAdvanceDelay, basicAttackReturnDelay;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        me = gameObject.GetComponent<BattleCharacter>();
+    }
+
+    IEnumerator BasicAttack()
+    {
+        me.isMyTurn = false;
+        Vector3 firstPos = transform.position;
+
+        Random.InitState((int)System.DateTime.Now.Ticks);
+        int target = Random.Range(0, GameManager.gm.party.Count);
+
+        Debug.Log("Enemy -> " + GameManager.gm.party[target].gameObject.name);
+
+        basicAttackTargetPos = GameManager.gm.party[target].gameObject.transform.position;
+        isBasicAttacking = true;
+        yield return new WaitForSeconds(basicAttackAdvanceDelay);
+        basicAttackTargetPos = firstPos;
+        yield return new WaitForSeconds(basicAttackReturnDelay);
+        isBasicAttacking = false;
+        transform.position = firstPos;
+
+        GameManager.gm.EndTurn();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (me.isMyTurn == true)
+            StartCoroutine(BasicAttack());
+
+        if (isBasicAttacking == true)
+            transform.position = Vector3.Lerp(transform.position, basicAttackTargetPos, Time.deltaTime * basicAttackAnimSpeed);
+    }
+}
