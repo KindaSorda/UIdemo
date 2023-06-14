@@ -10,6 +10,7 @@ public class SO_StatusEffect : ScriptableObject
     public Sprite thumbnailSprite;
     public bool isBuff;
     public int duration;
+    public int stacks = 1;
 
     [Header("Status Variables")]
     public float percentSpeedEffect;

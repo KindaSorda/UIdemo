@@ -41,8 +41,8 @@ public class BattleCharacter : MonoBehaviour
     List<GameObject> negativeBreaths = new List<GameObject>();
 
     [Header("Status Effect Variables")]
-    public List<Image> buffIcons = new List<Image>();
-    public List<Image> debuffIcons = new List<Image>();
+    public List<StatusEffectIconControl> buffIcons = new List<StatusEffectIconControl>();
+    public List<StatusEffectIconControl> debuffIcons = new List<StatusEffectIconControl>();
     public List<SO_StatusEffect> buffs = new List<SO_StatusEffect>();
     public List<SO_StatusEffect> debuffs = new List<SO_StatusEffect>();
 
@@ -73,8 +73,8 @@ public class BattleCharacter : MonoBehaviour
 
         for(int i = 0; i < buffIcons.Count; i++)
         {
-            buffIcons[i].sprite = Resources.Load<Sprite>("Empty");
-            debuffIcons[i].sprite = Resources.Load<Sprite>("Empty");
+            buffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
+            debuffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
         }
     }
 
@@ -154,15 +154,44 @@ public class BattleCharacter : MonoBehaviour
 
     public void InflictStatusEffect(SO_StatusEffect effect)
     {
+        Debug.Log("Triggered Inflict of " + effect.name);
         if (effect.isBuff)
         {
-            buffs.Add(effect);
+            bool alreadyInflicted = false;
+
+            for (int i = 0; i < buffs.Count; i++)
+            {
+                if (buffs[i].name == effect.name)
+                {
+                    alreadyInflicted = true;
+                    buffs[i].stacks++;
+                }
+            }
+
+            if (!alreadyInflicted)
+                buffs.Add(effect);
+
             UpdateBuffIcons();
+            Debug.Log("Inflicted " + effect.name);
         }
         else
         {
-            debuffs.Add(effect);
+            bool alreadyInflicted = false;
+
+            for (int i = 0; i < debuffs.Count; i++)
+            {
+                if(debuffs[i].name == effect.name)
+                {
+                    alreadyInflicted = true;
+                    debuffs[i].stacks++;
+                }
+            }
+
+            if (!alreadyInflicted)
+                debuffs.Add(effect);
+
             UpdateDebuffIcons();
+            Debug.Log("Inflicted " + effect.name);
         }
     }
 
@@ -170,7 +199,9 @@ public class BattleCharacter : MonoBehaviour
     {
         for (int i = 0; i < buffs.Count; i++)
         {
-            buffIcons[i].sprite = buffs[i].thumbnailSprite;
+            //buffIcons[i].gameObject.GetComponent<Image>().sprite = buffs[i].thumbnailSprite;
+            if (buffs[i] != null)
+                buffIcons[i].AssignEffect(buffs[i]);
         }
     }
 
@@ -178,7 +209,9 @@ public class BattleCharacter : MonoBehaviour
     {
         for(int i = 0; i < debuffs.Count; i++)
         {
-            debuffIcons[i].sprite = debuffs[i].thumbnailSprite;
+            //debuffIcons[i].gameObject.GetComponent<Image>().sprite = debuffs[i].thumbnailSprite;
+            if (debuffs[i] != null)
+                debuffIcons[i].AssignEffect(debuffs[i]);
         }
     }
 
@@ -186,7 +219,7 @@ public class BattleCharacter : MonoBehaviour
     {
         for(int i = 0; i < debuffs.Count; i++)
         {
-            speed += speed * (debuffs[i].percentSpeedEffect * 0.01f);
+            speed += speed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f);
         }
     }
 
