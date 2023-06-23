@@ -16,6 +16,7 @@ MonoBehaviour:
   thumbnailSprite: {fileID: 21300000, guid: 23743f0c0ed1e6546808a5d645c2a6a5, type: 3}
   isBuff: 0
   duration: 1
+  stacks: 1
   percentSpeedEffect: -10
   percentAttackEffect: 0
   percentDefenseEffect: 0

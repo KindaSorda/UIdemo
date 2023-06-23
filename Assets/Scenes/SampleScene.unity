@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2050,7 +2050,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2500920922887634006, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: basicAttackBreathCost
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3333857640979074333, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: numAttacks
@@ -2118,7 +2118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: speed
-      value: 3.91
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
+      propertyPath: baseSpeed
+      value: 4.31
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: thumbnail
@@ -3478,7 +3482,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: speed
-      value: 1.66
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
+      propertyPath: baseSpeed
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: thumbnail
@@ -3546,6 +3554,8 @@ MonoBehaviour:
   - {fileID: 96509425}
   - {fileID: 256158411}
   - {fileID: 1937019855}
+  originalUIOrder: -2
+  currentTurnUIOrder: 1
   nextTurnButton: {fileID: 1223714555}
   turnIndicatorUpdateSpeed: 7
   turnIndicatorPosMultiplier: 35
@@ -3829,7 +3839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
       propertyPath: speed
-      value: 3.46
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: baseSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
@@ -4128,7 +4142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
       propertyPath: speed
-      value: 4.45
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: baseSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
@@ -5833,6 +5851,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: baseSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
 --- !u!1 &1937019853
@@ -6047,6 +6073,14 @@ PrefabInstance:
     - target: {fileID: 8212117806128216797, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
+      propertyPath: baseSpeed
+      value: 3.55
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: startingBreaths

@@ -28,6 +28,11 @@ public class StatusEffectIconControl : MonoBehaviour
             stackDisplay.text = assigned.stacks.ToString();
     }
     
+    public void Empty()
+    {
+        displayIcon.sprite = Resources.Load<Sprite>("Empty");
+    }
+
     // Update is called once per frame
     void Update()
     {

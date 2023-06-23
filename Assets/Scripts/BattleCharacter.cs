@@ -18,8 +18,8 @@ public class BattleCharacter : MonoBehaviour
     [Header("CharacterStats")]
     public float startingHealth;
     public float health;
-    [Range(0.0f, 10.0f)] public float speed;
-    float baseSpeed;
+    public float speed;
+    [Range(0.0f, 10.0f)] public float baseSpeed;
     public float turnValue;
 
     [Header("UI Objects")]
@@ -59,7 +59,7 @@ public class BattleCharacter : MonoBehaviour
             combatControls.SetActive(false);
 
         health = startingHealth;
-        baseSpeed = speed;
+        speed = baseSpeed;
         breathRegen = startingBreaths;
 
         InstantiateBreaths();
@@ -73,8 +73,10 @@ public class BattleCharacter : MonoBehaviour
 
         for(int i = 0; i < buffIcons.Count; i++)
         {
-            buffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
-            debuffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
+            //buffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
+            //debuffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
+            buffIcons[i].Empty();
+            debuffIcons[i].Empty();
         }
     }
 
@@ -127,12 +129,14 @@ public class BattleCharacter : MonoBehaviour
             else
             {
                 numNegativeBreaths++;
-                GameObject newNegativeBreath = Instantiate<GameObject>(Resources.Load("Prefabs/NegativeBreathContainer") as GameObject, breathsUIContainer.transform);
+                GameObject newNegativeBreath = Instantiate(Resources.Load("Prefabs/NegativeBreathContainer") as GameObject, breathsUIContainer.transform);
                 Vector3 startingRot = newNegativeBreath.GetComponent<Transform>().eulerAngles;
                 newNegativeBreath.GetComponent<Transform>().eulerAngles = new Vector3(startingRot.x, startingRot.y, -breathUiInstantiationRotOffset * numNegativeBreaths);
                 negativeBreaths.Add(newNegativeBreath);
                 isInNegativeBreaths = true;
-                InflictStatusEffect(Resources.Load<SO_StatusEffect>("StatusEffects/OutOfBreath"));
+
+                SO_StatusEffect newEffect = Instantiate(Resources.Load("StatusEffects/OutOfBreath") as SO_StatusEffect);
+                InflictStatusEffect(newEffect);
             }
         }
 
@@ -148,6 +152,13 @@ public class BattleCharacter : MonoBehaviour
                 breathNodes[i].activeBreath = true;
             }
         }
+
+        for(int i = 0; i < negativeBreaths.Count; i++)
+        {
+            Destroy(negativeBreaths[i]);
+        }
+        negativeBreaths.Clear();
+
 
         breathsSpentThisTurn = 0;
     }
@@ -219,7 +230,14 @@ public class BattleCharacter : MonoBehaviour
     {
         for(int i = 0; i < debuffs.Count; i++)
         {
-            speed += speed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f);
+            speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
+            
+            debuffs[i].duration--;
+            if (debuffs[i].duration <= 0)
+            {
+                debuffs.Remove(debuffs[i]);
+                debuffIcons[i].Empty();
+            }
         }
     }
 

@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public List<BattleCharacter> enemies = new List<BattleCharacter>();
     public List<Image> turnIndicators = new List<Image>();
 
+    public int originalUIOrder = -2;
+    public int currentTurnUIOrder = 1;
+
     public Button nextTurnButton;
     public float turnIndicatorUpdateSpeed;
     public float turnIndicatorPosMultiplier;
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
         {
             currentTurnCharacter.isMyTurn = false;
             currentTurnCharacter.turnIndicatorTargetX = 0.0f;
+            currentTurnCharacter.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = originalUIOrder;
         }
 
         BattleCharacter highestSpeed = characters[0].GetComponent<BattleCharacter>();
@@ -119,12 +123,14 @@ public class GameManager : MonoBehaviour
 
         currentTurnCharacter.isMyTurn = true;
         currentTurnCharacter.turnValue = 0.0f;
+        currentTurnCharacter.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = currentTurnUIOrder;
         currentTurnCharacter.RefillBreaths();
+        currentTurnCharacter.ApplyStatusEffects();
 
-        for(int i = 0; i < characters.Count; i++)
+        /*for(int i = 0; i < characters.Count; i++)
         {
             characters[i].GetComponent<BattleCharacter>().ApplyStatusEffects();
-        }
+        }*/
     }
 
     void GetMouseOver()
