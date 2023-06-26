@@ -97,14 +97,10 @@ public class BattleCharacter : MonoBehaviour
     {
         if(GameManager.gm.mouseOver == gameObject)
         {
-            //healthUI.SetActive(true);
-            //breathsUIContainer.SetActive(true);
             uIanim.SetBool("isHover", true);
         }
         else
         {
-            //healthUI.SetActive(false);
-            //breathsUIContainer.SetActive(false);
             uIanim.SetBool("isHover", false);
         }
 

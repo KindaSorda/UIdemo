@@ -11,6 +11,7 @@ public class SO_StatusEffect : ScriptableObject
     public bool isBuff;
     public int duration;
     public int stacks;
+    [TextArea(0,20)]public string description;
 
     [Header("Status Variables")]
     public float percentSpeedEffect;
