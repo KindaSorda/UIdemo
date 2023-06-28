@@ -23,10 +23,11 @@ public class BattleCharacter : MonoBehaviour
     public float turnValue;
 
     [Header("UI Objects")]
+    public GameObject uiParent;
     public GameObject healthUI;
     public GameObject combatControls;
     public GameObject currentTurnIndicator;
-    public List<Image> allUIObjects = new List<Image>();
+    //public List<Image> allUIObjects = new List<Image>();
     public TextMeshProUGUI healthText;
     public Image healthBar;
 
@@ -64,12 +65,12 @@ public class BattleCharacter : MonoBehaviour
 
         InstantiateBreaths();
 
-        allUIObjects.Add(healthUI.GetComponent<Image>());
+        /*allUIObjects.Add(healthUI.GetComponent<Image>());
         allUIObjects.Add(combatControls.GetComponent<Image>());
         for(int i = 0; i < breathNodes.Count; i++)
         {
             allUIObjects.Add(breathNodes[i].gameObject.GetComponent<Image>());
-        }
+        }*/
 
         for(int i = 0; i < buffIcons.Count; i++)
         {
@@ -133,6 +134,7 @@ public class BattleCharacter : MonoBehaviour
 
                 SO_StatusEffect newEffect = Instantiate(Resources.Load("StatusEffects/OutOfBreath") as SO_StatusEffect);
                 InflictStatusEffect(newEffect);
+                GameManager.gm.EndTurn();
             }
         }
 

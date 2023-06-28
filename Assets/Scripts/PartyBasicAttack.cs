@@ -59,6 +59,8 @@ public class PartyBasicAttack : MonoBehaviour
 
     IEnumerator ExeceuteAttack(Transform target)
     {
+        thisCharacter.uiParent.SetActive(false);
+
         Vector3 firstPos = transform.position;
 
         thisCharacter.SpendBreaths(basicAttackBreathCost);
@@ -70,6 +72,8 @@ public class PartyBasicAttack : MonoBehaviour
         yield return new WaitForSeconds(basicAttackReturnDelay);
         isBasicAttacking = false;
         transform.position = firstPos;
+
+        thisCharacter.uiParent.SetActive(true);
     }
 
     // Update is called once per frame

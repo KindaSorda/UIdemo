@@ -787,11 +787,12 @@ MonoBehaviour:
   startingHealth: 375
   health: 0
   speed: 2.34
+  baseSpeed: 0
   turnValue: 0
+  uiParent: {fileID: 3881943622781164606}
   healthUI: {fileID: 5329568511956028371}
   combatControls: {fileID: 2949433966688197997}
   currentTurnIndicator: {fileID: 4701615874660134369}
-  allUIObjects: []
   healthText: {fileID: 8603737335820535773}
   healthBar: {fileID: 7494382157022168619}
   startingBreaths: 0
