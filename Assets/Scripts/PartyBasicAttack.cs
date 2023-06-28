@@ -19,14 +19,20 @@ public class PartyBasicAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thisCharacter = gameObject.GetComponent<BattleCharacter>();
+        StartCoroutine(AssignToButton());
+    }
+
+    IEnumerator AssignToButton()
+    {
+        yield return new WaitForSeconds(0.1f);
+
         attackButtons = GetComponent<InstantiateAttackButtons>().attackButtons;
 
-        for(int i = 0; i < attackButtons.Count; i++)
+        for (int i = 0; i < attackButtons.Count; i++)
         {
             attackButtons[i].GetComponent<Button>().onClick.AddListener(() => PrepareAttack(i));
         }
-
-        thisCharacter = gameObject.GetComponent<BattleCharacter>();
     }
 
     void PrepareAttack(int num)

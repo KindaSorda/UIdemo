@@ -34,8 +34,16 @@ public class StatusEffectIconControl : MonoBehaviour
             stackDisplay.text = assigned.stacks.ToString();
     }
     
+    public void EmptyOnStart()
+    {
+        //Debug.Log("Called EmptyOnStart()");
+        GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
+        GetComponent<RevealOnHover>().enabled = false;
+    }
+
     public void Empty()
     {
+        Debug.Log("Called Empty()");
         displayIcon.sprite = Resources.Load<Sprite>("Empty");
         myHoverScript.enabled = false;
     }

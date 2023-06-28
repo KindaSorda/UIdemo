@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
+    public GameObject mainCombatUI;
+
     public int numPartyMembersInScene;
 
     public List<GameObject> characters = new List<GameObject>();
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour
         {
             currentTurnCharacter.isMyTurn = false;
             currentTurnCharacter.turnIndicatorTargetX = 0.0f;
-            currentTurnCharacter.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = originalUIOrder;
+            //currentTurnCharacter.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = originalUIOrder;
         }
 
         BattleCharacter highestSpeed = characters[0].GetComponent<BattleCharacter>();
@@ -123,7 +125,7 @@ public class GameManager : MonoBehaviour
 
         currentTurnCharacter.isMyTurn = true;
         currentTurnCharacter.turnValue = 0.0f;
-        currentTurnCharacter.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = currentTurnUIOrder;
+        //currentTurnCharacter.uiParent.GetComponent<Canvas>().sortingOrder = currentTurnUIOrder;
         currentTurnCharacter.RefillBreaths();
         currentTurnCharacter.ApplyStatusEffects();
 
@@ -146,6 +148,8 @@ public class GameManager : MonoBehaviour
         }
         else
             mouseOver = null;
+
+        //Debug.Log(mouseOver.name);
     }
 
     public void SetTargetingReticle(bool state)

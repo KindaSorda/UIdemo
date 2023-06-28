@@ -13,7 +13,7 @@ public class EnemyInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyNumText.GetComponent<TextMeshProUGUI>().text = enemyNumber.ToString();
+
     }
 
     // Update is called once per frame

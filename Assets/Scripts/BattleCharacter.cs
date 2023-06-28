@@ -24,12 +24,12 @@ public class BattleCharacter : MonoBehaviour
 
     [Header("UI Objects")]
     public GameObject uiParent;
-    public GameObject healthUI;
-    public GameObject combatControls;
+    //public GameObject healthUI;
     public GameObject currentTurnIndicator;
     //public List<Image> allUIObjects = new List<Image>();
     public TextMeshProUGUI healthText;
     public Image healthBar;
+    public GameObject combatControls;
 
     [Header("Breath and Soul Variables")]
     public int startingBreaths;
@@ -50,9 +50,25 @@ public class BattleCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uIanim = transform.GetChild(0).gameObject.GetComponent<Animator>();
+        uiParent = Instantiate(Resources.Load("Prefabs/CharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+        uiParent.GetComponent<CharacterUIFollowTarget>().target = transform;
+        healthText = uiParent.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        healthBar = uiParent.transform.GetChild(0).GetChild(1).GetComponent<Image>();
+        combatControls = uiParent.transform.GetChild(1).gameObject;
+        breathsUIContainer = uiParent.transform.GetChild(2).gameObject;
+        int numStatusIcons = uiParent.transform.GetChild(0).GetChild(2).childCount;
+        for (int i = 0; i < numStatusIcons; i++)
+        {
+            buffIcons.Add(uiParent.transform.GetChild(0).GetChild(2).GetChild(i).GetComponent<StatusEffectIconControl>());
+            debuffIcons.Add(uiParent.transform.GetChild(0).GetChild(3).GetChild(i).GetComponent<StatusEffectIconControl>());
+        }
+        if(gameObject.tag == "Party")
+            GetComponent<InstantiateAttackButtons>().InstantiateButtons();
+        // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
 
-        //healthUI.SetActive(false);
+
+        //uIanim = transform.GetChild(0).gameObject.GetComponent<Animator>();
+
         currentTurnIndicator.transform.parent = null;
         currentTurnIndicator.SetActive(false);
 
@@ -65,26 +81,15 @@ public class BattleCharacter : MonoBehaviour
 
         InstantiateBreaths();
 
-        /*allUIObjects.Add(healthUI.GetComponent<Image>());
-        allUIObjects.Add(combatControls.GetComponent<Image>());
-        for(int i = 0; i < breathNodes.Count; i++)
-        {
-            allUIObjects.Add(breathNodes[i].gameObject.GetComponent<Image>());
-        }*/
-
         for(int i = 0; i < buffIcons.Count; i++)
         {
-            //buffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
-            //debuffIcons[i].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
-            buffIcons[i].Empty();
-            debuffIcons[i].Empty();
+            buffIcons[i].EmptyOnStart();
+            debuffIcons[i].EmptyOnStart();
         }
     }
 
     void InstantiateBreaths()
     {
-        breathsUIContainer = transform.GetChild(0).GetChild(2).gameObject;
-
         for(int i = 0; i < startingBreaths; i++)
         {
             GameObject newBreath = Instantiate<GameObject>(Resources.Load("Prefabs/BreathContainer") as GameObject, breathsUIContainer.transform);
@@ -96,14 +101,14 @@ public class BattleCharacter : MonoBehaviour
 
     void EnableingUI()
     {
-        if(GameManager.gm.mouseOver == gameObject)
+        /*if(GameManager.gm.mouseOver == gameObject)
         {
             uIanim.SetBool("isHover", true);
         }
         else
         {
             uIanim.SetBool("isHover", false);
-        }
+        }*/
 
         if (combatControls != null)
         {
@@ -249,8 +254,8 @@ public class BattleCharacter : MonoBehaviour
         //    controlUI.SetActive(isMyTurn);
         currentTurnIndicator.SetActive(isMyTurn);
 
-        if(uIanim != null)
-            EnableingUI();
+        //(uIanim != null)
+        EnableingUI();
 
         if(myTurnIndicator != null)
             myTurnIndicator.rectTransform.localPosition = Vector3.Lerp(myTurnIndicator.rectTransform.localPosition, new Vector3(turnIndicatorTargetX, 0.0f, 0.0f), Time.deltaTime * GameManager.gm.turnIndicatorUpdateSpeed);

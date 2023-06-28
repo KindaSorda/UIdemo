@@ -12,9 +12,17 @@ public class InstantiateAttackButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject attackButtonParent = transform.GetChild(0).GetChild(1).gameObject;
 
-        attackButtonParent.transform.eulerAngles = new Vector3(attackButtonParent.transform.eulerAngles.x, attackButtonParent.transform.eulerAngles.y, attackButtonParent.transform.eulerAngles.z + attackButtonInstantianRotationOffset * ((numAttacks / 2.0f)));
+    }
+
+    public void InstantiateButtons()
+    {
+        GameObject attackButtonParent = gameObject.GetComponent<BattleCharacter>().uiParent.transform.GetChild(1).gameObject;
+
+        attackButtonParent.transform.eulerAngles = new Vector3
+            (attackButtonParent.transform.eulerAngles.x,
+             attackButtonParent.transform.eulerAngles.y,
+             attackButtonParent.transform.eulerAngles.z + attackButtonInstantianRotationOffset * ((numAttacks / 2.0f)));
 
         for (int i = 0; i < numAttacks; i++)
         {
