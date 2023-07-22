@@ -17,7 +17,7 @@ MonoBehaviour:
   isBuff: 0
   duration: 1
   stacks: 1
-  description: Speed is decreased by 10% per stack
-  percentSpeedEffect: -10
+  description: Speed is decreased by 25% per stack
+  percentSpeedEffect: -25
   percentAttackEffect: 0
   percentDefenseEffect: 0

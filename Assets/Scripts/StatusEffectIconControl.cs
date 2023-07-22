@@ -10,20 +10,18 @@ public class StatusEffectIconControl : MonoBehaviour
     [HideInInspector] public Image displayIcon;
     [HideInInspector] public SO_StatusEffect assigned;
     public TextMeshProUGUI descriptionTextBox;
-    RevealOnHover myHoverScript;
+    public bool hoverable = false;
 
     // Start is called before the first frame update
     void Start()
     {
         displayIcon = GetComponent<Image>();
         stackDisplay.text = "";
-
-        myHoverScript = GetComponent<RevealOnHover>();
     }
 
     public void AssignEffect(SO_StatusEffect effect)
     {
-        myHoverScript.enabled = true;
+        hoverable = true;
         assigned = effect;
         displayIcon.sprite = effect.thumbnailSprite;
         descriptionTextBox.text = effect.description;
@@ -38,14 +36,14 @@ public class StatusEffectIconControl : MonoBehaviour
     {
         //Debug.Log("Called EmptyOnStart()");
         GetComponent<Image>().sprite = Resources.Load<Sprite>("Empty");
-        GetComponent<RevealOnHover>().enabled = false;
+        hoverable = false;
     }
 
     public void Empty()
     {
         Debug.Log("Called Empty()");
         displayIcon.sprite = Resources.Load<Sprite>("Empty");
-        myHoverScript.enabled = false;
+        hoverable = false;
     }
 
     // Update is called once per frame

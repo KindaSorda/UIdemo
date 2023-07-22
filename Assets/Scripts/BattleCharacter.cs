@@ -205,6 +205,7 @@ public class BattleCharacter : MonoBehaviour
                 debuffs.Add(effect);
 
             UpdateDebuffIcons();
+            ApplyStatusEffect(effect);
             Debug.Log("Inflicted " + effect.name);
         }
     }
@@ -229,18 +230,29 @@ public class BattleCharacter : MonoBehaviour
         }
     }
 
-    public void ApplyStatusEffects()
+    public void ApplyAllStatusEffects()
     {
         for(int i = 0; i < debuffs.Count; i++)
         {
-            speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
-            
             debuffs[i].duration--;
             if (debuffs[i].duration <= 0)
             {
                 debuffs.Remove(debuffs[i]);
                 debuffIcons[i].Empty();
             }
+
+            if (debuffs.Count > 0)
+                speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
+            else
+                speed = baseSpeed;
+        }
+    }
+
+    public void ApplyStatusEffect(SO_StatusEffect effect)
+    {
+        for (int i = 0; i < debuffs.Count; i++)
+        {
+            speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
         }
     }
 

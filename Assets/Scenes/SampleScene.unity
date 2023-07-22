@@ -2050,7 +2050,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2500920922887634006, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: basicAttackBreathCost
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3333857640979074333, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: numAttacks
@@ -2122,7 +2122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: baseSpeed
-      value: 4.31
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8212117806128216800, guid: 017aa29026103e446a95fd6f33a034cb, type: 3}
       propertyPath: thumbnail

@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         {
             currentTurnCharacter.isMyTurn = false;
             currentTurnCharacter.turnIndicatorTargetX = 0.0f;
+            //currentTurnCharacter.ApplyStatusEffects();
             //currentTurnCharacter.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = originalUIOrder;
         }
 
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
         currentTurnCharacter = highestSpeed;
         currentTurnCharacter.turnIndicatorTargetX = currentTurnIndicatorX;
         currentTurnCharacter.isMyTurn = true;
+        currentTurnCharacter.ApplyAllStatusEffects();
 
         for (int i = 0; i < characters.Count; i++)
         {
@@ -127,7 +129,6 @@ public class GameManager : MonoBehaviour
         currentTurnCharacter.turnValue = 0.0f;
         //currentTurnCharacter.uiParent.GetComponent<Canvas>().sortingOrder = currentTurnUIOrder;
         currentTurnCharacter.RefillBreaths();
-        currentTurnCharacter.ApplyStatusEffects();
 
         /*for(int i = 0; i < characters.Count; i++)
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RevealOnHover : MonoBehaviour
+public class RevealOnHover_WorldSpace : MonoBehaviour
 {
     public GameObject revealTarget;
 
