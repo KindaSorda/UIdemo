@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject targetingMouseReticle;
 
+    public float variableSetDelay;
+
     private void Awake()
     {
         gm = this;

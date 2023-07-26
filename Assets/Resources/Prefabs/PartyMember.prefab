@@ -216,7 +216,7 @@ MonoBehaviour:
   startingBreaths: 0
   breathRegen: 0
   breathNodes: []
-  breathUiInstantiationRotOffset: 0
+  breathUiInstantiationRotOffset: -15
   breathsSpentThisTurn: 0
   isInNegativeBreaths: 0
   buffIcons: []

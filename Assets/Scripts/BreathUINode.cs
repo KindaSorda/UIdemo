@@ -7,7 +7,7 @@ public class BreathUINode : MonoBehaviour
     public bool activeBreath = true;
     public GameObject icon;
     Animator anim;
-    public bool flashing = false;
+    //public bool flashing = false;
     
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class BreathUINode : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void Flash()
+    public void Flash(bool flashing)
     {
         anim.SetBool("Flashing", flashing);
     }
@@ -23,7 +23,7 @@ public class BreathUINode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Flash();
+        //Flash();
         icon.SetActive(activeBreath);
     }
 }

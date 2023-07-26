@@ -32,6 +32,7 @@ public class InstantiateAttackButtons : MonoBehaviour
             newButton.transform.localPosition = new Vector3(newButton.transform.localPosition.x + (attackButtonInstantiationXOffset), newButton.transform.localPosition.y, newButton.transform.localPosition.z);
             newButton.transform.SetParent(transform.GetChild(0));
             newButton.transform.eulerAngles = Vector3.zero;
+            newButton.GetComponent<AttackButtonScript>().targetBreathNodes = gameObject.GetComponent<BattleCharacter>().breathNodes;
             attackButtons.Add(newButton);
         }
 

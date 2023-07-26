@@ -90,13 +90,15 @@ public class BattleCharacter : MonoBehaviour
 
     void InstantiateBreaths()
     {
-        for(int i = 0; i < startingBreaths; i++)
+        for (int i = 0; i < startingBreaths; i++)
         {
             GameObject newBreath = Instantiate<GameObject>(Resources.Load("Prefabs/BreathContainer") as GameObject, breathsUIContainer.transform);
             Vector3 startingRot = newBreath.GetComponent<Transform>().eulerAngles;
             newBreath.GetComponent<Transform>().eulerAngles = new Vector3(startingRot.x, startingRot.y, breathUiInstantiationRotOffset * i);
             breathNodes.Add(newBreath.GetComponent<BreathUINode>());
         }
+        Vector3 parentRot = breathsUIContainer.transform.localEulerAngles;
+        breathsUIContainer.transform.localEulerAngles = new Vector3(parentRot.x, parentRot.y, parentRot.z + -((breathNodes.Count - 1) * breathUiInstantiationRotOffset));
     }
 
     void EnableingUI()
@@ -127,13 +129,13 @@ public class BattleCharacter : MonoBehaviour
             int newI = breathsSpentThisTurn + i;
 
             if(newI < breathNodes.Count)
-                breathNodes[newI + (breathNodes.Count - (newI + up))].activeBreath = false;
+                breathNodes[newI].activeBreath = false;
             else
             {
                 numNegativeBreaths++;
                 GameObject newNegativeBreath = Instantiate(Resources.Load("Prefabs/NegativeBreathContainer") as GameObject, breathsUIContainer.transform);
                 Vector3 startingRot = newNegativeBreath.GetComponent<Transform>().eulerAngles;
-                newNegativeBreath.GetComponent<Transform>().eulerAngles = new Vector3(startingRot.x, startingRot.y, -breathUiInstantiationRotOffset * numNegativeBreaths);
+                newNegativeBreath.GetComponent<Transform>().eulerAngles = new Vector3(startingRot.x, startingRot.y, breathUiInstantiationRotOffset * numNegativeBreaths);
                 negativeBreaths.Add(newNegativeBreath);
                 isInNegativeBreaths = true;
 

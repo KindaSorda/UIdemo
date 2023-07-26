@@ -11,21 +11,47 @@ public class AttackButtonScript : MonoBehaviour
     public bool isDown = false;
     public bool isHover = false;
 
+    public int assignedAttackBreathCost;
+
     Vector3 targetPos, startingPos;
+
+    public List<BreathUINode> targetBreathNodes = new List<BreathUINode>();
+    public BattleCharacter assignedCharacter;
 
     // Start is called before the first frame update
     void Start()
     {
         startingPos = transform.position;
         targetPos = startingPos;
+
+        Debug.Log(targetBreathNodes.Count);
+
+        StartCoroutine(SetAssignedCharacter());
     }
 
     public void ScaleOnHover(bool up)
     {
-        if(up)
+        if (up)
             transform.localScale *= scaleMultiplier;
         else
             transform.localScale /= scaleMultiplier;
+    }
+
+    IEnumerator SetAssignedCharacter()
+    {
+        assignedCharacter = transform.parent.parent.GetComponent<CharacterUIFollowTarget>().target.gameObject.GetComponent<BattleCharacter>();
+        //Debug.Log(assignedCharacter.gameObject.name);
+
+        yield return new WaitForSeconds(GameManager.gm.variableSetDelay);
+    }
+
+    public void FlashBreathsOnHover(bool flashing)
+    {
+        for(int i = 0; i < targetBreathNodes.Count; i++)
+    {
+            if (i < (assignedAttackBreathCost + assignedCharacter.breathsSpentThisTurn))
+                targetBreathNodes[i].Flash(flashing);
+        }
     }
 
     void ShiftUp()
