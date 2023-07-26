@@ -36,7 +36,7 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
         isBasicAttacking = false;
         transform.position = firstPos;
 
-        GameManager.gm.EndTurn();
+        StartCoroutine(GameManager.gm.EndTurn(0.3f));
     }
 
     // Update is called once per frame

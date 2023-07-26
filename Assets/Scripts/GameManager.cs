@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextTurnButton.onClick.AddListener(EndTurn);
+        nextTurnButton.onClick.AddListener(() => EndTurn(0));
 
         AddCharactersToList("Party");
         AddCharactersToList("Enemy");
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         targetingMouseReticle.GetComponent<Image>().enabled = false;
 
-        EndTurn();
+        StartCoroutine(EndTurn(0));
     }
 
     void AddCharactersToList(string tag)
@@ -90,8 +90,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndTurn()
+    public IEnumerator EndTurn(float delay)
     {
+        yield return new WaitForSeconds(delay);
+
         if (currentTurnCharacter != null)
         {
             currentTurnCharacter.isMyTurn = false;

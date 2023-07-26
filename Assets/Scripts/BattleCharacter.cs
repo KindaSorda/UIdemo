@@ -52,6 +52,8 @@ public class BattleCharacter : MonoBehaviour
     {
         uiParent = Instantiate(Resources.Load("Prefabs/CharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
         uiParent.GetComponent<CharacterUIFollowTarget>().target = transform;
+        uiParent.name = gameObject.name + " UI";
+
         healthText = uiParent.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         healthBar = uiParent.transform.GetChild(0).GetChild(1).GetComponent<Image>();
         combatControls = uiParent.transform.GetChild(1).gameObject;
@@ -118,8 +120,10 @@ public class BattleCharacter : MonoBehaviour
         }
     }
 
-    public void SpendBreaths(int cost)
+    public IEnumerator SpendBreaths(int cost, float delay)
     {
+        yield return new WaitForSeconds(delay);
+
         int up = breathsSpentThisTurn;
         int numNegativeBreaths = 0;
 
@@ -128,8 +132,11 @@ public class BattleCharacter : MonoBehaviour
             up++;
             int newI = breathsSpentThisTurn + i;
 
-            if(newI < breathNodes.Count)
-                breathNodes[newI].activeBreath = false;
+            if (newI < breathNodes.Count)
+            {
+                //breathNodes[newI].activeBreath = false;
+                breathNodes[newI].SpendBreath();
+            }
             else
             {
                 numNegativeBreaths++;
@@ -141,7 +148,7 @@ public class BattleCharacter : MonoBehaviour
 
                 SO_StatusEffect newEffect = Instantiate(Resources.Load("StatusEffects/OutOfBreath") as SO_StatusEffect);
                 InflictStatusEffect(newEffect);
-                GameManager.gm.EndTurn();
+                StartCoroutine(GameManager.gm.EndTurn(delay));
             }
         }
 
@@ -152,9 +159,10 @@ public class BattleCharacter : MonoBehaviour
     {
         for(int i = 0; i < breathRegen; i++)
         {
-            if(breathNodes[i].activeBreath == false)
+            if(breathNodes[i].spentBreath == true)
             {
-                breathNodes[i].activeBreath = true;
+                //breathNodes[i].activeBreath = true;
+                breathNodes[i].RefillBreath();
             }
         }
 

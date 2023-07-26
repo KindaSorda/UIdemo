@@ -66,11 +66,11 @@ public class PartyBasicAttack : MonoBehaviour
 
     IEnumerator ExeceuteAttack(Transform target)
     {
-        thisCharacter.uiParent.SetActive(false);
+        //thisCharacter.uiParent.SetActive(false);
 
         Vector3 firstPos = transform.position;
 
-        thisCharacter.SpendBreaths(basicAttackBreathCost);
+        thisCharacter.StartCoroutine(thisCharacter.SpendBreaths(basicAttackBreathCost, basicAttackAdvanceDelay + basicAttackReturnDelay));
 
         basicAttackTargetPos = target.position;
         isBasicAttacking = true;
