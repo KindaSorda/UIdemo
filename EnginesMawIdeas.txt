@@ -1,0 +1,96 @@
+*******ENGINE'S MAW*******
+*****IDEAS & PLANNING*****
+
+
+INTENDED THEMES:
+ - TH1: Staying hopeful in the darkest of times
+ - TH2: Learning to rely on others/community/family for hope and happiness
+ - TH3: (???) Maybe life on Earth could be heaven
+    - TH3.1: If you focus on family, community, happiness and helping others
+
+
+You are running a train
+ - What do trains do?
+    - Deliver shit
+
+Cities need to be maintained with resources
+ - Each city produces one resource and slowly ticks down the rest
+ - Cities have a "population" value which can be considered their "health"
+ - When all three resources are above zero, population increases
+ - The higher the population, the faster the rate of production of a cities production resource, and the faster the decline of the rest
+ - If any of the resources reach 0, population will start to decline
+ - The more resources at 0, the faster the rate of decline
+ - When population reaches 0, the city is "dead."
+
+What happens when cities die? How does it impact/affect the player? Why do they care?
+ - (TH3.1) Crew members will have emotional reactions that adversally effect their relationship with the player, which effects there combat stats
+
+
+There's also a story
+ - Kaya wants to rescue her father, and must do so with the help of the crew of the Heartrunner
+
+"Cooking" for engines
+
+Engines consume Memory Shards
+ - Memory shards are the accumalted, crystalized memories of a given place (all it's people and history)
+ - When removed from the area they formed, the memories destabilize, becoming fragmented or even twisted and nightmarish.
+ - The "cook" must attune with the crystal before feeding it to the engine.
+ - When the cook places their hand on the crystal, the are flooded with the contained memories. They must sort through the corrupted memories by contextualizing them with their own. 
+
+
+
+\/ \/ \/ UI DEMO RELEVANT \/ \/ \/
+
+Characters have individual units, or "hearts" of stamina. Let's call them breaths. Each move they can execute consumes a certain number of breaths.
+A characters turn continues until they are out of breaths or do not have enough to do anything.
+At the end of their turn, a character regains breaths equal to their base number of breaths. 
+Characters can regain breaths up to a cap higher than they're base.
+i.e. A character with base  4 breaths ends their turn with two breaths remaining, and regains 4, so at the start of their next turn has 6
+The puprose is to enable attacks that the player must save breaths between turns in order to execute.
+Additional thoughts
+ - Maybe a character must have a certain status condition in order to accumulate more breaths than their base. Lets call it "Drive"
+ - Could there be an "Out of breath" debuff for ending turn on 0, or spending breaths into the negatives.
+ - "Out of Breath" => Lose a turn, or lower speed until next turn.
+
+Soul meter
+ - Every breath spent by party members contributes to a shared soul meter. When fully charged, party members may spend the soul meter to preform their ultimate move.
+
+End Turn/Party Display/Soul Meter UI implementation ideas
+ - The end turn button has the turn order bar coming of the right and part status bars coming off the left
+ - Expand the bar of the current turn party member
+ - End turn button is also the soul meter
+ - Every breath spent accumaltes alongside the end turn button. When turn is ended, all accumalted breaths move into the button/meter and fill it up.
+ - At full charge the player instantly enters a selection mode that forces them to choose which party member will use their ultimate. This does not effect turn order.
+
+Buffs/Debugss technical implementation
+All buffs/debuffs have the same tag. All characters tick down all their buffs/debuffs by one at the end of each turn (assuming not permanent effect).
+Stacked buffs/debuffs will still count as a single effect and will end completely when the turn count is up.
+
+___BLY___
+Sniper and Healer Combo
+ - Medecine: Restore X health to target
+ - Remedy: Remove debuff from target
+ - Spirit Touch: Grants health regen to target for 3 turns
+ - Vital Shot: Low single-target damage. Inflicts bleed.
+ - Headshot: High single-target damage.
+ - (Ultimate): Crow's Eye: Massive single-target damage.
+
+___KAYA___
+Main DPS
+ - Charge: Increase damage of next attack.
+ - Determination: Grants Drive to self. permanent.
+ - Gouge: High single-target damage.
+ - Sunder: Medium damage to all enemies. When charged, chance to inflict burn for 2 turns.
+ - (Ultimate) Hellfire: Extremely high damage to target, and high damage to all other enemies. Inflicts burn for 4 turns.
+
+___MYRL___
+Support
+    - Buff party, debuff enemies
+ - High Gear: Increase targets speed for 1 turn. Permanent if used on self. Does not stack.
+ - Envigor: Grants Drive to target for 1 turn. If target already has Drive, grants stamina regen up.
+ - Barricade: Ends turn on use. Increases Myrls defense until their next turn. When used on a party member, Myrl takes party member's damage until their next turn.
+ - Grapple: Enflicts target with Grapple. Ends turn.
+    - Target loses a turn. If Myrl is attacked before Grapple effect ends, grapple effect is removed.
+ - Overload: Low damage to all enemies. Chance to inflict speed down.
+ - Wild Swing: 4 medium damage attacks to random enemies. Chance to inflict bleed.
+ - (Ultimate): Full Throttle: Grants 2 stack of speed up and attack up to all party members for 3 turns
