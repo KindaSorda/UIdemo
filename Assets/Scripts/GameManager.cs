@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextTurnButton.onClick.AddListener(() => EndTurn(0));
+        nextTurnButton.onClick.AddListener(() => EndTurn(0.0f));
 
         AddCharactersToList("Party");
         AddCharactersToList("Enemy");
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         targetingMouseReticle.GetComponent<Image>().enabled = false;
 
-        StartCoroutine(EndTurn(0));
+        StartCoroutine(EndTurn(0.0f));
     }
 
     void AddCharactersToList(string tag)
