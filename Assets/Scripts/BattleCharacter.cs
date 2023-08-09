@@ -8,6 +8,8 @@ public class BattleCharacter : MonoBehaviour
 {
     Animator uIanim;
 
+    public Transform UIFollowsHere;
+
     public Sprite thumbnail;
     [HideInInspector]public Image myTurnIndicator;
     public float turnIndicatorTargetX;
@@ -51,7 +53,7 @@ public class BattleCharacter : MonoBehaviour
     void Start()
     {
         uiParent = Instantiate(Resources.Load("Prefabs/CharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
-        uiParent.GetComponent<CharacterUIFollowTarget>().target = transform;
+        uiParent.GetComponent<CharacterUIFollowTarget>().target = UIFollowsHere;
         uiParent.name = gameObject.name + " UI";
 
         healthText = uiParent.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
