@@ -52,19 +52,19 @@ public class BattleCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uiParent = Instantiate(Resources.Load("Prefabs/CharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+        uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
         uiParent.GetComponent<CharacterUIFollowTarget>().target = UIFollowsHere;
         uiParent.name = gameObject.name + " UI";
 
         healthText = uiParent.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        healthBar = uiParent.transform.GetChild(0).GetChild(1).GetComponent<Image>();
+        healthBar = uiParent.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Image>();
         combatControls = uiParent.transform.GetChild(1).gameObject;
         breathsUIContainer = uiParent.transform.GetChild(2).gameObject;
-        int numStatusIcons = uiParent.transform.GetChild(0).GetChild(2).childCount;
+        int numStatusIcons = uiParent.transform.GetChild(0).GetChild(3).childCount;
         for (int i = 0; i < numStatusIcons; i++)
         {
-            buffIcons.Add(uiParent.transform.GetChild(0).GetChild(2).GetChild(i).GetComponent<StatusEffectIconControl>());
-            debuffIcons.Add(uiParent.transform.GetChild(0).GetChild(3).GetChild(i).GetComponent<StatusEffectIconControl>());
+            buffIcons.Add(uiParent.transform.GetChild(0).GetChild(3).GetChild(i).GetComponent<StatusEffectIconControl>());
+            debuffIcons.Add(uiParent.transform.GetChild(0).GetChild(4).GetChild(i).GetComponent<StatusEffectIconControl>());
         }
         if(gameObject.tag == "Party")
             GetComponent<InstantiateAttackButtons>().InstantiateButtons();
@@ -272,7 +272,7 @@ public class BattleCharacter : MonoBehaviour
     void Update()
     {
         healthText.text = health.ToString();
-        healthBar.fillAmount = (health * 0.5f) / startingHealth;
+        healthBar.fillAmount = health / startingHealth;
 
         //if(controlUI != null)
         //    controlUI.SetActive(isMyTurn);

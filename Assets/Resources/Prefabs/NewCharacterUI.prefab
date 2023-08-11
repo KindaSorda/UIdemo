@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 8342700445232912965}
   - component: {fileID: 5729031863698498335}
   - component: {fileID: 8029582305566102052}
+  - component: {fileID: 6803128370180172915}
   m_Layer: 6
   m_Name: NewCharacterUI
   m_TagString: Untagged
@@ -411,7 +412,7 @@ RectTransform:
   m_GameObject: {fileID: 5082308173562550495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.499739, y: 9.499739, z: 9.499739}
+  m_LocalScale: {x: 15.125484, y: 15.125484, z: 15.125484}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7392815930535605141}
@@ -469,7 +470,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8342700445232912965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +521,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &6803128370180172915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082308173562550495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8029582305566102052}
+          m_TargetAssemblyTypeName: CharacterUIFollowTarget, Assembly-CSharp
+          m_MethodName: ScaleOnHover
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8029582305566102052}
+          m_TargetAssemblyTypeName: CharacterUIFollowTarget, Assembly-CSharp
+          m_MethodName: ScaleOnHover
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6608731066677041548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,6 +2697,10 @@ PrefabInstance:
     - target: {fileID: 3704353086483154486, guid: cc6ca804bb9fbe84fa11bae7ffa6f934, type: 3}
       propertyPath: m_Name
       value: KayaAnimSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704353086483154486, guid: cc6ca804bb9fbe84fa11bae7ffa6f934, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3704353086483154487, guid: cc6ca804bb9fbe84fa11bae7ffa6f934, type: 3}
       propertyPath: m_RootOrder
