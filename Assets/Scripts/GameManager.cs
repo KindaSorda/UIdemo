@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     public float variableSetDelay;
 
+    public Transform InstantiateAttackButtonsPos;
+
     private void Awake()
     {
         gm = this;
@@ -102,6 +104,8 @@ public class GameManager : MonoBehaviour
         {
             currentTurnCharacter.isMyTurn = false;
             currentTurnCharacter.turnIndicatorTargetX = 0.0f;
+            if(currentTurnCharacter.tag == "Party")
+                currentTurnCharacter.EnableAttackButtons(false);
             //currentTurnCharacter.ApplyStatusEffects();
             //currentTurnCharacter.transform.GetChild(0).GetComponent<Canvas>().sortingOrder = originalUIOrder;
         }
@@ -135,8 +139,9 @@ public class GameManager : MonoBehaviour
 
         currentTurnCharacter.isMyTurn = true;
         currentTurnCharacter.turnValue = 0.0f;
-        //currentTurnCharacter.uiParent.GetComponent<Canvas>().sortingOrder = currentTurnUIOrder;
         currentTurnCharacter.RefillBreaths();
+        if(currentTurnCharacter.tag == "Party")
+            currentTurnCharacter.EnableAttackButtons(true);
 
         /*for(int i = 0; i < characters.Count; i++)
         {
@@ -158,12 +163,18 @@ public class GameManager : MonoBehaviour
         else
             mouseOver = null;
 
-        //Debug.Log(mouseOver.name);
+        if(mouseOver != null)
+            Debug.Log(mouseOver.name);
     }
 
     public void SetTargetingReticle(bool state)
     {
         targetingMouseReticle.GetComponent<Image>().enabled = state;
+    }
+
+    public void AssignAttackButtons(int index)
+    {
+
     }
 
     // Update is called once per frame

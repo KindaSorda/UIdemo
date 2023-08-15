@@ -20,26 +20,20 @@ public class PartyBasicAttack : MonoBehaviour
     void Start()
     {
         thisCharacter = gameObject.GetComponent<BattleCharacter>();
-        StartCoroutine(AssignToButton());
+        StartCoroutine(AssignToButton(0));
     }
 
-    IEnumerator AssignToButton()
+    IEnumerator AssignToButton(int assignToButton)
     {
         yield return new WaitForSeconds(0.1f);
+        Button targetButton = gameObject.GetComponent<BattleCharacter>().myAttackButtons[assignToButton].gameObject.GetComponent<Button>();
 
-        attackButtons = GetComponent<InstantiateAttackButtons>().attackButtons;
-
-        for (int i = 0; i < attackButtons.Count; i++)
-        {
-            //attackButtons[i].GetComponent<Button>().onClick.AddListener(() => PrepareAttack(i));
-            attackButtons[i].GetComponent<AttackButtonScript>().assignedAttackBreathCost = basicAttackBreathCost;
-        }
+        targetButton.onClick.AddListener(() => PrepareAttack());
+        targetButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Basic Attack";
     }
 
-    void PrepareAttack(int num)
+    void PrepareAttack()
     {
-        Debug.Log("Initiate Attack " + num);
-
         targetingMode = true;
         GameManager.gm.SetTargetingReticle(true);
     }

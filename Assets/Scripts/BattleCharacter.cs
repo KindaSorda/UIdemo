@@ -32,6 +32,8 @@ public class BattleCharacter : MonoBehaviour
     public TextMeshProUGUI healthText;
     public Image healthBar;
     public GameObject combatControls;
+    public GameObject attackButtonsParent;
+    public List<AttackButtonScript> myAttackButtons = new List<AttackButtonScript>();
 
     [Header("Breath and Soul Variables")]
     public int startingBreaths;
@@ -52,7 +54,11 @@ public class BattleCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+        if(gameObject.tag == "Party")
+            uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+        else if(gameObject.tag == "Enemy")
+            uiParent = Instantiate(Resources.Load("Prefabs/EnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+
         uiParent.GetComponent<CharacterUIFollowTarget>().target = UIFollowsHere;
         uiParent.name = gameObject.name + " UI";
 
@@ -67,8 +73,8 @@ public class BattleCharacter : MonoBehaviour
             buffIcons.Add(uiParent.transform.GetChild(0).GetChild(3).GetChild(i).GetComponent<StatusEffectIconControl>());
             debuffIcons.Add(uiParent.transform.GetChild(0).GetChild(4).GetChild(i).GetComponent<StatusEffectIconControl>());
         }
-        //if(gameObject.tag == "Party")
-        //    GetComponent<InstantiateAttackButtons>().InstantiateButtons();
+        if(gameObject.tag == "Party")
+            GetComponent<InstantiateAttackButtons>().InstantiateButtons();
         // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
 
 
@@ -91,6 +97,9 @@ public class BattleCharacter : MonoBehaviour
             buffIcons[i].EmptyOnStart();
             debuffIcons[i].EmptyOnStart();
         }
+
+        if(gameObject.tag == "Party")
+            EnableAttackButtons(false);
     }
 
     void InstantiateBreaths()
@@ -267,6 +276,11 @@ public class BattleCharacter : MonoBehaviour
         {
             speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
         }
+    }
+
+    public void EnableAttackButtons(bool state)
+    {
+        attackButtonsParent.SetActive(state);
     }
 
     // Update is called once per frame

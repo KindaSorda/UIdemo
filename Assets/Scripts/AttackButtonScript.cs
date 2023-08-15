@@ -25,24 +25,6 @@ public class AttackButtonScript : MonoBehaviour
         targetPos = startingPos;
 
         Debug.Log(targetBreathNodes.Count);
-
-        StartCoroutine(SetAssignedCharacter());
-    }
-
-    public void ScaleOnHover(bool up)
-    {
-        if (up)
-            transform.localScale *= scaleMultiplier;
-        else
-            transform.localScale /= scaleMultiplier;
-    }
-
-    IEnumerator SetAssignedCharacter()
-    {
-        assignedCharacter = transform.parent.parent.GetComponent<CharacterUIFollowTarget>().target.gameObject.GetComponent<BattleCharacter>();
-        //Debug.Log(assignedCharacter.gameObject.name);
-
-        yield return new WaitForSeconds(GameManager.gm.variableSetDelay);
     }
 
     public void FlashBreathsOnHover(bool flashing)
@@ -52,16 +34,6 @@ public class AttackButtonScript : MonoBehaviour
             if (i < (assignedAttackBreathCost + assignedCharacter.breathsSpentThisTurn))
                 targetBreathNodes[i].Flash(flashing);
         }
-    }
-
-    void ShiftUp()
-    {
-        targetPos = startingPos * shiftOffset;
-    }
-
-    void ShiftDown()
-    {
-        targetPos = startingPos / shiftOffset;
     }
 
     // Update is called once per frame

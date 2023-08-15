@@ -26,9 +26,24 @@ public class CharacterUIFollowTarget : MonoBehaviour
         anim.SetBool("isHover", hover);
     }
 
+    public void ScaleUpOnHover()
+    {
+        if(GameManager.gm.mouseOver == target.gameObject)
+        {
+            //Debug.Log("Triggered Scale Up");
+            anim.SetBool("isHover", true);
+        }
+    }
+
+    public void ScaleDownOnHover()
+    {
+        anim.SetBool("isHover", false);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //ScaleUpOnHover();
         FollowTarget();
     }
 }
