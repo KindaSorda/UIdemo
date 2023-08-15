@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
 
     public GameObject mainCombatUI;
+    public GameObject cursorRevealObject;
 
     public int numPartyMembersInScene;
 
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     public float turnIndicatorPosMultiplier;
     public float currentTurnIndicatorX;
 
-    [HideInInspector]public BattleCharacter currentTurnCharacter;
+    public BattleCharacter currentTurnCharacter;
 
     LayerMask combatInteractable;
 
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         combatInteractable = LayerMask.GetMask("CombatCharacter");
 
         targetingMouseReticle.GetComponent<Image>().enabled = false;
+        cursorRevealObject.SetActive(false);
 
         StartCoroutine(EndTurn(0.0f));
     }
@@ -175,5 +177,7 @@ public class GameManager : MonoBehaviour
             nextTurnButton.interactable = true;
         else
             nextTurnButton.interactable = false;
+
+        cursorRevealObject.transform.position = Input.mousePosition;
     }
 }

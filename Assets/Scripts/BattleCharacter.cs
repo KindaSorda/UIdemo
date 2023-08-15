@@ -57,6 +57,7 @@ public class BattleCharacter : MonoBehaviour
         uiParent.name = gameObject.name + " UI";
 
         healthText = uiParent.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        healthText.enabled = false;
         healthBar = uiParent.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Image>();
         combatControls = uiParent.transform.GetChild(1).gameObject;
         breathsUIContainer = uiParent.transform.GetChild(2).gameObject;
@@ -66,8 +67,8 @@ public class BattleCharacter : MonoBehaviour
             buffIcons.Add(uiParent.transform.GetChild(0).GetChild(3).GetChild(i).GetComponent<StatusEffectIconControl>());
             debuffIcons.Add(uiParent.transform.GetChild(0).GetChild(4).GetChild(i).GetComponent<StatusEffectIconControl>());
         }
-        if(gameObject.tag == "Party")
-            GetComponent<InstantiateAttackButtons>().InstantiateButtons();
+        //if(gameObject.tag == "Party")
+        //    GetComponent<InstantiateAttackButtons>().InstantiateButtons();
         // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
 
 

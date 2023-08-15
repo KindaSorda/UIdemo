@@ -31,7 +31,7 @@ public class PartyBasicAttack : MonoBehaviour
 
         for (int i = 0; i < attackButtons.Count; i++)
         {
-            attackButtons[i].GetComponent<Button>().onClick.AddListener(() => PrepareAttack(i));
+            //attackButtons[i].GetComponent<Button>().onClick.AddListener(() => PrepareAttack(i));
             attackButtons[i].GetComponent<AttackButtonScript>().assignedAttackBreathCost = basicAttackBreathCost;
         }
     }
