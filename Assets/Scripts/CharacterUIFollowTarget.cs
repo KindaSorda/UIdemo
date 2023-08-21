@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterUIFollowTarget : MonoBehaviour
 {
@@ -9,11 +10,19 @@ public class CharacterUIFollowTarget : MonoBehaviour
 
     Animator anim;
 
+    public RawImage[] bubbleImages;
+    [Range(0.0f,1.0f)]public float onHoverAlpha, offHoverAlpha;
+
     // Start is called before the first frame update
     void Start()
     {
         rt = GetComponent<RectTransform>();
         anim = GetComponent<Animator>();
+
+        for (int i = 0; i < bubbleImages.Length; i++)
+        {
+            bubbleImages[i].color = new Color(bubbleImages[i].color.r, bubbleImages[i].color.g, bubbleImages[i].color.b, offHoverAlpha);
+        }
     }
 
     void FollowTarget()
@@ -24,6 +33,10 @@ public class CharacterUIFollowTarget : MonoBehaviour
     public void ScaleOnHover(bool hover)
     {
         anim.SetBool("isHover", hover);
+        for (int i = 0; i < bubbleImages.Length; i++)
+        {
+            bubbleImages[i].color = new Color(bubbleImages[i].color.r, bubbleImages[i].color.g, bubbleImages[i].color.b, hover == true ? onHoverAlpha : offHoverAlpha);
+        }
     }
 
     public void ScaleUpOnHover()

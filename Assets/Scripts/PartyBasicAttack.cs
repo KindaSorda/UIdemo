@@ -29,6 +29,7 @@ public class PartyBasicAttack : MonoBehaviour
         Button targetButton = gameObject.GetComponent<BattleCharacter>().myAttackButtons[assignToButton].gameObject.GetComponent<Button>();
 
         targetButton.onClick.AddListener(() => PrepareAttack());
+        targetButton.GetComponent<AttackButtonScript>().assignedAttackBreathCost = basicAttackBreathCost;
         targetButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Basic Attack";
     }
 
@@ -66,7 +67,7 @@ public class PartyBasicAttack : MonoBehaviour
 
         thisCharacter.StartCoroutine(thisCharacter.SpendBreaths(basicAttackBreathCost, basicAttackAdvanceDelay + basicAttackReturnDelay));
 
-        basicAttackTargetPos = target.position;
+        basicAttackTargetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
         isBasicAttacking = true;
         yield return new WaitForSeconds(basicAttackAdvanceDelay);
         basicAttackTargetPos = firstPos;

@@ -26,13 +26,13 @@ public class InstantiateAttackButtons : MonoBehaviour
         
         for(int i = 0; i < 6; i++)
         {
-            myCharacter.myAttackButtons.Add(attackButtonSet.transform.GetChild(i).GetChild(0).gameObject.GetComponent<AttackButtonScript>());
-            Debug.Log("Added " + attackButtonSet.transform.GetChild(i).GetChild(0).gameObject.name);
-        }
+            myCharacter.myAttackButtons.Add(attackButtonSet.transform.GetChild(0).GetChild(i).GetChild(0).gameObject.GetComponent<AttackButtonScript>());
+            Debug.Log("Added " + attackButtonSet.transform.GetChild(0).GetChild(i).GetChild(0).gameObject.name);
 
-        for(int i = 0; i < myCharacter.myAttackButtons.Count; i++)
-        {
-            if(i > numAttacks - 1)
+            myCharacter.myAttackButtons[i].assignedCharacter = myCharacter;
+            myCharacter.myAttackButtons[i].targetBreathNodes = myCharacter.breathNodes;
+
+            if (i > numAttacks - 1)
                 myCharacter.myAttackButtons[i].gameObject.SetActive(false);
         }
     }
