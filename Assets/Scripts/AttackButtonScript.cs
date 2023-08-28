@@ -16,11 +16,13 @@ public class AttackButtonScript : MonoBehaviour
     public BattleCharacter assignedCharacter;
 
     RectTransform rt;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rt = GetComponent<RectTransform>();
+        anim = GetComponent<Animator>();
 
         startingPos = rt.localPosition;
         targetPos = new Vector2(rt.localPosition.x, rt.localPosition.y + verticalShiftOffset);
@@ -33,6 +35,8 @@ public class AttackButtonScript : MonoBehaviour
 
     public void OnHover(bool state)
     {
+        anim.SetBool("isHover", state);
+
         if(state == true)
         {
             FlashBreathsOnHover(state);

@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     public GameObject mainCombatUI;
     public GameObject cursorRevealObject;
 
+    public GameObject currentTurnIndicatorWorldSpace;
+    public float currentTurnIndicatorWorldSpaceMovementSpeed;
+    Quaternion rotForParty, rotForEnemy;
+    Vector3 currentTurnIndicatorWorldSpaceTargetPos;
+    Quaternion currentTurnIndicatorWorldSpaceTargetRot;
+
     public int numPartyMembersInScene;
 
     public List<GameObject> characters = new List<GameObject>();
@@ -62,6 +68,10 @@ public class GameManager : MonoBehaviour
 
         targetingMouseReticle.GetComponent<Image>().enabled = false;
         cursorRevealObject.SetActive(false);
+
+        rotForEnemy = currentTurnIndicatorWorldSpace.transform.rotation;
+        rotForParty = rotForEnemy;
+        rotForParty.eulerAngles = new Vector3(rotForParty.eulerAngles.x, rotForParty.eulerAngles.y + 180.0f, rotForParty.eulerAngles.z);
 
         StartCoroutine(EndTurn(0.0f));
     }
@@ -142,11 +152,29 @@ public class GameManager : MonoBehaviour
         currentTurnCharacter.RefillBreaths();
         if(currentTurnCharacter.tag == "Party")
             currentTurnCharacter.EnableAttackButtons(true);
+        SetCurrentTurnIndicatorWorldPos(currentTurnCharacter.transform);
 
         /*for(int i = 0; i < characters.Count; i++)
         {
             characters[i].GetComponent<BattleCharacter>().ApplyStatusEffects();
         }*/
+    }
+
+    void SetCurrentTurnIndicatorWorldPos(Transform target)
+    {
+        BattleCharacter targetBC = target.gameObject.GetComponent<BattleCharacter>();
+
+        currentTurnIndicatorWorldSpaceTargetPos = new Vector3(target.transform.position.x, currentTurnIndicatorWorldSpace.transform.position.y, target.transform.position.z);
+        if (target.gameObject.tag == "Party")
+        {
+            currentTurnIndicatorWorldSpace.GetComponent<SpriteRenderer>().color = Color.green;
+            currentTurnIndicatorWorldSpaceTargetRot = rotForParty;
+        }
+        else if (target.gameObject.tag == "Enemy")
+        {
+            currentTurnIndicatorWorldSpace.GetComponent<SpriteRenderer>().color = Color.red;
+            currentTurnIndicatorWorldSpaceTargetRot = rotForEnemy;
+        }
     }
 
     void GetMouseOver()
@@ -172,9 +200,10 @@ public class GameManager : MonoBehaviour
         targetingMouseReticle.GetComponent<Image>().enabled = state;
     }
 
-    public void AssignAttackButtons(int index)
+    public void SetUIState(bool state)
     {
-
+        mainCombatUI.SetActive(state);
+        currentTurnIndicatorWorldSpace.SetActive(state);
     }
 
     // Update is called once per frame
@@ -190,5 +219,10 @@ public class GameManager : MonoBehaviour
             nextTurnButton.interactable = false;
 
         cursorRevealObject.transform.position = Input.mousePosition;
+
+        currentTurnIndicatorWorldSpace.transform.position = Vector3.Lerp
+            (currentTurnIndicatorWorldSpace.transform.position, currentTurnIndicatorWorldSpaceTargetPos, Time.deltaTime * currentTurnIndicatorWorldSpaceMovementSpeed);
+        currentTurnIndicatorWorldSpace.transform.rotation = Quaternion.Lerp
+            (currentTurnIndicatorWorldSpace.transform.rotation, currentTurnIndicatorWorldSpaceTargetRot, Time.deltaTime * currentTurnIndicatorWorldSpaceMovementSpeed);
     }
 }

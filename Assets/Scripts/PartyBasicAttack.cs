@@ -61,11 +61,9 @@ public class PartyBasicAttack : MonoBehaviour
 
     IEnumerator ExeceuteAttack(Transform target)
     {
-        //thisCharacter.uiParent.SetActive(false);
-
         Vector3 firstPos = transform.position;
 
-        thisCharacter.StartCoroutine(thisCharacter.SpendBreaths(basicAttackBreathCost, basicAttackAdvanceDelay + basicAttackReturnDelay));
+        GameManager.gm.SetUIState(false);
 
         basicAttackTargetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
         isBasicAttacking = true;
@@ -75,7 +73,9 @@ public class PartyBasicAttack : MonoBehaviour
         isBasicAttacking = false;
         transform.position = firstPos;
 
-        thisCharacter.uiParent.SetActive(true);
+        GameManager.gm.SetUIState(true);
+
+        thisCharacter.StartCoroutine(thisCharacter.SpendBreaths(basicAttackBreathCost, 0.1f));
     }
 
     // Update is called once per frame

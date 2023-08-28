@@ -10,7 +10,7 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
     bool isBasicAttacking = false;
     Vector3 basicAttackTargetPos;
     public float basicAttackAnimSpeed;
-    public float basicAttackAdvanceDelay, basicAttackReturnDelay;
+    public float startDelay, basicAttackAdvanceDelay, basicAttackReturnDelay;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,8 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
         int target = Random.Range(0, GameManager.gm.party.Count);
 
         Debug.Log("Enemy -> " + GameManager.gm.party[target].gameObject.name);
+
+        yield return new WaitForSeconds(startDelay);
 
         basicAttackTargetPos = GameManager.gm.party[target].gameObject.transform.position;
         isBasicAttacking = true;

@@ -27,7 +27,7 @@ public class BattleCharacter : MonoBehaviour
     [Header("UI Objects")]
     public GameObject uiParent;
     //public GameObject healthUI;
-    public GameObject currentTurnIndicator;
+    //public GameObject currentTurnIndicator;
     //public List<Image> allUIObjects = new List<Image>();
     public TextMeshProUGUI healthText;
     public Image healthBar;
@@ -80,8 +80,8 @@ public class BattleCharacter : MonoBehaviour
 
         //uIanim = transform.GetChild(0).gameObject.GetComponent<Animator>();
 
-        currentTurnIndicator.transform.parent = null;
-        currentTurnIndicator.SetActive(false);
+        //currentTurnIndicator.transform.parent = null;
+        //currentTurnIndicator.SetActive(false);
 
         if(combatControls != null)
             combatControls.SetActive(false);
@@ -291,7 +291,7 @@ public class BattleCharacter : MonoBehaviour
 
         //if(controlUI != null)
         //    controlUI.SetActive(isMyTurn);
-        currentTurnIndicator.SetActive(isMyTurn);
+        //currentTurnIndicator.SetActive(isMyTurn);
 
         //(uIanim != null)
         EnableingUI();
