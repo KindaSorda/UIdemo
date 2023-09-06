@@ -26,6 +26,8 @@ public class BattleCharacter : MonoBehaviour
 
     [Header("UI Objects")]
     public GameObject uiParent;
+    CharacterUIControlScript uiParentScript;
+    public int numStatusIcons = 9;
     //public GameObject healthUI;
     //public GameObject currentTurnIndicator;
     //public List<Image> allUIObjects = new List<Image>();
@@ -59,15 +61,14 @@ public class BattleCharacter : MonoBehaviour
         else if(gameObject.tag == "Enemy")
             uiParent = Instantiate(Resources.Load("Prefabs/EnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);
 
-        uiParent.GetComponent<CharacterUIFollowTarget>().target = UIFollowsHere;
+        uiParentScript = uiParent.GetComponent<CharacterUIControlScript>();
+        uiParentScript.target = UIFollowsHere;
         uiParent.name = gameObject.name + " UI";
 
-        healthText = uiParent.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        healthText = uiParentScript.healthText;
         healthText.enabled = false;
-        healthBar = uiParent.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Image>();
-        combatControls = uiParent.transform.GetChild(1).gameObject;
-        breathsUIContainer = uiParent.transform.GetChild(2).gameObject;
-        int numStatusIcons = uiParent.transform.GetChild(0).GetChild(3).childCount;
+        healthBar = uiParentScript.healthBar;
+        breathsUIContainer = uiParentScript.breathsUIcontainer;
         for (int i = 0; i < numStatusIcons; i++)
         {
             buffIcons.Add(uiParent.transform.GetChild(0).GetChild(3).GetChild(i).GetComponent<StatusEffectIconControl>());
@@ -76,15 +77,6 @@ public class BattleCharacter : MonoBehaviour
         if(gameObject.tag == "Party")
             GetComponent<InstantiateAttackButtons>().InstantiateButtons();
         // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
-
-
-        //uIanim = transform.GetChild(0).gameObject.GetComponent<Animator>();
-
-        //currentTurnIndicator.transform.parent = null;
-        //currentTurnIndicator.SetActive(false);
-
-        if(combatControls != null)
-            combatControls.SetActive(false);
 
         health = startingHealth;
         speed = baseSpeed;
@@ -113,23 +105,6 @@ public class BattleCharacter : MonoBehaviour
         }
         Vector3 parentRot = breathsUIContainer.transform.localEulerAngles;
         breathsUIContainer.transform.localEulerAngles = new Vector3(parentRot.x, parentRot.y, parentRot.z + -((breathNodes.Count - 1) * breathUiInstantiationRotOffset));
-    }
-
-    void EnableingUI()
-    {
-        /*if(GameManager.gm.mouseOver == gameObject)
-        {
-            uIanim.SetBool("isHover", true);
-        }
-        else
-        {
-            uIanim.SetBool("isHover", false);
-        }*/
-
-        if (combatControls != null)
-        {
-            combatControls.SetActive(isMyTurn);
-        }
     }
 
     public IEnumerator SpendBreaths(int cost, float delay)
@@ -286,15 +261,14 @@ public class BattleCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
-        healthBar.fillAmount = health / startingHealth;
+        //healthText.text = health.ToString();
+        //healthBar.fillAmount = health / startingHealth;
 
         //if(controlUI != null)
         //    controlUI.SetActive(isMyTurn);
         //currentTurnIndicator.SetActive(isMyTurn);
 
         //(uIanim != null)
-        EnableingUI();
 
         if(myTurnIndicator != null)
             myTurnIndicator.rectTransform.localPosition = Vector3.Lerp(myTurnIndicator.rectTransform.localPosition, new Vector3(turnIndicatorTargetX, 0.0f, 0.0f), Time.deltaTime * GameManager.gm.turnIndicatorUpdateSpeed);

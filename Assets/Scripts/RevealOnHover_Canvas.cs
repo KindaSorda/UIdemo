@@ -37,10 +37,10 @@ public class RevealOnHover_Canvas : MonoBehaviour
 
     public void RevealHealthText(bool state)
     {
-        float startingHealthValue = transform.parent.parent.parent.GetComponent<CharacterUIFollowTarget>().target.GetComponent<BattleCharacter>().startingHealth;
-        float healthValue = transform.parent.parent.parent.GetComponent<CharacterUIFollowTarget>().target.GetComponent<BattleCharacter>().health;
+        float startingHealthValue = transform.parent.parent.parent.GetComponent<CharacterUIControlScript>().target.GetComponent<BattleCharacter>().startingHealth;
+        float healthValue = transform.parent.parent.parent.GetComponent<CharacterUIControlScript>().target.GetComponent<BattleCharacter>().health;
 
-        cursorText.text = transform.parent.parent.parent.GetComponent<CharacterUIFollowTarget>().target.GetComponent<BattleCharacter>().gameObject.name + ": " + healthValue + " / " + startingHealthValue;
+        cursorText.text = transform.parent.parent.parent.GetComponent<CharacterUIControlScript>().target.GetComponent<BattleCharacter>().gameObject.name + ": " + healthValue + " / " + startingHealthValue;
         cursorElement.SetActive(state);
     }
 
