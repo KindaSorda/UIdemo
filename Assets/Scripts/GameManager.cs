@@ -206,6 +206,11 @@ public class GameManager : MonoBehaviour
         currentTurnIndicatorWorldSpace.SetActive(state);
     }
 
+    public void DamageCurrentTurnCharacter(float damage)
+    {
+        currentTurnCharacter.TakeDamage(damage);
+    }
+
     // Update is called once per frame
     void Update()
     {

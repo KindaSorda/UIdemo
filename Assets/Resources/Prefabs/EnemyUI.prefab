@@ -472,7 +472,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8342700445232912965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +530,9 @@ MonoBehaviour:
   - {fileID: 7174543924700070970}
   onHoverAlpha: 1
   offHoverAlpha: 0.4
+  healthText: {fileID: 305698277249844028}
+  healthBar: {fileID: 6431839256308872618}
+  breathsUIcontainer: {fileID: 952299555568708805}
 --- !u!114 &6803128370180172915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8331715112024585744, guid: 1718151a290f2284d996efb6ea07fbf1, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1718151a290f2284d996efb6ea07fbf1, type: 3}
 --- !u!224 &3718429648584487132 stripped
@@ -1360,6 +1367,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6431839256308872618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331715112024585744, guid: 1718151a290f2284d996efb6ea07fbf1, type: 3}
+  m_PrefabInstance: {fileID: 3090113081209603002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7174543924700070970 stripped

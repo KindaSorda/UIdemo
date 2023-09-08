@@ -27,7 +27,6 @@ public class BattleCharacter : MonoBehaviour
     [Header("UI Objects")]
     public GameObject uiParent;
     CharacterUIControlScript uiParentScript;
-    public int numStatusIcons = 9;
     //public GameObject healthUI;
     //public GameObject currentTurnIndicator;
     //public List<Image> allUIObjects = new List<Image>();
@@ -41,7 +40,7 @@ public class BattleCharacter : MonoBehaviour
     public int startingBreaths;
     [HideInInspector] public int breathRegen;
     public List<BreathUINode> breathNodes = new List<BreathUINode>();
-    public float breathUiInstantiationRotOffset;
+    float breathUiInstantiationRotOffset;
     GameObject breathsUIContainer;
     [HideInInspector]public int breathsSpentThisTurn = 0;
     public bool isInNegativeBreaths = false;
@@ -56,24 +55,27 @@ public class BattleCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(gameObject.tag == "Party")
+        /*if(gameObject.tag == "Party")
             uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
         else if(gameObject.tag == "Enemy")
-            uiParent = Instantiate(Resources.Load("Prefabs/EnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+            uiParent = Instantiate(Resources.Load("Prefabs/EnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);*/
+
+        uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
 
         uiParentScript = uiParent.GetComponent<CharacterUIControlScript>();
         uiParentScript.target = UIFollowsHere;
         uiParent.name = gameObject.name + " UI";
 
+        if (gameObject.tag == "Enemy")
+            uiParentScript.FlipUI();
+
         healthText = uiParentScript.healthText;
         healthText.enabled = false;
         healthBar = uiParentScript.healthBar;
         breathsUIContainer = uiParentScript.breathsUIcontainer;
-        for (int i = 0; i < numStatusIcons; i++)
-        {
-            buffIcons.Add(uiParent.transform.GetChild(0).GetChild(3).GetChild(i).GetComponent<StatusEffectIconControl>());
-            debuffIcons.Add(uiParent.transform.GetChild(0).GetChild(4).GetChild(i).GetComponent<StatusEffectIconControl>());
-        }
+        buffIcons = uiParentScript.buffIcons;
+        debuffIcons = uiParentScript.debuffIcons;
+        breathUiInstantiationRotOffset = uiParentScript.breathInstantiationRotOffset;
         if(gameObject.tag == "Party")
             GetComponent<InstantiateAttackButtons>().InstantiateButtons();
         // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
@@ -99,8 +101,8 @@ public class BattleCharacter : MonoBehaviour
         for (int i = 0; i < startingBreaths; i++)
         {
             GameObject newBreath = Instantiate<GameObject>(Resources.Load("Prefabs/BreathContainer") as GameObject, breathsUIContainer.transform);
-            Vector3 startingRot = newBreath.GetComponent<Transform>().eulerAngles;
-            newBreath.GetComponent<Transform>().eulerAngles = new Vector3(startingRot.x, startingRot.y, breathUiInstantiationRotOffset * i);
+            Vector3 startingRot = newBreath.transform.localEulerAngles;
+            newBreath.transform.localEulerAngles = new Vector3(startingRot.x, startingRot.y, breathUiInstantiationRotOffset * i);
             breathNodes.Add(newBreath.GetComponent<BreathUINode>());
         }
         Vector3 parentRot = breathsUIContainer.transform.localEulerAngles;
@@ -258,11 +260,21 @@ public class BattleCharacter : MonoBehaviour
         attackButtonsParent.SetActive(state);
     }
 
+    void UpdateHealthBar()
+    {
+
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+    }
+
     // Update is called once per frame
     void Update()
     {
         //healthText.text = health.ToString();
-        //healthBar.fillAmount = health / startingHealth;
+        healthBar.fillAmount = health / startingHealth;
 
         //if(controlUI != null)
         //    controlUI.SetActive(isMyTurn);
