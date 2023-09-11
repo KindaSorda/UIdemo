@@ -24,6 +24,8 @@ public class CharacterUIControlScript : MonoBehaviour
     public List<StatusEffectIconControl> debuffIcons = new List<StatusEffectIconControl>();
     public float breathInstantiationRotOffset;
 
+    [HideInInspector] public BattleCharacter myCharacter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +45,19 @@ public class CharacterUIControlScript : MonoBehaviour
 
     public void ScaleOnHover(bool hover)
     {
-        anim.SetBool("isHover", hover);
-        healthBarParent.GetComponent<Animator>().SetBool("isHover", hover);
+        if (myCharacter.isMyTurn == false)
+        {
+            SetScale(hover);
+        }
+    }
+
+    public void SetScale(bool state)
+    {
+        anim.SetBool("isHover", state);
+        healthBarParent.GetComponent<Animator>().SetBool("isHover", state);
         for (int i = 0; i < bubbleImages.Length; i++)
         {
-            bubbleImages[i].color = new Color(bubbleImages[i].color.r, bubbleImages[i].color.g, bubbleImages[i].color.b, hover == true ? onHoverAlpha : offHoverAlpha);
+            bubbleImages[i].color = new Color(bubbleImages[i].color.r, bubbleImages[i].color.g, bubbleImages[i].color.b, state == true ? onHoverAlpha : offHoverAlpha);
         }
     }
 

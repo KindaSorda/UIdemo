@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
         if (currentTurnCharacter != null)
         {
             currentTurnCharacter.isMyTurn = false;
+            currentTurnCharacter.uiParentScript.SetScale(false);
             currentTurnCharacter.turnIndicatorTargetX = 0.0f;
             if(currentTurnCharacter.tag == "Party")
                 currentTurnCharacter.EnableAttackButtons(false);
@@ -148,6 +149,7 @@ public class GameManager : MonoBehaviour
         }
 
         currentTurnCharacter.isMyTurn = true;
+        currentTurnCharacter.uiParentScript.SetScale(true);
         currentTurnCharacter.turnValue = 0.0f;
         currentTurnCharacter.RefillBreaths();
         if(currentTurnCharacter.tag == "Party")
@@ -202,7 +204,7 @@ public class GameManager : MonoBehaviour
 
     public void SetUIState(bool state)
     {
-        mainCombatUI.SetActive(state);
+        mainCombatUI.GetComponent<Canvas>().enabled = state;
         currentTurnIndicatorWorldSpace.SetActive(state);
     }
 
@@ -218,7 +220,7 @@ public class GameManager : MonoBehaviour
 
         targetingMouseReticle.transform.position = Input.mousePosition;
 
-        if (currentTurnCharacter.tag == "Party")
+        if (currentTurnCharacter != null && currentTurnCharacter.tag == "Party")
             nextTurnButton.interactable = true;
         else
             nextTurnButton.interactable = false;

@@ -26,7 +26,7 @@ public class BattleCharacter : MonoBehaviour
 
     [Header("UI Objects")]
     public GameObject uiParent;
-    CharacterUIControlScript uiParentScript;
+    [HideInInspector] public CharacterUIControlScript uiParentScript;
     //public GameObject healthUI;
     //public GameObject currentTurnIndicator;
     //public List<Image> allUIObjects = new List<Image>();
@@ -64,6 +64,7 @@ public class BattleCharacter : MonoBehaviour
 
         uiParentScript = uiParent.GetComponent<CharacterUIControlScript>();
         uiParentScript.target = UIFollowsHere;
+        uiParentScript.myCharacter = this;
         uiParent.name = gameObject.name + " UI";
 
         if (gameObject.tag == "Enemy")
