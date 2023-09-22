@@ -45,10 +45,11 @@ public class CharacterUIControlScript : MonoBehaviour
 
     public void ScaleOnHover(bool hover)
     {
-        if (myCharacter.isMyTurn == false)
+        /*if (myCharacter.isMyTurn == false)
         {
             SetScale(hover);
-        }
+        }*/
+        SetScale(hover);
     }
 
     public void SetScale(bool state)
@@ -64,13 +65,7 @@ public class CharacterUIControlScript : MonoBehaviour
     public void FlipUI()
     {
         RectTransform healthBarRT = healthBarParent.GetComponent<RectTransform>();
-        healthBarRT.localScale = new Vector3(healthBarRT.localScale.x * -1.0f, healthBarRT.localScale.y * -1.0f, healthBarRT.localScale.z);
-        //RectTransform fillRT = healthBarFill.gameObject.GetComponent<RectTransform>();
-        //fillRT.localScale = new Vector3(fillRT.localScale.x * -1.0f, fillRT.localScale.y * -1.0f, fillRT.localScale.z);
-        RectTransform bubblesTopRT = healthBarBubbleTop.gameObject.GetComponent<RectTransform>();
-        bubblesTopRT.localScale = new Vector3(bubblesTopRT.localScale.x * -1.0f, bubblesTopRT.localScale.y * -1.0f, bubblesTopRT.localScale.z);
-        RectTransform bubblesBottomRT = healthBarBubbleBottom.gameObject.GetComponent<RectTransform>();
-        bubblesBottomRT.localScale = new Vector3(bubblesBottomRT.localScale.x * -1.0f, bubblesBottomRT.localScale.y * -1.0f, bubblesBottomRT.localScale.z);
+        healthBarRT.localScale = new Vector3(healthBarRT.localScale.x * -1.0f, healthBarRT.localScale.y, healthBarRT.localScale.z);
     }
 
     // Update is called once per frame

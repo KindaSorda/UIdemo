@@ -67,9 +67,6 @@ public class BattleCharacter : MonoBehaviour
         uiParentScript.myCharacter = this;
         uiParent.name = gameObject.name + " UI";
 
-        if (gameObject.tag == "Enemy")
-            uiParentScript.FlipUI();
-
         healthText = uiParentScript.healthText;
         healthText.enabled = false;
         healthBar = uiParentScript.healthBar;
@@ -79,6 +76,9 @@ public class BattleCharacter : MonoBehaviour
         breathUiInstantiationRotOffset = uiParentScript.breathInstantiationRotOffset;
         if(gameObject.tag == "Party")
             GetComponent<InstantiateAttackButtons>().InstantiateButtons();
+
+        if (gameObject.tag == "Party")
+            uiParentScript.FlipUI();
         // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
 
         health = startingHealth;

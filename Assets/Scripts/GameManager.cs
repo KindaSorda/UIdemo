@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         if (currentTurnCharacter != null)
         {
             currentTurnCharacter.isMyTurn = false;
-            currentTurnCharacter.uiParentScript.SetScale(false);
+            //currentTurnCharacter.uiParentScript.SetScale(false);
             currentTurnCharacter.turnIndicatorTargetX = 0.0f;
             if(currentTurnCharacter.tag == "Party")
                 currentTurnCharacter.EnableAttackButtons(false);
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         }
 
         currentTurnCharacter.isMyTurn = true;
-        currentTurnCharacter.uiParentScript.SetScale(true);
+        //currentTurnCharacter.uiParentScript.SetScale(true);
         currentTurnCharacter.turnValue = 0.0f;
         currentTurnCharacter.RefillBreaths();
         if(currentTurnCharacter.tag == "Party")
