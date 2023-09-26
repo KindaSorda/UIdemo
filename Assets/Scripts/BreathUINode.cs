@@ -43,7 +43,7 @@ public class BreathUINode : MonoBehaviour
 
     public void SpendBreath()
     {
-        breathIcon.transform.SetParent(newParent);
+        //breathIcon.transform.SetParent(newParent);
         targetPos = soulGuageRT.position;
         spentBreath = true;
     }

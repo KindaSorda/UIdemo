@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject currentTurnIndicatorWorldSpace;
     public float currentTurnIndicatorWorldSpaceMovementSpeed;
+    public Color enemyTurnColor, partyTurnColor;
     Quaternion rotForParty, rotForEnemy;
     Vector3 currentTurnIndicatorWorldSpaceTargetPos;
     Quaternion currentTurnIndicatorWorldSpaceTargetRot;
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
 
         rotForEnemy = currentTurnIndicatorWorldSpace.transform.rotation;
         rotForParty = rotForEnemy;
-        rotForParty.eulerAngles = new Vector3(rotForParty.eulerAngles.x, rotForParty.eulerAngles.y + 180.0f, rotForParty.eulerAngles.z);
+        rotForEnemy.eulerAngles = new Vector3(rotForParty.eulerAngles.x, rotForParty.eulerAngles.y + 180.0f, rotForParty.eulerAngles.z);
 
         StartCoroutine(EndTurn(0.0f));
     }
@@ -167,14 +168,16 @@ public class GameManager : MonoBehaviour
         BattleCharacter targetBC = target.gameObject.GetComponent<BattleCharacter>();
 
         currentTurnIndicatorWorldSpaceTargetPos = new Vector3(target.transform.position.x, currentTurnIndicatorWorldSpace.transform.position.y, target.transform.position.z);
+        currentTurnIndicatorWorldSpace.transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("Pulse");
+
         if (target.gameObject.tag == "Party")
         {
-            currentTurnIndicatorWorldSpace.GetComponent<SpriteRenderer>().color = Color.green;
+            currentTurnIndicatorWorldSpace.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = partyTurnColor;
             currentTurnIndicatorWorldSpaceTargetRot = rotForParty;
         }
         else if (target.gameObject.tag == "Enemy")
         {
-            currentTurnIndicatorWorldSpace.GetComponent<SpriteRenderer>().color = Color.red;
+            currentTurnIndicatorWorldSpace.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = enemyTurnColor;
             currentTurnIndicatorWorldSpaceTargetRot = rotForEnemy;
         }
     }
@@ -205,7 +208,7 @@ public class GameManager : MonoBehaviour
     public void SetUIState(bool state)
     {
         mainCombatUI.GetComponent<Canvas>().enabled = state;
-        currentTurnIndicatorWorldSpace.SetActive(state);
+        //currentTurnIndicatorWorldSpace.SetActive(state);
     }
 
     public void DamageCurrentTurnCharacter(float damage)
