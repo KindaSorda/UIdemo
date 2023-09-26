@@ -77,8 +77,8 @@ public class BattleCharacter : MonoBehaviour
         if(gameObject.tag == "Party")
             GetComponent<InstantiateAttackButtons>().InstantiateButtons();
 
-        if (gameObject.tag == "Party")
-            uiParentScript.FlipUI();
+        //if (gameObject.tag == "Party")
+        //    uiParentScript.FlipUI();
         // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
 
         health = startingHealth;
