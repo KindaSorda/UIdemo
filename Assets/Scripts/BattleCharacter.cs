@@ -60,7 +60,13 @@ public class BattleCharacter : MonoBehaviour
         else if(gameObject.tag == "Enemy")
             uiParent = Instantiate(Resources.Load("Prefabs/EnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);*/
 
-        uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+        if (gameObject.tag == "Party")
+            uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+        else if (gameObject.tag == "Enemy")
+        {
+            uiParent = Instantiate(Resources.Load("Prefabs/NewEnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+            uiParent.GetComponent<CharacterUIControlScript>().healthBarParent.GetComponent<Animator>().SetBool("isEnemy", true);
+        }
 
         uiParentScript = uiParent.GetComponent<CharacterUIControlScript>();
         uiParentScript.target = UIFollowsHere;
@@ -105,6 +111,7 @@ public class BattleCharacter : MonoBehaviour
             Vector3 startingRot = newBreath.transform.localEulerAngles;
             newBreath.transform.localEulerAngles = new Vector3(startingRot.x, startingRot.y, breathUiInstantiationRotOffset * i);
             breathNodes.Add(newBreath.GetComponent<BreathUINode>());
+            breathNodes[i].SetRotAtStart();
         }
         Vector3 parentRot = breathsUIContainer.transform.localEulerAngles;
         breathsUIContainer.transform.localEulerAngles = new Vector3(parentRot.x, parentRot.y, parentRot.z + -((breathNodes.Count - 1) * breathUiInstantiationRotOffset));

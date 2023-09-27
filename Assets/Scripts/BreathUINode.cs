@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class BreathUINode : MonoBehaviour
 {
+    public float breathInstantiationRotOffset;
     public float movementSpeed;
     public float distanceToFillGuage;
 
     public bool activeBreath = true;
     public bool spentBreath = false;
     public GameObject icon;
+
     Animator anim;
 
     GameObject soulGuage;
@@ -34,6 +36,11 @@ public class BreathUINode : MonoBehaviour
         startingPos = iconRT.localPosition;
 
         newParent = GameObject.Find("BreathIconHolderForMovement").transform;
+    }
+
+    public void SetRotAtStart()
+    {
+        icon.GetComponent<RectTransform>().transform.eulerAngles = Vector3.zero;
     }
 
     public void Flash(bool flashing)
