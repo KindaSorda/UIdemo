@@ -388,7 +388,7 @@ MonoBehaviour:
   - {fileID: 2526611875102359144}
   - {fileID: 4078642430432305539}
   - {fileID: 2696915656202652600}
-  breathInstantiationRotOffset: 30
+  breathInstantiationRotOffset: 14
   myCharacter: {fileID: 0}
 --- !u!114 &6803128370180172915
 MonoBehaviour:
