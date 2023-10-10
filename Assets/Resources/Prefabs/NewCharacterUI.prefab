@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 498652073145762813}
   - component: {fileID: 8073355355919629206}
   m_Layer: 6
-  m_Name: Image
+  m_Name: SmallSelectionArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
