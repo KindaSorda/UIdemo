@@ -110,8 +110,9 @@ public class BattleCharacter : MonoBehaviour
             GameObject newBreath = Instantiate<GameObject>(Resources.Load("Prefabs/BreathContainer") as GameObject, breathsUIContainer.transform);
             Vector3 startingRot = newBreath.transform.localEulerAngles;
             newBreath.transform.localEulerAngles = new Vector3(startingRot.x, startingRot.y, breathUiInstantiationRotOffset * i);
+            newBreath.transform.GetChild(0).eulerAngles = Vector3.zero;
             breathNodes.Add(newBreath.GetComponent<BreathUINode>());
-            breathNodes[i].SetRotAtStart();
+            //breathNodes[i].SetRotAtStart();
         }
         Vector3 parentRot = breathsUIContainer.transform.localEulerAngles;
         breathsUIContainer.transform.localEulerAngles = new Vector3(parentRot.x, parentRot.y, parentRot.z + -((breathNodes.Count - 1) * breathUiInstantiationRotOffset));
@@ -139,7 +140,8 @@ public class BattleCharacter : MonoBehaviour
                 numNegativeBreaths++;
                 GameObject newNegativeBreath = Instantiate(Resources.Load("Prefabs/NegativeBreathContainer") as GameObject, breathsUIContainer.transform);
                 Vector3 startingRot = newNegativeBreath.GetComponent<Transform>().eulerAngles;
-                newNegativeBreath.GetComponent<Transform>().eulerAngles = new Vector3(startingRot.x, startingRot.y, breathUiInstantiationRotOffset * numNegativeBreaths);
+                newNegativeBreath.GetComponent<Transform>().eulerAngles = new Vector3(startingRot.x, startingRot.y, 80.0f + breathUiInstantiationRotOffset * numNegativeBreaths);
+                newNegativeBreath.transform.GetChild(0).eulerAngles = Vector3.zero;
                 negativeBreaths.Add(newNegativeBreath);
                 isInNegativeBreaths = true;
 
