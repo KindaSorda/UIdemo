@@ -190,14 +190,14 @@ public class GameManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, combatInteractable))
         {
             GameObject objectOver = hit.collider.gameObject;
-            mouseOver = objectOver;
-            //Debug.Log(objectOver.name);
+            mouseOver = objectOver.transform.root.gameObject;
+            Debug.Log("From " + objectOver.name);
         }
         else
             mouseOver = null;
 
         if(mouseOver != null)
-            Debug.Log(mouseOver.name);
+            Debug.Log("GM_GetMouseOver " + mouseOver.name);
     }
 
     public void SetTargetingReticle(bool state)

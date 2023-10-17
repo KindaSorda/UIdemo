@@ -56,7 +56,7 @@ Material:
     - REQUIRE_DEPTH_TEXTURE: 1
     - _DepthStrenth: 1
     - _DepthThreshold: 0.5
-    - _DepthTightening: 1
+    - _DepthTightening: 1.56
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Thickness: 0.05

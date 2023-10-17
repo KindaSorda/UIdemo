@@ -31,7 +31,7 @@ public class BattleCharacter : MonoBehaviour
     //public GameObject currentTurnIndicator;
     //public List<Image> allUIObjects = new List<Image>();
     public TextMeshProUGUI healthText;
-    public Image healthBar;
+    public Image healthBar, healthBarFillBacking;
     public GameObject combatControls;
     public GameObject attackButtonsParent;
     public List<AttackButtonScript> myAttackButtons = new List<AttackButtonScript>();
@@ -76,6 +76,7 @@ public class BattleCharacter : MonoBehaviour
         healthText = uiParentScript.healthText;
         healthText.enabled = false;
         healthBar = uiParentScript.healthBar;
+        healthBarFillBacking = uiParentScript.healthBarFillBacking;
         breathsUIContainer = uiParentScript.breathsUIcontainer;
         buffIcons = uiParentScript.buffIcons;
         debuffIcons = uiParentScript.debuffIcons;
@@ -101,6 +102,8 @@ public class BattleCharacter : MonoBehaviour
 
         if(gameObject.tag == "Party")
             EnableAttackButtons(false);
+
+        gameObject.transform.SetParent(null);
     }
 
     void InstantiateBreaths()
@@ -278,13 +281,14 @@ public class BattleCharacter : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.fillAmount = health / startingHealth;
+        healthBarFillBacking.fillAmount = health / startingHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         //healthText.text = health.ToString();
-        healthBar.fillAmount = health / startingHealth;
 
         //if(controlUI != null)
         //    controlUI.SetActive(isMyTurn);

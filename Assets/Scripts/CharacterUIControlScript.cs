@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class CharacterUIControlScript : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class CharacterUIControlScript : MonoBehaviour
 
     Animator anim;
 
+    [SerializeField]bool cursorInSelectableArea = false;
+    [SerializeField]bool cursorOverCharacter = false;
+
     public RawImage[] bubbleImages;
     [Range(0.0f,1.0f)]public float onHoverAlpha, offHoverAlpha;
 
     [Header("The following variables are for eas of assigning to BattleCharacter upon Instantiation")]
     public TextMeshProUGUI healthText;
-    public Image healthBar, healthBarFill;
+    public Image healthBar, healthBarFill, healthBarFillBacking;
     public RawImage healthBarBubbleTop, healthBarBubbleBottom;
     public GameObject healthBarParent;
     public GameObject breathsUIcontainer;
@@ -32,10 +36,10 @@ public class CharacterUIControlScript : MonoBehaviour
         rt = GetComponent<RectTransform>();
         anim = GetComponent<Animator>();
 
-        for (int i = 0; i < bubbleImages.Length; i++)
+        /*for (int i = 0; i < bubbleImages.Length; i++)
         {
             bubbleImages[i].color = new Color(bubbleImages[i].color.r, bubbleImages[i].color.g, bubbleImages[i].color.b, offHoverAlpha);
-        }
+        }*/
 
         Debug.Log(target.parent.gameObject.name + " " + anim);
     }
@@ -51,17 +55,18 @@ public class CharacterUIControlScript : MonoBehaviour
         {
             SetScale(hover);
         }*/
-        SetScale(hover);
+        cursorInSelectableArea = hover;
+        //SetScale(hover);
     }
 
     public void SetScale(bool state)
     {
         anim.SetBool("isHover", state);
         healthBarParent.GetComponent<Animator>().SetBool("isHover", state);
-        for (int i = 0; i < bubbleImages.Length; i++)
+        /*for (int i = 0; i < bubbleImages.Length; i++)
         {
             bubbleImages[i].color = new Color(bubbleImages[i].color.r, bubbleImages[i].color.g, bubbleImages[i].color.b, state == true ? onHoverAlpha : offHoverAlpha);
-        }
+        }*/
     }
 
     public void FlipUI()
@@ -74,6 +79,17 @@ public class CharacterUIControlScript : MonoBehaviour
     void Update()
     {
         //ScaleUpOnHover();
+
+        if (GameManager.gm.mouseOver == myCharacter.gameObject)
+            cursorOverCharacter = true;
+        else
+            cursorOverCharacter = false;
+
+        if (cursorOverCharacter == true || cursorInSelectableArea == true)
+            SetScale(true);
+        else
+            SetScale(false);
+
         FollowTarget();
     }
 }

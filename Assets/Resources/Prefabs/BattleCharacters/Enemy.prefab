@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -6
-  m_Sprite: {fileID: 21300000, guid: 6b80df5698b5d704cb8f7d60c53f9702, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05ab380f6f886364c91dd9e5f4b7a4f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIFollowsHere: {fileID: 5023001997616120090}
-  thumbnail: {fileID: 21300000, guid: 547d183b5e820884882346baaf128523, type: 3}
+  thumbnail: {fileID: 21300000, guid: 05ab380f6f886364c91dd9e5f4b7a4f8, type: 3}
   myTurnIndicator: {fileID: 0}
   turnIndicatorTargetX: 0
   turnIndicatorCurrentPos: {x: 0, y: 0, z: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   uiParentScript: {fileID: 0}
   healthText: {fileID: 0}
   healthBar: {fileID: 0}
+  healthBarFillBacking: {fileID: 0}
   combatControls: {fileID: 0}
   attackButtonsParent: {fileID: 0}
   myAttackButtons: []

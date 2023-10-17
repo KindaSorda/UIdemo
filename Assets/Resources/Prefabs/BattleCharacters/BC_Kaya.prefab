@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b4d9ba058d6be4c8ba658cec3f757f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackName: 
   basicAttackAnimSpeed: 5
   basicAttackAdvanceDelay: 1
   basicAttackReturnDelay: 1
@@ -145,7 +146,7 @@ BoxCollider:
   m_GameObject: {fileID: 8212117806128216796}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.75, y: 3.43, z: 0.19999999}
   m_Center: {x: 0, y: 0.56, z: 0}
@@ -169,6 +170,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8212117806128216797}
     m_Modifications:
+    - target: {fileID: 3704353085344368503, guid: cc6ca804bb9fbe84fa11bae7ffa6f934, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3704353086483154486, guid: cc6ca804bb9fbe84fa11bae7ffa6f934, type: 3}
       propertyPath: m_Name
       value: KayaAnimSprite
