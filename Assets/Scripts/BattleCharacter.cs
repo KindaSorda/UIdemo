@@ -11,9 +11,10 @@ public class BattleCharacter : MonoBehaviour
     public Transform UIFollowsHere;
 
     public Sprite thumbnail;
-    [HideInInspector]public Image myTurnIndicator;
+    public Image myTurnIndicator;
     public float turnIndicatorTargetX;
     public Vector3 turnIndicatorCurrentPos;
+    Vector3 turnIndicatorStartingScale;
 
     public bool isMyTurn = false;
 
@@ -61,10 +62,10 @@ public class BattleCharacter : MonoBehaviour
             uiParent = Instantiate(Resources.Load("Prefabs/EnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);*/
 
         if (gameObject.tag == "Party")
-            uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+            uiParent = Instantiate(Resources.Load("Prefabs/NewCharacterUI") as GameObject, GameManager.gm.mainCombatUI.transform.GetChild(0));
         else if (gameObject.tag == "Enemy")
         {
-            uiParent = Instantiate(Resources.Load("Prefabs/NewEnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform);
+            uiParent = Instantiate(Resources.Load("Prefabs/NewEnemyUI") as GameObject, GameManager.gm.mainCombatUI.transform.GetChild(0));
             uiParent.GetComponent<CharacterUIControlScript>().healthBarParent.GetComponent<Animator>().SetBool("isEnemy", true);
         }
 
@@ -87,6 +88,9 @@ public class BattleCharacter : MonoBehaviour
         //if (gameObject.tag == "Party")
         //    uiParentScript.FlipUI();
         // /\/\/\/\/\/\ This is all to set the needed variable since the character UI needs to be instantiated, the variables can't be assigned in inspector
+
+        myTurnIndicator.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().overrideSprite = thumbnail;
+        turnIndicatorStartingScale = myTurnIndicator.transform.localScale;
 
         health = startingHealth;
         speed = baseSpeed;
@@ -296,7 +300,13 @@ public class BattleCharacter : MonoBehaviour
 
         //(uIanim != null)
 
-        if(myTurnIndicator != null)
+        if (myTurnIndicator != null)
+        {
             myTurnIndicator.rectTransform.localPosition = Vector3.Lerp(myTurnIndicator.rectTransform.localPosition, new Vector3(turnIndicatorTargetX, 0.0f, 0.0f), Time.deltaTime * GameManager.gm.turnIndicatorUpdateSpeed);
+            myTurnIndicator.rectTransform.localScale = new Vector3(
+                turnIndicatorStartingScale.x + (turnValue / GameManager.gm.turnIndicatorScaleByProgressOffset), 
+                turnIndicatorStartingScale.y + (turnValue / GameManager.gm.turnIndicatorScaleByProgressOffset), 
+                turnIndicatorStartingScale.z + (turnValue / GameManager.gm.turnIndicatorScaleByProgressOffset));
+        }
     }
 }

@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public float turnIndicatorUpdateSpeed;
     public float turnIndicatorPosMultiplier;
     public float currentTurnIndicatorX;
+    public float turnIndicatorScaleByProgressOffset;
 
     public BattleCharacter currentTurnCharacter;
 
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
     public float variableSetDelay;
 
     public Transform InstantiateAttackButtonsPos;
+
+    public ActionWheelScript actionWheel;
 
     private void Awake()
     {
@@ -59,11 +62,11 @@ public class GameManager : MonoBehaviour
         AddCharactersToList("Party");
         AddCharactersToList("Enemy");
 
-        for (int i = 0; i < turnIndicators.Count; i++)
+        /*for (int i = 0; i < turnIndicators.Count; i++)
         {
             if (turnIndicators[i].overrideSprite == null)
                 turnIndicators[i].gameObject.SetActive(false);
-        }
+        }*/
 
         combatInteractable = LayerMask.GetMask("CombatCharacter");
 
@@ -92,16 +95,10 @@ public class GameManager : MonoBehaviour
             if (tag == "Enemy")
                 enemies.Add(thisCharacter);
 
-            //thisCharacter.turnValue = thisCharacter.speed;
-
-            thisCharacter.myTurnIndicator = turnIndicators[i + offset];
-
             if (thisCharacter.gameObject.GetComponent<EnemyInfo>() != null)
-                thisCharacter.myTurnIndicator.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = thisCharacter.gameObject.GetComponent<EnemyInfo>().enemyNumber.ToString();
+                thisCharacter.myTurnIndicator.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = thisCharacter.gameObject.GetComponent<EnemyInfo>().enemyNumber.ToString();
             else
-                thisCharacter.myTurnIndicator.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().enabled = false;
-
-            thisCharacter.myTurnIndicator.overrideSprite = thisCharacter.thumbnail;
+                thisCharacter.myTurnIndicator.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().enabled = false;
         }
     }
 
@@ -161,6 +158,9 @@ public class GameManager : MonoBehaviour
         {
             characters[i].GetComponent<BattleCharacter>().ApplyStatusEffects();
         }*/
+
+        nextTurnButton.interactable = false;
+        nextTurnButton.interactable = true;
     }
 
     void SetCurrentTurnIndicatorWorldPos(Transform target)

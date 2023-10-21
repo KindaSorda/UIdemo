@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIFollowsHere: {fileID: 5676649941529594680}
-  thumbnail: {fileID: 21300000, guid: 9555ec90ae1952e45a542ed16840506d, type: 3}
+  thumbnail: {fileID: 21300000, guid: bf7b744bacf980b44b2bc583e872abc3, type: 3}
   myTurnIndicator: {fileID: 0}
   turnIndicatorTargetX: 0
   turnIndicatorCurrentPos: {x: 0, y: 0, z: 0}
@@ -139,6 +139,7 @@ MonoBehaviour:
   uiParentScript: {fileID: 0}
   healthText: {fileID: 0}
   healthBar: {fileID: 0}
+  healthBarFillBacking: {fileID: 0}
   combatControls: {fileID: 0}
   attackButtonsParent: {fileID: 0}
   myAttackButtons: []
@@ -163,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b4d9ba058d6be4c8ba658cec3f757f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackName: 
   basicAttackAnimSpeed: 5
   basicAttackAdvanceDelay: 1
   basicAttackReturnDelay: 1
