@@ -134,6 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: 
+  description: 'This is Bly''s attack bly bly bly bly bly bly bly bly bly bly bly
+    bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly
+    bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly bly
+    bly bly '
   basicAttackAnimSpeed: 5
   basicAttackAdvanceDelay: 1
   basicAttackReturnDelay: 1

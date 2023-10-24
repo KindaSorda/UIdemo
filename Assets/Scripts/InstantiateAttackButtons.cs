@@ -5,7 +5,7 @@ using TMPro;
 
 public class InstantiateAttackButtons : MonoBehaviour
 {
-    [Range(0,6)]public int numAttacks;
+    [Range(0,12)]public int numAttacks;
 
     GameObject attackButtonSet;
 
@@ -21,10 +21,11 @@ public class InstantiateAttackButtons : MonoBehaviour
     {
         Debug.Log("Called Instantiate Buttons");
 
-        attackButtonSet = Instantiate(Resources.Load<GameObject>("Prefabs/SetOfAttackButtons"), GameManager.gm.InstantiateAttackButtonsPos.position, GameManager.gm.InstantiateAttackButtonsPos.rotation, GameManager.gm.mainCombatUI.transform);
+        attackButtonSet = Instantiate(Resources.Load<GameObject>("Prefabs/SetOfAttackButtons"), GameManager.gm.InstantiateAttackButtonsPos.position, GameManager.gm.InstantiateAttackButtonsPos.rotation, GameManager.gm.actionWheel.transform);
+        attackButtonSet.transform.localScale = new Vector3(0.36f, 0.36f, 0.36f);
         myCharacter.attackButtonsParent = attackButtonSet;
         
-        for(int i = 0; i < 6; i++)
+        for(int i = 0; i < 12; i++)
         {
             myCharacter.myAttackButtons.Add(attackButtonSet.transform.GetChild(0).GetChild(i).GetChild(0).gameObject.GetComponent<AttackButtonScript>());
             Debug.Log("Added " + attackButtonSet.transform.GetChild(0).GetChild(i).GetChild(0).gameObject.name);

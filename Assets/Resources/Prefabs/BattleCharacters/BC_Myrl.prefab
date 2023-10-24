@@ -164,7 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b4d9ba058d6be4c8ba658cec3f757f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: 
+  attackName: Myrl's Attack 1
+  description: 'This is Myrl''s attack 1 bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh '
   basicAttackAnimSpeed: 5
   basicAttackAdvanceDelay: 1
   basicAttackReturnDelay: 1

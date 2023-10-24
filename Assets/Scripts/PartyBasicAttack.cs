@@ -11,6 +11,7 @@ public class PartyBasicAttack : MonoBehaviour
     bool isBasicAttacking = false;
 
     public string attackName;
+    [TextArea(3, 5)]public string description;
     public float basicAttackAnimSpeed;
     public float basicAttackAdvanceDelay, basicAttackReturnDelay;
     BattleCharacter thisCharacter;
@@ -32,7 +33,8 @@ public class PartyBasicAttack : MonoBehaviour
 
         targetButton.onClick.AddListener(() => PrepareAttack());
         targetButton.GetComponent<AttackButtonScript>().assignedAttackBreathCost = basicAttackBreathCost;
-        targetButton.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
+        targetButton.GetComponent<AttackButtonScript>().assignedAttackDescription = description;
+        targetButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
     }
 
     void PrepareAttack()

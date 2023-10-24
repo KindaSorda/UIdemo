@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackButtonScript : MonoBehaviour
 {
     public int assignedAttackBreathCost;
+    public string assignedAttackDescription;
 
     Vector3 targetPos, startingPos;
     Vector3 targetScale, startingScale;
@@ -41,15 +42,15 @@ public class AttackButtonScript : MonoBehaviour
         {
             FlashBreathsOnHover(state);
             ScaleOnHover(state);
-            SetParentOnHover(state);
-            ShiftAllButtonsAbove(state);
+            //SetParentOnHover(state);
+            //ShiftAllButtonsAbove(state);
         }
         else
         {
             FlashBreathsOnHover(state);
-            SetParentOnHover(state);
+            //SetParentOnHover(state);
             ScaleOnHover(state);
-            ShiftAllButtonsAbove(state);
+            //ShiftAllButtonsAbove(state);
         }
     }
 

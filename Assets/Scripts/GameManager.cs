@@ -48,10 +48,14 @@ public class GameManager : MonoBehaviour
     public Transform InstantiateAttackButtonsPos;
 
     public ActionWheelScript actionWheel;
+    public TextMeshProUGUI attackDescriptionText;
+    [HideInInspector] public string currentAttackDescription;
 
     private void Awake()
     {
         gm = this;
+
+        StartCoroutine(EndTurn(0.0f));
     }
 
     // Start is called before the first frame update
@@ -77,7 +81,7 @@ public class GameManager : MonoBehaviour
         rotForParty = rotForEnemy;
         rotForEnemy.eulerAngles = new Vector3(rotForParty.eulerAngles.x, rotForParty.eulerAngles.y + 180.0f, rotForParty.eulerAngles.z);
 
-        StartCoroutine(EndTurn(0.0f));
+        //StartCoroutine(EndTurn(0.0f));
     }
 
     void AddCharactersToList(string tag)
@@ -150,8 +154,18 @@ public class GameManager : MonoBehaviour
         //currentTurnCharacter.uiParentScript.SetScale(true);
         currentTurnCharacter.turnValue = 0.0f;
         currentTurnCharacter.RefillBreaths();
-        if(currentTurnCharacter.tag == "Party")
+        if (currentTurnCharacter.tag == "Party")
+        {
             currentTurnCharacter.EnableAttackButtons(true);
+            actionWheel.transform.parent.gameObject.SetActive(true);
+            actionWheel.ResetWheel();
+            actionWheel.SetDescriptionText(currentTurnCharacter.myAttackButtons[0].assignedAttackDescription);
+        }
+        else
+        {
+            actionWheel.transform.parent.gameObject.SetActive(false);
+            actionWheel.SetDescriptionText("");
+        }
         SetCurrentTurnIndicatorWorldPos(currentTurnCharacter.transform);
 
         /*for(int i = 0; i < characters.Count; i++)
