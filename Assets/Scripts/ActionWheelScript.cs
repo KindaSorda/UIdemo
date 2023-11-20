@@ -35,6 +35,11 @@ public class ActionWheelScript : MonoBehaviour
 
         numClicksDown += click;
         SetDescriptionText(GameManager.gm.currentTurnCharacter.myAttackButtons[numClicksDown].assignedAttackDescription);
+
+        rotateUp.interactable = false;
+        rotateDown.interactable = false;
+        rotateUp.interactable = true;
+        rotateDown.interactable = true;
     }
 
     public void SetDescriptionText(string text)

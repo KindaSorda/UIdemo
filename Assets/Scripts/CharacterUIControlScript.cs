@@ -41,7 +41,7 @@ public class CharacterUIControlScript : MonoBehaviour
             bubbleImages[i].color = new Color(bubbleImages[i].color.r, bubbleImages[i].color.g, bubbleImages[i].color.b, offHoverAlpha);
         }*/
 
-        Debug.Log(target.parent.gameObject.name + " " + anim);
+        //Debug.Log(target.parent.gameObject.name + " " + anim);
     }
 
     void FollowTarget()

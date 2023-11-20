@@ -19,11 +19,13 @@ public class PartyBasicAttack : MonoBehaviour
 
     Vector3 basicAttackTargetPos;
 
+    public int assignedButton;
+
     // Start is called before the first frame update
     void Start()
     {
         thisCharacter = gameObject.GetComponent<BattleCharacter>();
-        StartCoroutine(AssignToButton(0));
+        StartCoroutine(AssignToButton(assignedButton));
     }
 
     IEnumerator AssignToButton(int assignToButton)
@@ -34,7 +36,7 @@ public class PartyBasicAttack : MonoBehaviour
         targetButton.onClick.AddListener(() => PrepareAttack());
         targetButton.GetComponent<AttackButtonScript>().assignedAttackBreathCost = basicAttackBreathCost;
         targetButton.GetComponent<AttackButtonScript>().assignedAttackDescription = description;
-        targetButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
+        targetButton.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
     }
 
     void PrepareAttack()
@@ -67,17 +69,18 @@ public class PartyBasicAttack : MonoBehaviour
     {
         Vector3 firstPos = transform.position;
 
-        GameManager.gm.SetUIState(false);
+        //GameManager.gm.SetUIState(false);
 
         basicAttackTargetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
         isBasicAttacking = true;
         yield return new WaitForSeconds(basicAttackAdvanceDelay);
         basicAttackTargetPos = firstPos;
+        GameManager.gm.CameraShakePlayer();
         yield return new WaitForSeconds(basicAttackReturnDelay);
         isBasicAttacking = false;
         transform.position = firstPos;
 
-        GameManager.gm.SetUIState(true);
+        //GameManager.gm.SetUIState(true);
 
         thisCharacter.StartCoroutine(thisCharacter.SpendBreaths(basicAttackBreathCost, 0.1f));
     }

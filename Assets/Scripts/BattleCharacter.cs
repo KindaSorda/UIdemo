@@ -12,6 +12,7 @@ public class BattleCharacter : MonoBehaviour
 
     public Sprite thumbnail;
     public Image myTurnIndicator;
+    public GameObject myCurrentTurnThumbnail;
     public float turnIndicatorTargetX;
     public Vector3 turnIndicatorCurrentPos;
     Vector3 turnIndicatorStartingScale;
@@ -91,6 +92,7 @@ public class BattleCharacter : MonoBehaviour
 
         myTurnIndicator.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().overrideSprite = thumbnail;
         turnIndicatorStartingScale = myTurnIndicator.transform.localScale;
+        StartCoroutine(SetCurrentTurnThumbnail(false, 0.0f));
 
         health = startingHealth;
         speed = baseSpeed;
@@ -277,9 +279,11 @@ public class BattleCharacter : MonoBehaviour
         attackButtonsParent.SetActive(state);
     }
 
-    void UpdateHealthBar()
+    public IEnumerator SetCurrentTurnThumbnail(bool state, float wait)
     {
-
+        myCurrentTurnThumbnail.GetComponent<Animator>().SetBool("In", state);
+        yield return new WaitForSeconds(wait);
+        myCurrentTurnThumbnail.transform.GetChild(0).GetComponent<Image>().enabled = state;
     }
 
     public void TakeDamage(float damage)

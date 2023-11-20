@@ -93,6 +93,7 @@ MonoBehaviour:
   rotateUp: {fileID: 0}
   rotateDown: {fileID: 0}
   speed: 220
+  invertRot: 0
 --- !u!1 &4132305507744111741
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4518808, g: 0.52891743, b: 0.6415094, a: 1}
+  m_Color: {r: 0.7736145, g: 0.8004303, b: 0.8396226, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

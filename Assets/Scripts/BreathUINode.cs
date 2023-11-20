@@ -50,7 +50,7 @@ public class BreathUINode : MonoBehaviour
 
     public void SpendBreath()
     {
-        //breathIcon.transform.SetParent(newParent);
+        breathIcon.transform.SetParent(newParent);
         targetPos = soulGuageRT.position;
         spentBreath = true;
     }
@@ -68,7 +68,12 @@ public class BreathUINode : MonoBehaviour
     void fillGuageWithBreath()
     {
         soulGuage.GetComponent<SoulGuageScript>().fillGuage(1);
-        anim.SetBool("Spent", true);
+
+        if (GameManager.gm.soulGuage.currentFill < GameManager.gm.soulGuage.guageCap)
+            anim.SetBool("Spent", true);
+        else
+            anim.SetBool("MaxGuage", true);
+
         activeBreath = false;
     }
 

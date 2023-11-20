@@ -33,6 +33,7 @@ public class CameraDriftScript : MonoBehaviour
         distanceX = screenCenter.x - mousePos.x;
         distanceY = screenCenter.y - mousePos.y;
 
-        CameraDrift();
+        if(mousePos.x >= 0 && mousePos.y >= 0 && mousePos.x <= Screen.width && mousePos.y <= Screen.height)
+            CameraDrift();
     }
 }

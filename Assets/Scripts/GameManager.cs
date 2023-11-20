@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public int currentTurnUIOrder = 1;
 
     public Button nextTurnButton;
+    public SoulGuageScript soulGuage;
     public float turnIndicatorUpdateSpeed;
     public float turnIndicatorPosMultiplier;
     public float currentTurnIndicatorX;
@@ -50,6 +51,8 @@ public class GameManager : MonoBehaviour
     public ActionWheelScript actionWheel;
     public TextMeshProUGUI attackDescriptionText;
     [HideInInspector] public string currentAttackDescription;
+
+    Animator mainCameraAnim;
 
     private void Awake()
     {
@@ -81,6 +84,8 @@ public class GameManager : MonoBehaviour
         rotForParty = rotForEnemy;
         rotForEnemy.eulerAngles = new Vector3(rotForParty.eulerAngles.x, rotForParty.eulerAngles.y + 180.0f, rotForParty.eulerAngles.z);
 
+        mainCameraAnim = Camera.main.gameObject.GetComponent<Animator>();
+
         //StartCoroutine(EndTurn(0.0f));
     }
 
@@ -110,13 +115,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        Debug.Log("Called EndTurn");
+        //Debug.Log("Called EndTurn");
 
         if (currentTurnCharacter != null)
         {
             currentTurnCharacter.isMyTurn = false;
             //currentTurnCharacter.uiParentScript.SetScale(false);
             currentTurnCharacter.turnIndicatorTargetX = 0.0f;
+            StartCoroutine(currentTurnCharacter.SetCurrentTurnThumbnail(false, 0.5f));
             if(currentTurnCharacter.tag == "Party")
                 currentTurnCharacter.EnableAttackButtons(false);
             //currentTurnCharacter.ApplyStatusEffects();
@@ -154,6 +160,7 @@ public class GameManager : MonoBehaviour
         //currentTurnCharacter.uiParentScript.SetScale(true);
         currentTurnCharacter.turnValue = 0.0f;
         currentTurnCharacter.RefillBreaths();
+        StartCoroutine(currentTurnCharacter.SetCurrentTurnThumbnail(true, 0.0f));
         if (currentTurnCharacter.tag == "Party")
         {
             currentTurnCharacter.EnableAttackButtons(true);
@@ -229,6 +236,17 @@ public class GameManager : MonoBehaviour
     {
         currentTurnCharacter.TakeDamage(damage);
     }
+
+    public void CameraShakeEnemy()
+    {
+        mainCameraAnim.SetTrigger("EnemyHit");
+    }
+
+    public void CameraShakePlayer()
+    {
+        mainCameraAnim.SetTrigger("PlayerHit");
+    }
+
 
     // Update is called once per frame
     void Update()

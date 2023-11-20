@@ -80,7 +80,7 @@ Main DPS
  - Charge: Increase damage of next attack.
  - Determination: Grants Drive to self. permanent.
  - Gouge: High single-target damage.
- - Sunder: Medium damage to all enemies. When charged, chance to inflict burn for 2 turns.
+ - Sunder: Medium damage to all enemies. When charged, inflict burn for 2 turns.
  - (Ultimate) Hellfire: Extremely high damage to target, and high damage to all other enemies. Inflicts burn for 4 turns.
 
 ___MYRL___

@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 2500920922887634006}
   - component: {fileID: 5275999025429271949}
   - component: {fileID: 3333857640979074333}
+  - component: {fileID: 5032163552382841871}
   m_Layer: 6
   m_Name: BC_Myrl
   m_TagString: Party
@@ -174,6 +175,7 @@ MonoBehaviour:
   basicAttackAdvanceDelay: 1
   basicAttackReturnDelay: 1
   basicAttackBreathCost: 2
+  assignedButton: 0
 --- !u!65 &5275999025429271949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -200,6 +202,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numAttacks: 5
+--- !u!114 &5032163552382841871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212117806128216796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b4d9ba058d6be4c8ba658cec3f757f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Myrl's Attack 2
+  description: 'This is Myrl''s attack 2 bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh
+    bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh bluh '
+  basicAttackAnimSpeed: 5
+  basicAttackAdvanceDelay: 1
+  basicAttackReturnDelay: 1
+  basicAttackBreathCost: 2
+  assignedButton: 1
 --- !u!1001 &6037076887289931994
 PrefabInstance:
   m_ObjectHideFlags: 0

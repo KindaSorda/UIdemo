@@ -1221,9 +1221,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3508429833439262631, guid: 91aeccd1649d63244a2bf4c33bf632e5, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5141085149437303885, guid: 91aeccd1649d63244a2bf4c33bf632e5, type: 3}
       propertyPath: m_Name
       value: NewEnemyHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419600468957857211, guid: 91aeccd1649d63244a2bf4c33bf632e5, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91aeccd1649d63244a2bf4c33bf632e5, type: 3}

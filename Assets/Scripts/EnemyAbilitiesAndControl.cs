@@ -34,6 +34,7 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
         isBasicAttacking = true;
         yield return new WaitForSeconds(basicAttackAdvanceDelay);
         basicAttackTargetPos = firstPos;
+        GameManager.gm.CameraShakeEnemy();
         yield return new WaitForSeconds(basicAttackReturnDelay);
         isBasicAttacking = false;
         transform.position = firstPos;
