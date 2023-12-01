@@ -89,7 +89,16 @@ public class PartyBasicAttack : MonoBehaviour
     void Update()
     {
         if (targetingMode)
+        {
             EngageAttack();
+
+            if (GameManager.gm.mouseOver != null && GameManager.gm.mouseOver.tag == "Enemy")
+            {
+                GameManager.gm.SetTargetingLineToTarget(0, thisCharacter.transform, GameManager.gm.mouseOver.transform);
+            }
+            else
+                GameManager.gm.DisableTargetingLine(0);
+        }
 
         if (isBasicAttacking == true)
             transform.position = Vector3.Lerp(transform.position, basicAttackTargetPos, Time.deltaTime * basicAttackAnimSpeed);

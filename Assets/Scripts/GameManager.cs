@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject cursorRevealObject;
 
     public GameObject currentTurnIndicatorWorldSpace;
+    public List<TargetingLineScript> lineScripts;
     public float currentTurnIndicatorWorldSpaceMovementSpeed;
     public Color enemyTurnColor, partyTurnColor;
     Quaternion rotForParty, rotForEnemy;
@@ -245,6 +246,17 @@ public class GameManager : MonoBehaviour
     public void CameraShakePlayer()
     {
         mainCameraAnim.SetTrigger("PlayerHit");
+    }
+
+    public void SetTargetingLineToTarget(int lineNum, Transform origin, Transform target)
+    {
+        lineScripts[lineNum].EnableSegmentsToTargetPosition(origin.position, target.position);
+        lineScripts[lineNum].SetRotTowardTarget(target.position);
+    }
+
+    public void DisableTargetingLine(int lineNum)
+    {
+        lineScripts[lineNum].DisableAllSegments();
     }
 
 
