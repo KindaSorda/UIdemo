@@ -17,4 +17,5 @@ public class SO_StatusEffect : ScriptableObject
     public float percentSpeedEffect;
     public float percentAttackEffect;
     public float percentDefenseEffect;
+    public float percentHealthEffect;
 }

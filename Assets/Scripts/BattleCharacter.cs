@@ -8,6 +8,8 @@ public class BattleCharacter : MonoBehaviour
 {
     Animator uIanim;
 
+    public List<SpriteRenderer> spritePieces = new List<SpriteRenderer>();
+
     public Transform UIFollowsHere;
 
     public Sprite thumbnail;
@@ -252,18 +254,47 @@ public class BattleCharacter : MonoBehaviour
     {
         for(int i = 0; i < debuffs.Count; i++)
         {
+            if (debuffs.Count > 0)
+            {
+                speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
+                health += startingHealth * ((debuffs[i].percentHealthEffect * debuffs[i].stacks) * 0.01f);
+            }
+            else
+            {
+                speed = baseSpeed;
+            }
+
             debuffs[i].duration--;
             if (debuffs[i].duration <= 0)
             {
                 debuffs.Remove(debuffs[i]);
                 debuffIcons[i].Empty();
             }
-
-            if (debuffs.Count > 0)
-                speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
-            else
-                speed = baseSpeed;
         }
+
+        for (int i = 0; i < buffs.Count; i++)
+        {
+            Debug.Log("Running Buff " + buffs[i].effectName);
+
+            if (buffs.Count > 0)
+            {
+                speed = baseSpeed + (baseSpeed * ((buffs[i].percentSpeedEffect * buffs[i].stacks) * 0.01f));
+                health += startingHealth * (((buffs[i].percentHealthEffect * buffs[i].stacks) * 0.01f));
+            }
+            else
+            {
+                speed = baseSpeed;
+            }
+
+            buffs[i].duration--;
+            if (buffs[i].duration <= 0)
+            {
+                buffs.Remove(buffs[i]);
+                buffIcons[i].Empty();
+            }
+        }
+
+        UpdateHealthBar();
     }
 
     public void ApplyStatusEffect(SO_StatusEffect effect)
@@ -271,7 +302,9 @@ public class BattleCharacter : MonoBehaviour
         for (int i = 0; i < debuffs.Count; i++)
         {
             speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
+            health += startingHealth * (((buffs[i].percentHealthEffect * buffs[i].stacks) * 0.01f));
         }
+        UpdateHealthBar();
     }
 
     public void EnableAttackButtons(bool state)
@@ -286,9 +319,46 @@ public class BattleCharacter : MonoBehaviour
         myCurrentTurnThumbnail.transform.GetChild(0).GetComponent<Image>().enabled = state;
     }
 
-    public void TakeDamage(float damage)
+    public IEnumerator TakeDamage(float damage)
     {
+        Debug.Log("Execute Damage Function");
+
+        for(int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.red;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.white;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.red;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.white;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.red;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.white;
+        }
+
         health -= damage;
+        UpdateHealthBar();
+    }
+
+    void UpdateHealthBar()
+    {
         healthBar.fillAmount = health / startingHealth;
         healthBarFillBacking.fillAmount = health / startingHealth;
     }

@@ -31,11 +31,13 @@ public class AttackButtonScript : MonoBehaviour
         targetScale = startingScale * scaleUpOffset;
         offHoverParent = transform.parent.parent;
         onHoverParent = offHoverParent.parent;
-        Debug.Log(targetBreathNodes.Count);
+        //Debug.Log(targetBreathNodes.Count);
     }
 
     public void OnHover(bool state)
     {
+        Debug.Log("Hovering over Attack Button of " + assignedCharacter.name);
+
         anim.SetBool("isHover", state);
 
         if(state == true)

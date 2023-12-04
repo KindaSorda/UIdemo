@@ -22,13 +22,14 @@ public class InstantiateAttackButtons : MonoBehaviour
         Debug.Log("Called Instantiate Buttons");
 
         attackButtonSet = Instantiate(Resources.Load<GameObject>("Prefabs/SetOfAttackButtons"), GameManager.gm.InstantiateAttackButtonsPos.position, GameManager.gm.InstantiateAttackButtonsPos.rotation, GameManager.gm.actionWheel.transform);
+        attackButtonSet.name = myCharacter.name + "_AttackButtonSet";
         attackButtonSet.transform.localScale = new Vector3(0.36f, 0.36f, 0.36f);
         myCharacter.attackButtonsParent = attackButtonSet;
         
         for(int i = 0; i < 12; i++)
         {
             myCharacter.myAttackButtons.Add(attackButtonSet.transform.GetChild(0).GetChild(i).GetChild(0).gameObject.GetComponent<AttackButtonScript>());
-            Debug.Log("Added " + attackButtonSet.transform.GetChild(0).GetChild(i).GetChild(0).gameObject.name);
+            //Debug.Log("Added " + attackButtonSet.transform.GetChild(0).GetChild(i).GetChild(0).gameObject.name);
 
             myCharacter.myAttackButtons[i].assignedCharacter = myCharacter;
             myCharacter.myAttackButtons[i].targetBreathNodes = myCharacter.breathNodes;

@@ -28,7 +28,7 @@ public class TargetingLineScript : MonoBehaviour
         Animator anim = segments[segmentNum].GetComponent<Animator>();
         anim.SetTrigger("StartFlash");
 
-        if (tick <= transform.childCount)
+        if (tick < transform.childCount - 1)
         {
             tick++;
             StartCoroutine(StartFlashAnim(tick));
@@ -50,6 +50,8 @@ public class TargetingLineScript : MonoBehaviour
 
     public void DisableAllSegments()
     {
+        //Debug.Log("Called Disable All Segments in Line Script");
+
         for (int i = 0; i < segments.Count; i++)
         {
             segments[i].GetComponent<SpriteRenderer>().enabled = false;

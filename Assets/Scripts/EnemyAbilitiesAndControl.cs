@@ -6,6 +6,11 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
 {
     BattleCharacter me;
 
+    [Header("Claw Attack Variables")]
+    public float animTime;
+    public float endTurnDelay;
+    public float damage;
+
     [Header("Basic Attack Variables")]
     bool isBasicAttacking = false;
     Vector3 basicAttackTargetPos;
@@ -39,14 +44,37 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
         isBasicAttacking = false;
         transform.position = firstPos;
 
-        StartCoroutine(GameManager.gm.EndTurn(0.3f));
+        StartCoroutine(GameManager.gm.EndTurn(endTurnDelay));
+    }
+
+    IEnumerator ClawAttack()
+    {
+        me.isMyTurn = false;
+
+        Random.InitState((int)System.DateTime.Now.Ticks);
+        int target = Random.Range(0, GameManager.gm.party.Count);
+        BattleCharacter attackTarget = GameManager.gm.party[target];
+        Debug.Log("Enemy -> " + attackTarget.name);
+
+        yield return new WaitForSeconds(startDelay);
+
+        GameObject attackAnim = Instantiate(Resources.Load<GameObject>("Prefabs/AttackAnims/AttackAnim_Claw"), GameManager.gm.mainCombatUI.transform);
+        attackAnim.transform.SetSiblingIndex(1);
+
+        yield return new WaitForSeconds(animTime);
+
+        Destroy(attackAnim);
+        StartCoroutine(attackTarget.TakeDamage(damage));
+        GameManager.gm.CameraShakePlayer();
+
+        StartCoroutine(GameManager.gm.EndTurn(endTurnDelay));
     }
 
     // Update is called once per frame
     void Update()
     {
         if (me.isMyTurn == true)
-            StartCoroutine(BasicAttack());
+            StartCoroutine(ClawAttack());
 
         if (isBasicAttacking == true)
             transform.position = Vector3.Lerp(transform.position, basicAttackTargetPos, Time.deltaTime * basicAttackAnimSpeed);

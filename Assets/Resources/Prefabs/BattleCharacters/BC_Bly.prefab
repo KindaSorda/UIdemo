@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8212117806128216797}
   - component: {fileID: 8212117806128216802}
   - component: {fileID: 8212117806128216800}
+  - component: {fileID: 8510629759493227151}
   - component: {fileID: 2500920922887634006}
   - component: {fileID: 5275999025429271949}
   - component: {fileID: 3333857640979074333}
@@ -93,9 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f83e01f0f9bef74b932d3df887d2de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritePieces: []
   UIFollowsHere: {fileID: 5872116208595460676}
   thumbnail: {fileID: 21300000, guid: 13d8325a5ae308c44aaf952edc8a83d5, type: 3}
   myTurnIndicator: {fileID: 0}
+  myCurrentTurnThumbnail: {fileID: 0}
   turnIndicatorTargetX: 0
   turnIndicatorCurrentPos: {x: 0, y: 0, z: 0}
   isMyTurn: 0
@@ -121,6 +124,25 @@ MonoBehaviour:
   debuffIcons: []
   buffs: []
   debuffs: []
+--- !u!114 &8510629759493227151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212117806128216796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6d244f725d82e498d962416f615f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Medecine
+  description: Heal all party members and grant Regeneration.
+  healAmount: 25
+  breathCost: 0
+  animTime: 2.76
+  effectDelay: 0.2
+  assignedButton: 0
 --- !u!114 &2500920922887634006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +164,7 @@ MonoBehaviour:
   basicAttackAdvanceDelay: 1
   basicAttackReturnDelay: 1
   basicAttackBreathCost: 2
+  assignedButton: 1
 --- !u!65 &5275999025429271949
 BoxCollider:
   m_ObjectHideFlags: 0

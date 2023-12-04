@@ -4,19 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PartyBasicAttack : MonoBehaviour
+public class AttackScript_Gouge : MonoBehaviour
 {
-
     bool isBasicAttacking = false;
 
     public string attackName;
-    [TextArea(3, 5)]public string description;
-    public float basicAttackAnimSpeed;
-    public float basicAttackAdvanceDelay, basicAttackReturnDelay;
-    BattleCharacter thisCharacter;
-    public int basicAttackBreathCost;
+    [TextArea(3, 5)] public string description;
 
-    Vector3 basicAttackTargetPos;
+    BattleCharacter thisCharacter;
+    public float damage;
+    public int breathCost;
+
+    public float animTime;
+    public float effectDelay;
 
     public int assignedButton;
 
@@ -31,21 +31,19 @@ public class PartyBasicAttack : MonoBehaviour
 
     IEnumerator AssignToButton(int assignToButton)
     {
+        //Debug.Log("Assigne Overload to Button");
+
         yield return new WaitForSeconds(0.1f);
-        Button targetButton = thisCharacter.myAttackButtons[assignToButton].gameObject.GetComponent<Button>();
+        Button targetButton = gameObject.GetComponent<BattleCharacter>().myAttackButtons[assignToButton].gameObject.GetComponent<Button>();
 
         targetButton.onClick.AddListener(() => PrepareAttack());
-        targetButton.GetComponent<AttackButtonScript>().assignedAttackBreathCost = basicAttackBreathCost;
+        targetButton.GetComponent<AttackButtonScript>().assignedAttackBreathCost = breathCost;
         targetButton.GetComponent<AttackButtonScript>().assignedAttackDescription = description;
         targetButton.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
-
-        Debug.Log("Assigned basic attack for " + gameObject.name + " to Button " + targetButton.transform.parent.parent.parent.name);
     }
 
     void PrepareAttack()
     {
-        Debug.Log("Prepared Basic Attack From " + gameObject.name);
-
         GameManager.gm.targetingModeSingleEnemy = true;
         thisAttackActive = true;
         GameManager.gm.SetTargetingReticle(true);
@@ -53,16 +51,20 @@ public class PartyBasicAttack : MonoBehaviour
 
     void EngageAttack()
     {
-        Debug.Log("Engaged Basic Attack From " + gameObject.name);
-
         if (Input.GetMouseButton(0))
         {
-            if(GameManager.gm.mouseOver != null && GameManager.gm.mouseOver.tag == "Enemy")
+            if (GameManager.gm.mouseOver != null && GameManager.gm.mouseOver.tag == "Enemy")
             {
                 //Debug.Log("Party -> " + GameManager.gm.mouseOver.name);
-                StartCoroutine(ExeceuteAttack(GameManager.gm.mouseOver.transform));
+                Debug.Log("Successful Click");
+                StartCoroutine(ExecuteAttack(GameManager.gm.mouseOver.gameObject.GetComponent<BattleCharacter>()));
                 GameManager.gm.targetingModeSingleEnemy = false;
                 thisAttackActive = false;
+
+                GameManager.gm.DisableTargetingLine(0);
+                GameManager.gm.DisableTargetingLine(1);
+                GameManager.gm.DisableTargetingLine(2);
+
                 GameManager.gm.SetTargetingReticle(false);
                 //GameManager.gm.EndTurn();
             }
@@ -75,26 +77,21 @@ public class PartyBasicAttack : MonoBehaviour
         }
     }
 
-    IEnumerator ExeceuteAttack(Transform target)
+    IEnumerator ExecuteAttack(BattleCharacter target)
     {
-        Debug.Log("Execute Basic Attack From " + gameObject.name);
+        Debug.Log("Execute Attack Gouge");
 
-        Vector3 firstPos = transform.position;
+        GameObject attackAnim = Instantiate(Resources.Load<GameObject>("Prefabs/AttackAnims/AttackAnim_Gouge"), GameManager.gm.mainCombatUI.transform);
+        attackAnim.transform.SetSiblingIndex(1);
 
-        //GameManager.gm.SetUIState(false);
+        yield return new WaitForSeconds(animTime);
+        Destroy(attackAnim);
 
-        basicAttackTargetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
-        isBasicAttacking = true;
-        yield return new WaitForSeconds(basicAttackAdvanceDelay);
-        basicAttackTargetPos = firstPos;
+        yield return new WaitForSeconds(effectDelay);
         GameManager.gm.CameraShakePlayer();
-        yield return new WaitForSeconds(basicAttackReturnDelay);
-        isBasicAttacking = false;
-        transform.position = firstPos;
+        StartCoroutine(target.TakeDamage(damage));
 
-        //GameManager.gm.SetUIState(true);
-
-        thisCharacter.StartCoroutine(thisCharacter.SpendBreaths(basicAttackBreathCost, 0.1f));
+        thisCharacter.StartCoroutine(thisCharacter.SpendBreaths(breathCost, 0.1f));
     }
 
     // Update is called once per frame
@@ -104,8 +101,5 @@ public class PartyBasicAttack : MonoBehaviour
         {
             EngageAttack();
         }
-
-        if (isBasicAttacking == true)
-            transform.position = Vector3.Lerp(transform.position, basicAttackTargetPos, Time.deltaTime * basicAttackAnimSpeed);
     }
 }

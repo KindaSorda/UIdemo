@@ -41,9 +41,15 @@ public class GameManager : MonoBehaviour
 
     LayerMask combatInteractable;
 
-    [HideInInspector]public GameObject mouseOver;
+    public GameObject mouseOver;
+
+    public bool targetingModeAllEnemies = false;
+    public bool targetingModeSingleEnemy = false;
+    public bool targetingModeAllParty = false;
+    public bool targetingModeSingleParty = false;
 
     public GameObject targetingMouseReticle;
+    public float damageRedFlashTime;
 
     public float variableSetDelay;
 
@@ -213,13 +219,13 @@ public class GameManager : MonoBehaviour
         {
             GameObject objectOver = hit.collider.gameObject;
             mouseOver = objectOver.transform.root.gameObject;
-            Debug.Log("From " + objectOver.name);
+            //Debug.Log("From " + objectOver.name);
         }
         else
             mouseOver = null;
 
-        if(mouseOver != null)
-            Debug.Log("GM_GetMouseOver " + mouseOver.name);
+        //if(mouseOver != null)
+            //Debug.Log("GM_GetMouseOver " + mouseOver.name);
     }
 
     public void SetTargetingReticle(bool state)
@@ -278,5 +284,71 @@ public class GameManager : MonoBehaviour
             (currentTurnIndicatorWorldSpace.transform.position, currentTurnIndicatorWorldSpaceTargetPos, Time.deltaTime * currentTurnIndicatorWorldSpaceMovementSpeed);
         currentTurnIndicatorWorldSpace.transform.rotation = Quaternion.Lerp
             (currentTurnIndicatorWorldSpace.transform.rotation, currentTurnIndicatorWorldSpaceTargetRot, Time.deltaTime * currentTurnIndicatorWorldSpaceMovementSpeed);
+
+
+        if (targetingModeAllEnemies || targetingModeSingleEnemy || targetingModeAllParty || targetingModeSingleParty)
+        {
+            if (targetingModeAllEnemies)
+            {
+                if (mouseOver != null && mouseOver.tag == "Enemy")
+                {
+                    SetTargetingLineToTarget(0, currentTurnCharacter.transform, enemies[0].transform);
+                    SetTargetingLineToTarget(1, currentTurnCharacter.transform, enemies[1].transform);
+                    SetTargetingLineToTarget(2, currentTurnCharacter.transform, enemies[2].transform);
+                }
+                else
+                {
+                    DisableTargetingLine(0);
+                    DisableTargetingLine(1);
+                    DisableTargetingLine(2);
+                }
+            }
+
+            if (targetingModeSingleEnemy)
+            {
+                if (mouseOver != null && mouseOver.tag == "Enemy")
+                {
+                    SetTargetingLineToTarget(0, currentTurnCharacter.transform, mouseOver.transform);
+                }
+                else
+                {
+                    DisableTargetingLine(0);
+                }
+            }
+
+            if (targetingModeAllParty)
+            {
+                if (mouseOver != null && mouseOver.tag == "Party")
+                {
+                    SetTargetingLineToTarget(0, currentTurnCharacter.transform, party[0].transform);
+                    SetTargetingLineToTarget(1, currentTurnCharacter.transform, party[1].transform);
+                    SetTargetingLineToTarget(2, currentTurnCharacter.transform, party[2].transform);
+                }
+                else
+                {
+                    DisableTargetingLine(0);
+                    DisableTargetingLine(1);
+                    DisableTargetingLine(2);
+                }
+            }
+
+            if (targetingModeSingleParty)
+            {
+                if (mouseOver != null && mouseOver.tag == "Party")
+                {
+                    SetTargetingLineToTarget(0, currentTurnCharacter.transform, mouseOver.transform);
+                }
+                else
+                {
+                    DisableTargetingLine(0);
+                }
+            }
+        }
+        else
+        {
+            DisableTargetingLine(0);
+            DisableTargetingLine(1);
+            DisableTargetingLine(2);
+        }
     }
 }

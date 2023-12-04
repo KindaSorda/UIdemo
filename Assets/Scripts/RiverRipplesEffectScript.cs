@@ -24,7 +24,7 @@ public class RiverRipplesEffectScript : MonoBehaviour
             riverTiles[0].transform.localPosition.x * x, riverTiles[0].transform.localPosition.y * y, riverTiles[0].transform.localPosition.z * z), new Vector3(
             riverTiles[1].transform.localPosition.x * x, riverTiles[1].transform.localPosition.y * y, riverTiles[1].transform.localPosition.z * z));
 
-        Debug.Log(gameObject.name + " Instantiation Distance: " + instantiationDistance);
+        //Debug.Log(gameObject.name + " Instantiation Distance: " + instantiationDistance);
 
         endPos = riverTiles[0].transform.localPosition;
         startPos = riverTiles[transform.childCount - 1].transform.localPosition;
