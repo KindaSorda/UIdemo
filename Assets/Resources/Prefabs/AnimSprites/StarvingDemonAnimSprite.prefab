@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4557146525700084409}
   - component: {fileID: 303516291427535153}
+  - component: {fileID: 6752622259763434101}
   m_Layer: 0
   m_Name: Demon_Torso_Sprite
   m_TagString: Untagged
@@ -171,6 +172,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6752622259763434101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692184458472189516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.472885, y: 8.169331, z: 0.2}
+  m_Center: {x: -0.092913866, y: -1.2946653, z: 0}
 --- !u!1 &1909016359664402587
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6464591267270450200}
   - component: {fileID: 170783257544901779}
+  - component: {fileID: 8548415034138688628}
   m_Layer: 0
   m_Name: Demon_Neck_Sprite
   m_TagString: Untagged
@@ -543,6 +558,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &8548415034138688628
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238415807542586834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.3599997, y: 4.8399997, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4246095895410156821
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +849,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2653613428488607540}
   - component: {fileID: 3995059001589216104}
+  - component: {fileID: 14357963248531209}
   m_Layer: 0
   m_Name: Demon_FootRight_Sprite
   m_TagString: Untagged
@@ -895,6 +924,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &14357963248531209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558515942323165810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.8922205, y: 10.500995, z: 0.2}
+  m_Center: {x: -2.7561092, y: 4.923635, z: 0}
 --- !u!1 &4654240428642028463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,6 +1679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7397478601752093787}
   - component: {fileID: 1145494286417355530}
+  - component: {fileID: 7410588544641726318}
   m_Layer: 0
   m_Name: Demon_Head_Sprite
   m_TagString: Untagged
@@ -1711,6 +1754,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &7410588544641726318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922962162926021545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.31, y: 5.84, z: 0.2}
+  m_Center: {x: -0.0000009536743, y: 0, z: 0}
 --- !u!1 &8172026099104733576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4841425699555509255}
   - component: {fileID: 7194741917732424141}
+  - component: {fileID: 4673790563267306003}
   m_Layer: 0
   m_Name: Demon_FootLeft_Sprite
   m_TagString: Untagged
@@ -1795,6 +1852,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &4673790563267306003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172026099104733576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.841017, y: 3.2728653, z: 0.2}
+  m_Center: {x: 3.2255087, y: -0.16356754, z: 0}
 --- !u!1 &8343412053989260412
 GameObject:
   m_ObjectHideFlags: 0

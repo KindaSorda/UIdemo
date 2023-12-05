@@ -14,6 +14,7 @@ public class CharacterUIControlScript : MonoBehaviour
 
     [SerializeField]bool cursorInSelectableArea = false;
     [SerializeField]bool cursorOverCharacter = false;
+    [HideInInspector] public bool scaleUp = false;
 
     public RawImage[] bubbleImages;
     [Range(0.0f,1.0f)]public float onHoverAlpha, offHoverAlpha;
@@ -69,12 +70,6 @@ public class CharacterUIControlScript : MonoBehaviour
         }*/
     }
 
-    public void FlipUI()
-    {
-        RectTransform healthBarRT = healthBarParent.GetComponent<RectTransform>();
-        healthBarRT.localScale = new Vector3(healthBarRT.localScale.x * -1.0f, healthBarRT.localScale.y, healthBarRT.localScale.z);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -85,7 +80,7 @@ public class CharacterUIControlScript : MonoBehaviour
         else
             cursorOverCharacter = false;
 
-        if (cursorOverCharacter == true || cursorInSelectableArea == true)
+        if (cursorOverCharacter == true || cursorInSelectableArea == true || scaleUp == true)
             SetScale(true);
         else
             SetScale(false);

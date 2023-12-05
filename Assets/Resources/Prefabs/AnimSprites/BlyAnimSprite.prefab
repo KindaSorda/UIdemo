@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2813472553031430163}
   - component: {fileID: 2399894535649760555}
-  m_Layer: 0
+  - component: {fileID: 4782625717366375819}
+  m_Layer: 6
   m_Name: Bly_Legs_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,6 +87,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &4782625717366375819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29760185176941731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.245488, y: 11.311533, z: 0.19999999}
+  m_Center: {x: 1.1588765, y: -1.1258484, z: 0}
 --- !u!1 &2293827294677405290
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2924589664823570760}
   - component: {fileID: 2308305197730054637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_ArmRight_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3820337801203199334}
   - component: {fileID: 1158883748902308486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_HandRight_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3392457543806653067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_BraidJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,6 +300,51 @@ Transform:
   m_Father: {fileID: 8743234778947828418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2727414038638102980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7372981300588077197}
+  - component: {fileID: 5221926096952230445}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7372981300588077197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727414038638102980}
+  m_LocalRotation: {x: -0, y: -0, z: -0.4923123, w: 0.87041867}
+  m_LocalPosition: {x: 0.39, y: 0.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6263995120400406281}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -58.985}
+--- !u!65 &5221926096952230445
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727414038638102980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.04485, y: 1.5718957, z: 1}
+  m_Center: {x: 0.4369888, y: -0.28594866, z: 0}
 --- !u!1 &2924158515839464498
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553757967363098498}
   - component: {fileID: 8481549074953552786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_PantLegBack_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256381847299101092}
   - component: {fileID: 6916200757274439141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_HairLong_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7667867152661250168}
   - component: {fileID: 2841306598463705839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlyAnimSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +539,7 @@ Transform:
   m_GameObject: {fileID: 3346825874084775333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.27033448, y: 0.27033448, z: 0.27033448}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1016989282509183740}
@@ -517,7 +576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413836384416533639}
   - component: {fileID: 6243038853333708000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_ArmLeftLower_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1252596485457673472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_StrandShortJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320265175005532784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_ShoulderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 913750230892414317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_StrandLongJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3555099109416581155}
   - component: {fileID: 3296803008143150633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_ShoulderWrap_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +842,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5044278390001305450}
   - component: {fileID: 3700139449432723102}
-  m_Layer: 0
+  - component: {fileID: 6155578692380626103}
+  m_Layer: 6
   m_Name: Bly_Cape_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,6 +917,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6155578692380626103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500578901149447473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.309821, y: 9.358677, z: 0.19999999}
+  m_Center: {x: 0.27021056, y: -3.465701, z: 0}
 --- !u!1 &5698156601356806536
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8743234778947828418}
   - component: {fileID: 7177881959081895758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_Face_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +1028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8536084587467848123}
   - component: {fileID: 2186153802138454319}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_HoodBack_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016989282509183740}
   - component: {fileID: 7854151464715283552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_Feet_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7922726097754954477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlyElbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1156,7 +1229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5595443576186119547}
   - component: {fileID: 7174271855636522460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_ArmLeftUpper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,7 +1314,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4118369934744006519}
   - component: {fileID: 2812588161915141234}
-  m_Layer: 0
+  - component: {fileID: 567679083316520151}
+  m_Layer: 6
   m_Name: Bly_HoodFront_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,6 +1390,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &567679083316520151
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881188157796353063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.646222, y: 3.9656143, z: 0.19999999}
+  m_Center: {x: 0.6878447, y: -0.07725385, z: 0}
 --- !u!1 &8076262296237826805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6307267356888540910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blye_HairLongJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1357,7 +1444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1891116645512743071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_ShoulderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1390,7 +1477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3448968229296216276}
   - component: {fileID: 5196446764904463758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_StrandSmall_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1473,7 +1560,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947154343975609181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_CapeJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1506,7 +1593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5304802221225794783}
   - component: {fileID: 7727124332000713423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_Braid_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1590,7 +1677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 626350133337285372}
   - component: {fileID: 7828498353033501370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_StrandLong_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6263995120400406281}
   - component: {fileID: 9148358414270253869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_Rifle_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1694,6 +1781,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3820337801203199334}
+  - {fileID: 7372981300588077197}
   m_Father: {fileID: 1413836384416533639}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1759,7 +1847,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3848730092487513826}
   - component: {fileID: 1358640393885487411}
-  m_Layer: 0
+  - component: {fileID: 7193634237143548444}
+  m_Layer: 6
   m_Name: Bly_Torso_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1837,6 +1926,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &7193634237143548444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054517386000995007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.9968796, y: 7.733556, z: 0.19999999}
+  m_Center: {x: -0.0072878418, y: -0.16507635, z: 0}
 --- !u!1 &9097494227162347207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,7 +1948,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7883252300188852318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bly_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

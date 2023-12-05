@@ -257,7 +257,7 @@ public class BattleCharacter : MonoBehaviour
             if (debuffs.Count > 0)
             {
                 speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
-                health += startingHealth * ((debuffs[i].percentHealthEffect * debuffs[i].stacks) * 0.01f);
+                StartCoroutine(TakeDamage(startingHealth * ((debuffs[i].percentHealthEffect * debuffs[i].stacks) * 0.01f)));
             }
             else
             {
@@ -279,7 +279,7 @@ public class BattleCharacter : MonoBehaviour
             if (buffs.Count > 0)
             {
                 speed = baseSpeed + (baseSpeed * ((buffs[i].percentSpeedEffect * buffs[i].stacks) * 0.01f));
-                health += startingHealth * (((buffs[i].percentHealthEffect * buffs[i].stacks) * 0.01f));
+                StartCoroutine(Heal(startingHealth * (((buffs[i].percentHealthEffect * buffs[i].stacks) * 0.01f))));
             }
             else
             {
@@ -302,7 +302,12 @@ public class BattleCharacter : MonoBehaviour
         for (int i = 0; i < debuffs.Count; i++)
         {
             speed = baseSpeed + (baseSpeed * ((debuffs[i].percentSpeedEffect * debuffs[i].stacks) * 0.01f));
-            health += startingHealth * (((buffs[i].percentHealthEffect * buffs[i].stacks) * 0.01f));
+            StartCoroutine(TakeDamage(startingHealth * ((debuffs[i].percentHealthEffect * debuffs[i].stacks) * 0.01f)));
+        }
+        for (int i = 0; i < buffs.Count; i++)
+        {
+            speed = baseSpeed + (baseSpeed * ((buffs[i].percentSpeedEffect * buffs[i].stacks) * 0.01f));
+            StartCoroutine(Heal(startingHealth * (((buffs[i].percentHealthEffect * buffs[i].stacks) * 0.01f))));
         }
         UpdateHealthBar();
     }
@@ -354,6 +359,28 @@ public class BattleCharacter : MonoBehaviour
         }
 
         health -= damage;
+        UpdateHealthBar();
+    }
+
+    public IEnumerator Heal(float healAmount)
+    {
+        Debug.Log("Healed " + gameObject.name + " for " + healAmount + "health");
+
+        yield return new WaitForSeconds(0.0f);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.green;
+            yield return new WaitForSeconds(0.01f);
+        }
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.white;
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        health += healAmount;
+        if (health > startingHealth)
+            health = startingHealth;
         UpdateHealthBar();
     }
 

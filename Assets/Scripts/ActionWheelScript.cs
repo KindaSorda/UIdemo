@@ -44,11 +44,14 @@ public class ActionWheelScript : MonoBehaviour
 
     public void SetDescriptionText(string text)
     {
+        Debug.Log("Set Description Text to " + text);
         GameManager.gm.attackDescriptionText.text = text;
     }
 
-    public void ResetWheel()
+   public IEnumerator ResetWheel()
     {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Reset Wheel");
         targetRot.eulerAngles = new Vector3(0.0f, 0.0f, 357.11f);
         numClicksDown = 0;
         SetDescriptionText(GameManager.gm.currentTurnCharacter.myAttackButtons[numClicksDown].assignedAttackDescription);
@@ -64,9 +67,11 @@ public class ActionWheelScript : MonoBehaviour
         else
             rotateUp.interactable = true;
 
-        if (numClicksDown == GameManager.gm.currentTurnCharacter.gameObject.GetComponent<InstantiateAttackButtons>().numAttacks - 1)
-            rotateDown.interactable = false;
-        else
-            rotateDown.interactable = true;
+        if (GameManager.gm.currentTurnCharacter != null) {
+            if (numClicksDown == GameManager.gm.currentTurnCharacter.gameObject.GetComponent<InstantiateAttackButtons>().numAttacks - 1)
+                rotateDown.interactable = false;
+            else
+                rotateDown.interactable = true;
+        }
     }
 }

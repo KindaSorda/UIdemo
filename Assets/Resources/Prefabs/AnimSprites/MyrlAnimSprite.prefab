@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2881355848052956665}
   - component: {fileID: 7906603958347387203}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_RightFoot_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3322312208593608876}
-  m_Layer: 0
+  - component: {fileID: 4596496718514426089}
+  m_Layer: 6
   m_Name: Myrl_MechTorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,6 +119,19 @@ Transform:
   m_Father: {fileID: 4339478771474141826}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4596496718514426089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272184388609786966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.7512865, y: 7.035444, z: 1}
+  m_Center: {x: -0.6576409, y: 0.75634885, z: 0}
 --- !u!1 &661959674192490202
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 10353422772592887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_RightLegLower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619824433097906736}
   - component: {fileID: 1238434854682675485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechTorsoFrontBit_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4266251437066108128}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_WristLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3970643296910145815}
   - component: {fileID: 6440540127000276350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LeftArmUpper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3821074533704066830}
   - component: {fileID: 5562689038052087594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Neck_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6892463162018892212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechWristRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4127698973709058894}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5250389023003497914}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4051445673901544722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_ElbowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6586215357502321317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_BunLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1166837252030640374}
   - component: {fileID: 1773894513371428126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_RightHand_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1100128849129237900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_WristRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 471163261149645737}
   - component: {fileID: 3712390797415160299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechLeftShouler_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3823774454021881125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Buns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +853,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8118600475827903613}
   - component: {fileID: 3505135005237599332}
-  m_Layer: 0
+  - component: {fileID: 1447231426969057117}
+  m_Layer: 6
   m_Name: Myrl_LeftLegLower_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,6 +928,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1447231426969057117
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583545633459494417}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.347634, y: 6.24, z: 0.2}
+  m_Center: {x: 0.8701751, y: 0, z: 0}
 --- !u!1 &3766167786264028914
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +951,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1141008376294647032}
   - component: {fileID: 4536300416325460715}
-  m_Layer: 0
+  - component: {fileID: 6641062239858546276}
+  m_Layer: 6
   m_Name: Myrl_MechLeftArmUpper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -997,6 +1026,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6641062239858546276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3766167786264028914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.69, y: 3.5, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3796801106716593869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8495005985189647693}
   - component: {fileID: 5988626608757562851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Head_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6767203688511882947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechShoulderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,7 +1167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1229480703562362603}
   - component: {fileID: 6742833577028168613}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechTorso_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1209,7 +1251,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7648757190465655064}
   - component: {fileID: 2845579123683742813}
-  m_Layer: 0
+  - component: {fileID: 3506828437648190719}
+  m_Layer: 6
   m_Name: Myrl_MechRightArmLower_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,6 +1326,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &3506828437648190719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3979995248120194333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.5494394, y: 4.278497, z: 0.2}
+  m_Center: {x: -1.0097181, y: -0.30924693, z: 0}
 --- !u!1 &4331337803769483779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7295954113929757576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1382,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8222603282024940429}
   - component: {fileID: 5971644567883876952}
-  m_Layer: 0
+  - component: {fileID: 6049208830999738631}
+  m_Layer: 6
   m_Name: Myrl_MechRightArmLower_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1400,6 +1457,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6049208830999738631
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542148645279212408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.7220035, y: 4.575386, z: 0.2}
+  m_Center: {x: 0.6755398, y: -0.10777711, z: 0}
 --- !u!1 &4599782528423503016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2901319169858455467}
   - component: {fileID: 5843597635773874681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_RightArmLower_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8796663147882660365}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechShouldercenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1527,7 +1597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3031578127641425493}
   - component: {fileID: 5538657503400918181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LeftHand_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3218369611047383350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechShoulderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1644,7 +1714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4649738971929044783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MyrlHips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1679,7 +1749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4632778617118329816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_BunRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1712,7 +1782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1969363309137200795}
   - component: {fileID: 2526926924456498215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LeftArmLower_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1796,7 +1866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5326258403994214894}
   - component: {fileID: 7382455817741890663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechRightHand_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1880,7 +1950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3756866231026215831}
   - component: {fileID: 8639094897965775067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechRightShouler_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1963,7 +2033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3511527127110980978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1997,7 +2067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2370996218256458658}
   - component: {fileID: 2343400217727194657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_BunLeft_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2081,7 +2151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6548066735783709254}
   - component: {fileID: 2179747464645484413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_SkirtBack_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2165,7 +2235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3898005507890159583}
   - component: {fileID: 6138650191726445444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Skirt_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2249,7 +2319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 205618503700416188}
   - component: {fileID: 9087754133168591570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Torso_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2332,7 +2402,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5612944847085865903}
-  m_Layer: 0
+  - component: {fileID: 2378003395516347961}
+  m_Layer: 6
   m_Name: Myrl_Skirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2356,6 +2427,19 @@ Transform:
   m_Father: {fileID: 4649738971929044783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2378003395516347961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236581669300346909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.3770175, y: 3.3050168, z: 1}
+  m_Center: {x: 0.05670977, y: -1.1525081, z: 0}
 --- !u!1 &6277530216080749627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,7 +2449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4605672848177338319}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_ShoulderCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2399,7 +2483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8882346271203509965}
   - component: {fileID: 8654953476845381082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_ShirtBack_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2483,7 +2567,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8134510093612382957}
   - component: {fileID: 4337710813964807040}
-  m_Layer: 0
+  - component: {fileID: 8697819370381496166}
+  m_Layer: 6
   m_Name: Myrl_LeftLegUpper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2557,6 +2642,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &8697819370381496166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440237819479162211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6674948, y: 4.16, z: 0.2}
+  m_Center: {x: 0.5387475, y: 0.0000000013178407, z: 0}
 --- !u!1 &6448911087424641531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,7 +2664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4339478771474141826}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2602,7 +2700,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6434911664906158622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_ShoulderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2635,7 +2733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093712193424747530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechElbowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2669,7 +2767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7291286594695050504}
   - component: {fileID: 1463000678018736472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechRighttHand_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2753,7 +2851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 894110041264666810}
   - component: {fileID: 14375064432559122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechLeftElbow_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2836,7 +2934,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5861279682893723461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LeftLegLower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2868,7 +2966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7230967944397975325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechWristLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2900,7 +2998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7860016061753722403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_ElbowLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2934,7 +3032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3297308642837473453}
   - component: {fileID: 6362336650357323727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LeftFoot_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3017,7 +3115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6755560603138730046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3050,7 +3148,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3840580158334633538}
   - component: {fileID: 866274097361821438}
-  m_Layer: 0
+  - component: {fileID: 6453039412191176921}
+  m_Layer: 6
   m_Name: Myrl_MechRightArmUpper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3124,6 +3223,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6453039412191176921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621268421410585904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.4284368, y: 3.9783819, z: 0.2}
+  m_Center: {x: 0.30421805, y: -0.47419113, z: 0}
 --- !u!1 &8009183878569950687
 GameObject:
   m_ObjectHideFlags: 0
@@ -3134,7 +3246,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4369230952200910442}
   - component: {fileID: 169456644147875578}
-  m_Layer: 0
+  - component: {fileID: 61003883367654260}
+  m_Layer: 6
   m_Name: Myrl_RightLegLower_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3208,6 +3321,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &61003883367654260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8009183878569950687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.3887687, y: 5.3500004, z: 0.20000038}
+  m_Center: {x: -0.934384, y: 0.00000044636187, z: 1.7877015e-10}
 --- !u!1 &8243791370398297893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,7 +3344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2230347132689878640}
   - component: {fileID: 3874510336362621765}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: download (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3302,7 +3428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4154928398387854576}
   - component: {fileID: 6540877717123368867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_RightArmUpper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3386,7 +3512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7289315921744190239}
   - component: {fileID: 8750235723538695047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_BunRight_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3469,7 +3595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4554564326063570433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3505,7 +3631,7 @@ GameObject:
   - component: {fileID: 7267722255228782800}
   - component: {fileID: 6849533796148681190}
   - component: {fileID: 4349863036652276035}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MyrlAnimSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3625,7 +3751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1698271512868496364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_MechElbowLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3659,7 +3785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5399157966276088148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3691,7 +3817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5290310066074986040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myrl_ShoulderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3725,7 +3851,8 @@ GameObject:
   m_Component:
   - component: {fileID: 14189142801580533}
   - component: {fileID: 6578442696194519591}
-  m_Layer: 0
+  - component: {fileID: 8642573758247349385}
+  m_Layer: 6
   m_Name: Myrl_RightLegUpper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3799,3 +3926,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &8642573758247349385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172874670811452796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.5292616, y: 3.98, z: 0.2}
+  m_Center: {x: -0.44463062, y: 0.0000004769616, z: 0}

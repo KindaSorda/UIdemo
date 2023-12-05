@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     Animator mainCameraAnim;
 
+    public string firstTurnTextCauseImCheating;
+
     private void Awake()
     {
         gm = this;
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
 
         mainCameraAnim = Camera.main.gameObject.GetComponent<Animator>();
 
+        //attackDescriptionText.text = firstTurnTextCauseImCheating;
         //StartCoroutine(EndTurn(0.0f));
     }
 
@@ -170,10 +173,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(currentTurnCharacter.SetCurrentTurnThumbnail(true, 0.0f));
         if (currentTurnCharacter.tag == "Party")
         {
+            Debug.Log("Party Check");
             currentTurnCharacter.EnableAttackButtons(true);
             actionWheel.transform.parent.gameObject.SetActive(true);
-            actionWheel.ResetWheel();
-            actionWheel.SetDescriptionText(currentTurnCharacter.myAttackButtons[0].assignedAttackDescription);
+            StartCoroutine(actionWheel.ResetWheel());
         }
         else
         {
@@ -295,12 +298,20 @@ public class GameManager : MonoBehaviour
                     SetTargetingLineToTarget(0, currentTurnCharacter.transform, enemies[0].transform);
                     SetTargetingLineToTarget(1, currentTurnCharacter.transform, enemies[1].transform);
                     SetTargetingLineToTarget(2, currentTurnCharacter.transform, enemies[2].transform);
+
+                    enemies[0].uiParentScript.scaleUp = true;
+                    enemies[1].uiParentScript.scaleUp = true;
+                    enemies[2].uiParentScript.scaleUp = true;
                 }
                 else
                 {
                     DisableTargetingLine(0);
                     DisableTargetingLine(1);
                     DisableTargetingLine(2);
+
+                    enemies[0].uiParentScript.scaleUp = false;
+                    enemies[1].uiParentScript.scaleUp = false;
+                    enemies[2].uiParentScript.scaleUp = false;
                 }
             }
 
@@ -320,15 +331,23 @@ public class GameManager : MonoBehaviour
             {
                 if (mouseOver != null && mouseOver.tag == "Party")
                 {
-                    SetTargetingLineToTarget(0, currentTurnCharacter.transform, party[0].transform);
-                    SetTargetingLineToTarget(1, currentTurnCharacter.transform, party[1].transform);
-                    SetTargetingLineToTarget(2, currentTurnCharacter.transform, party[2].transform);
+                    //SetTargetingLineToTarget(0, currentTurnCharacter.transform, party[0].transform);
+                    //SetTargetingLineToTarget(1, currentTurnCharacter.transform, party[1].transform);
+                    //SetTargetingLineToTarget(2, currentTurnCharacter.transform, party[2].transform);
+
+                    party[0].uiParentScript.scaleUp = true;
+                    party[1].uiParentScript.scaleUp = true;
+                    party[2].uiParentScript.scaleUp = true;
                 }
                 else
                 {
-                    DisableTargetingLine(0);
-                    DisableTargetingLine(1);
-                    DisableTargetingLine(2);
+                    //DisableTargetingLine(0);
+                    //DisableTargetingLine(1);
+                    //DisableTargetingLine(2);
+
+                    party[0].uiParentScript.scaleUp = false;
+                    party[1].uiParentScript.scaleUp = false;
+                    party[2].uiParentScript.scaleUp = false;
                 }
             }
 
@@ -349,6 +368,14 @@ public class GameManager : MonoBehaviour
             DisableTargetingLine(0);
             DisableTargetingLine(1);
             DisableTargetingLine(2);
+
+            enemies[0].uiParentScript.scaleUp = false;
+            enemies[1].uiParentScript.scaleUp = false;
+            enemies[2].uiParentScript.scaleUp = false;
+
+            party[0].uiParentScript.scaleUp = false;
+            party[1].uiParentScript.scaleUp = false;
+            party[2].uiParentScript.scaleUp = false;
         }
     }
 }
