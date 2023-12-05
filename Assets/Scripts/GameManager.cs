@@ -299,9 +299,9 @@ public class GameManager : MonoBehaviour
                     SetTargetingLineToTarget(1, currentTurnCharacter.transform, enemies[1].transform);
                     SetTargetingLineToTarget(2, currentTurnCharacter.transform, enemies[2].transform);
 
-                    enemies[0].uiParentScript.scaleUp = true;
-                    enemies[1].uiParentScript.scaleUp = true;
-                    enemies[2].uiParentScript.scaleUp = true;
+                    enemies[0].uiParentScript.scaleUpFromGameManager = true;
+                    enemies[1].uiParentScript.scaleUpFromGameManager = true;
+                    enemies[2].uiParentScript.scaleUpFromGameManager = true;
                 }
                 else
                 {
@@ -309,9 +309,9 @@ public class GameManager : MonoBehaviour
                     DisableTargetingLine(1);
                     DisableTargetingLine(2);
 
-                    enemies[0].uiParentScript.scaleUp = false;
-                    enemies[1].uiParentScript.scaleUp = false;
-                    enemies[2].uiParentScript.scaleUp = false;
+                    enemies[0].uiParentScript.scaleUpFromGameManager = false;
+                    enemies[1].uiParentScript.scaleUpFromGameManager = false;
+                    enemies[2].uiParentScript.scaleUpFromGameManager = false;
                 }
             }
 
@@ -335,9 +335,9 @@ public class GameManager : MonoBehaviour
                     //SetTargetingLineToTarget(1, currentTurnCharacter.transform, party[1].transform);
                     //SetTargetingLineToTarget(2, currentTurnCharacter.transform, party[2].transform);
 
-                    party[0].uiParentScript.scaleUp = true;
-                    party[1].uiParentScript.scaleUp = true;
-                    party[2].uiParentScript.scaleUp = true;
+                    party[0].uiParentScript.scaleUpFromGameManager = true;
+                    party[1].uiParentScript.scaleUpFromGameManager = true;
+                    party[2].uiParentScript.scaleUpFromGameManager = true;
                 }
                 else
                 {
@@ -345,9 +345,9 @@ public class GameManager : MonoBehaviour
                     //DisableTargetingLine(1);
                     //DisableTargetingLine(2);
 
-                    party[0].uiParentScript.scaleUp = false;
-                    party[1].uiParentScript.scaleUp = false;
-                    party[2].uiParentScript.scaleUp = false;
+                    party[0].uiParentScript.scaleUpFromGameManager = false;
+                    party[1].uiParentScript.scaleUpFromGameManager = false;
+                    party[2].uiParentScript.scaleUpFromGameManager = false;
                 }
             }
 
@@ -369,13 +369,13 @@ public class GameManager : MonoBehaviour
             DisableTargetingLine(1);
             DisableTargetingLine(2);
 
-            enemies[0].uiParentScript.scaleUp = false;
-            enemies[1].uiParentScript.scaleUp = false;
-            enemies[2].uiParentScript.scaleUp = false;
+            enemies[0].uiParentScript.scaleUpFromGameManager = false;
+            enemies[1].uiParentScript.scaleUpFromGameManager = false;
+            enemies[2].uiParentScript.scaleUpFromGameManager = false;
 
-            party[0].uiParentScript.scaleUp = false;
-            party[1].uiParentScript.scaleUp = false;
-            party[2].uiParentScript.scaleUp = false;
+            party[0].uiParentScript.scaleUpFromGameManager = false;
+            party[1].uiParentScript.scaleUpFromGameManager = false;
+            party[2].uiParentScript.scaleUpFromGameManager = false;
         }
     }
 }

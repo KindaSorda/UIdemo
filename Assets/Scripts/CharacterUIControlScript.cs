@@ -14,7 +14,8 @@ public class CharacterUIControlScript : MonoBehaviour
 
     [SerializeField]bool cursorInSelectableArea = false;
     [SerializeField]bool cursorOverCharacter = false;
-    [HideInInspector] public bool scaleUp = false;
+    [HideInInspector] public bool scaleUpFromGameManager = false;
+    [HideInInspector] public bool scaleUpFromStatusIcon = false;
 
     public RawImage[] bubbleImages;
     [Range(0.0f,1.0f)]public float onHoverAlpha, offHoverAlpha;
@@ -80,7 +81,7 @@ public class CharacterUIControlScript : MonoBehaviour
         else
             cursorOverCharacter = false;
 
-        if (cursorOverCharacter == true || cursorInSelectableArea == true || scaleUp == true)
+        if (cursorOverCharacter == true || cursorInSelectableArea == true || scaleUpFromGameManager == true || scaleUpFromStatusIcon == true)
             SetScale(true);
         else
             SetScale(false);

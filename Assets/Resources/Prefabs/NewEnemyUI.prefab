@@ -218,6 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7392815930535605141}
+  - component: {fileID: 1142834329210902174}
   m_Layer: 6
   m_Name: HeatlhAndStats
   m_TagString: Untagged
@@ -248,8 +249,16 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 7.3446, y: 7.34456}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1142834329210902174
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228595414372929330}
+  m_CullTransparentMesh: 1
 --- !u!1 &5082308173562550495
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +276,7 @@ GameObject:
   - component: {fileID: 6803128370180172915}
   - component: {fileID: 2905335503288938611}
   - component: {fileID: 1586841832500689085}
+  - component: {fileID: 7751660423055269025}
   m_Layer: 6
   m_Name: NewEnemyUI
   m_TagString: Untagged
@@ -394,7 +404,8 @@ MonoBehaviour:
   target: {fileID: 0}
   cursorInSelectableArea: 0
   cursorOverCharacter: 0
-  scaleUp: 0
+  scaleUpFromGameManager: 0
+  scaleUpFromStatusIcon: 0
   bubbleImages:
   - {fileID: 0}
   - {fileID: 0}
@@ -513,6 +524,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7751660423055269025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082308173562550495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 5994384044319436229}
+  m_Horizontal: 0
+  m_Vertical: 0
+  m_MovementType: 2
+  m_Elasticity: 0.1
+  m_Inertia: 0
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 0
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6137680541542313055
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,8 +589,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.37589, y: -0.09916}
-  m_SizeDelta: {x: 145.29489, y: 167.78131}
+  m_AnchoredPosition: {x: 0.92991, y: -0.09916}
+  m_SizeDelta: {x: 130.61285, y: 134.95328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &498652073145762813
 CanvasRenderer:
@@ -598,6 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9060719735292067917}
+  - component: {fileID: 1577798014257217142}
   m_Layer: 6
   m_Name: DebuffDisplayIcons
   m_TagString: Untagged
@@ -634,6 +676,14 @@ RectTransform:
   m_AnchoredPosition: {x: -0.2, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1577798014257217142
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6946766061778791767}
+  m_CullTransparentMesh: 1
 --- !u!1 &8019058008419853419
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557182061482469579}
+  - component: {fileID: 7901845088135339856}
   m_Layer: 6
   m_Name: BuffDisplayIcons
   m_TagString: Untagged
@@ -677,8 +728,16 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 6.01839, y: 6.01839}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7901845088135339856
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019058008419853419}
+  m_CullTransparentMesh: 1
 --- !u!1001 &792952412717424403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -773,6 +832,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: BuffDisplay3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -887,6 +950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuffDisplay5
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!114 &268129920182638252 stripped
@@ -1000,6 +1067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebuffDisplay6
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!114 &1131111327099838185 stripped
@@ -1112,6 +1183,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: DebuffDisplay4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -1396,6 +1471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebuffDisplay8
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!224 &802709192927670897 stripped
@@ -1508,6 +1587,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: BuffDisplay2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -1622,6 +1705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebuffDisplay9
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!224 &1645127696038107210 stripped
@@ -1734,6 +1821,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: DebuffDisplay7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -1848,6 +1939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuffDisplay1
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!224 &2209746549942923181 stripped
@@ -1960,6 +2055,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: BuffDisplay7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -2074,6 +2173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebuffDisplay2
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!114 &6868055941531458995 stripped
@@ -2186,6 +2289,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: BuffDisplay4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -2300,6 +2407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuffDisplay6
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!114 &5509606604244165958 stripped
@@ -2412,6 +2523,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: DebuffDisplay5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -2526,6 +2641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuffDisplay9
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!224 &5344044994123100772 stripped
@@ -2639,6 +2758,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebuffDisplay1
       objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
 --- !u!224 &6244475140098588054 stripped
@@ -2751,6 +2874,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: BuffDisplay8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
@@ -2942,6 +3069,10 @@ PrefabInstance:
     - target: {fileID: 3281040131080087904, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
       propertyPath: m_Name
       value: DebuffDisplay3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376567960486734601, guid: 9bc796193adef294aaa3048ab6885907, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc796193adef294aaa3048ab6885907, type: 3}

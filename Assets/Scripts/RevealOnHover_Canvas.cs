@@ -23,7 +23,7 @@ public class RevealOnHover_Canvas : MonoBehaviour
 
     public void Reveal(bool state)
     {
-        if (gameObject.GetComponent<StatusEffectIconControl>().hoverable == true)
+        if (gameObject.GetComponent<StatusEffectIconControl>().active == true)
         {
             if (!revealCursorElement)
                 revealTarget.SetActive(state);
