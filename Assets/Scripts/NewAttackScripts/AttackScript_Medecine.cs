@@ -37,7 +37,7 @@ public class AttackScript_Medecine : MonoBehaviour
         targetButton.onClick.AddListener(() => PrepareAttack());
         targetButton.GetComponent<AttackButtonScript>().assignedAttackBreathCost = breathCost;
         targetButton.GetComponent<AttackButtonScript>().assignedAttackDescription = description;
-        targetButton.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
+        targetButton.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
     }
 
     void PrepareAttack()

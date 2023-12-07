@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AttackButtonScript : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class AttackButtonScript : MonoBehaviour
         if(state == true)
         {
             FlashBreathsOnHover(state);
-            ScaleOnHover(state);
+            //ScaleOnHover(state);
             //SetParentOnHover(state);
             //ShiftAllButtonsAbove(state);
         }
@@ -51,7 +52,7 @@ public class AttackButtonScript : MonoBehaviour
         {
             FlashBreathsOnHover(state);
             //SetParentOnHover(state);
-            ScaleOnHover(state);
+            //ScaleOnHover(state);
             //ShiftAllButtonsAbove(state);
         }
     }
@@ -100,6 +101,12 @@ public class AttackButtonScript : MonoBehaviour
     void ShiftVerticalOnHover(bool hover)
     {
         rt.localPosition = hover == true ? targetPos : startingPos;
+    }
+
+    public void SetIneractable(bool state)
+    {
+        GetComponent<Button>().interactable = state;
+        GetComponent<Image>().raycastTarget = state;
     }
 
 // Update is called once per frames

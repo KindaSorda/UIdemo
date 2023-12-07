@@ -37,7 +37,7 @@ public class PartyBasicAttack : MonoBehaviour
         targetButton.onClick.AddListener(() => PrepareAttack());
         targetButton.GetComponent<AttackButtonScript>().assignedAttackBreathCost = basicAttackBreathCost;
         targetButton.GetComponent<AttackButtonScript>().assignedAttackDescription = description;
-        targetButton.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
+        targetButton.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
 
         Debug.Log("Assigned basic attack for " + gameObject.name + " to Button " + targetButton.transform.parent.parent.parent.name);
     }

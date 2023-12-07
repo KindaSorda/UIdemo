@@ -36,6 +36,18 @@ public class ActionWheelScript : MonoBehaviour
         numClicksDown += click;
         SetDescriptionText(GameManager.gm.currentTurnCharacter.myAttackButtons[numClicksDown].assignedAttackDescription);
 
+        if(GameManager.gm.currentTurnCharacter.tag == "Party")
+        {
+            for(int i = 0; i < GameManager.gm.currentTurnCharacter.myAttackButtons.Count; i++)
+            {
+                if (i == numClicksDown)
+                    GameManager.gm.currentTurnCharacter.myAttackButtons[i].SetIneractable(true);
+                else
+                    GameManager.gm.currentTurnCharacter.myAttackButtons[i].SetIneractable(false);
+            }
+        }
+
+        //This chunck of bools is just to reset the buttons so they don't stay pressed after being clicked
         rotateUp.interactable = false;
         rotateDown.interactable = false;
         rotateUp.interactable = true;
@@ -55,6 +67,12 @@ public class ActionWheelScript : MonoBehaviour
         targetRot.eulerAngles = new Vector3(0.0f, 0.0f, 357.11f);
         numClicksDown = 0;
         SetDescriptionText(GameManager.gm.currentTurnCharacter.myAttackButtons[numClicksDown].assignedAttackDescription);
+
+        for (int i = 0; i < GameManager.gm.currentTurnCharacter.myAttackButtons.Count; i++)
+        {
+            GameManager.gm.currentTurnCharacter.myAttackButtons[i].SetIneractable(false);
+        }
+        GameManager.gm.currentTurnCharacter.myAttackButtons[0].SetIneractable(true);
     }
 
     // Update is called once per frame
