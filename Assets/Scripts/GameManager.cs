@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 
         combatInteractable = LayerMask.GetMask("CombatCharacter");
 
-        targetingMouseReticle.GetComponent<Image>().enabled = false;
+        targetingMouseReticle.SetActive(false);
         cursorRevealObject.SetActive(false);
 
         rotForEnemy = currentTurnIndicatorWorldSpace.transform.rotation;
@@ -222,18 +222,28 @@ public class GameManager : MonoBehaviour
         {
             GameObject objectOver = hit.collider.gameObject;
             mouseOver = objectOver.transform.root.gameObject;
+            if (targetingModeSingleEnemy || targetingModeAllEnemies)
+            {
+                if(mouseOver.tag == "Enemy")
+                    SetTargetingReticleState(true);
+            }
+            else if (targetingModeSingleParty || targetingModeAllParty)
+            {
+                if(mouseOver.tag == "Party")
+                    SetTargetingReticleState(true);
+            }
+            else
+                SetTargetingReticleState(false);
             //Debug.Log("From " + objectOver.name);
         }
         else
+        {
             mouseOver = null;
+            SetTargetingReticleState(false);
+        }
 
         //if(mouseOver != null)
             //Debug.Log("GM_GetMouseOver " + mouseOver.name);
-    }
-
-    public void SetTargetingReticle(bool state)
-    {
-        targetingMouseReticle.GetComponent<Image>().enabled = state;
     }
 
     public void SetUIState(bool state)
@@ -267,7 +277,16 @@ public class GameManager : MonoBehaviour
     {
         lineScripts[lineNum].DisableAllSegments();
     }
+    public void SetTargetingReticle(bool state)
+    {
+        targetingMouseReticle.SetActive(state);
+    }
 
+    public void SetTargetingReticleState(bool state)
+    {
+        Animator trAnim = targetingMouseReticle.GetComponent<Animator>();
+        trAnim.SetBool("Expand", state);
+    }
 
     // Update is called once per frame
     void Update()

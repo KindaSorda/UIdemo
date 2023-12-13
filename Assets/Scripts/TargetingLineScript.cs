@@ -19,11 +19,13 @@ public class TargetingLineScript : MonoBehaviour
         }
 
         StartCoroutine(StartFlashAnim(tick));
+
+        segments[0].SetActive(false);
     }
 
     IEnumerator StartFlashAnim(int segmentNum)
     {
-        yield return new WaitForSeconds(flashDelay * segmentNum);
+        yield return new WaitForSeconds(flashDelay);
 
         Animator anim = segments[segmentNum].GetComponent<Animator>();
         anim.SetTrigger("StartFlash");
