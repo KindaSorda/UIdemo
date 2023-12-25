@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Deccelerate
   m_EditorClassIdentifier: 
   effectName: Out of Breath
-  thumbnailSprite: {fileID: 21300000, guid: 23743f0c0ed1e6546808a5d645c2a6a5, type: 3}
+  thumbnailSprite: {fileID: 21300000, guid: 6ebbc8ac13ad8ab4c8643be7b6ebf7c8, type: 3}
   isBuff: 0
   duration: 1
   stacks: 1
@@ -21,3 +21,4 @@ MonoBehaviour:
   percentSpeedEffect: -15
   percentAttackEffect: 0
   percentDefenseEffect: 0
+  percentHealthEffect: 0

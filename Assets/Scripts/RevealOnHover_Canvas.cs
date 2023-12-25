@@ -18,13 +18,13 @@ public class RevealOnHover_Canvas : MonoBehaviour
     private void Start()
     {
         cursorElement = GameManager.gm.cursorRevealObject;
-        cursorText = cursorElement.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        cursorText = cursorElement.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     public void Reveal(bool state)
     {
-        if (gameObject.GetComponent<StatusEffectIconControl>().active == true)
-        {
+        //if (gameObject.GetComponent<StatusEffectIconControl>().active == true)
+        //{
             if (!revealCursorElement)
                 revealTarget.SetActive(state);
             else
@@ -32,7 +32,7 @@ public class RevealOnHover_Canvas : MonoBehaviour
                 cursorElement.SetActive(state);
                 cursorText.text = addTextForCursorElement;
             }
-        }
+        //}
     }
 
     public void RevealHealthText(bool state)

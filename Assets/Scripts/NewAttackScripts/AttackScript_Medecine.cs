@@ -89,7 +89,7 @@ public class AttackScript_Medecine : MonoBehaviour
         GameManager.gm.CameraShakePlayer();
         for (int i = 0; i < GameManager.gm.party.Count; i++)
         {
-            StartCoroutine(GameManager.gm.party[i].TakeDamage(healAmount));
+            StartCoroutine(GameManager.gm.party[i].Heal(healAmount));
 
             SO_StatusEffect newEffect = Instantiate(Resources.Load("StatusEffects/Regeneration") as SO_StatusEffect);
             GameManager.gm.party[i].InflictStatusEffect(newEffect);

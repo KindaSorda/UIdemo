@@ -39,7 +39,7 @@ public class PartyBasicAttack : MonoBehaviour
         targetButton.GetComponent<AttackButtonScript>().assignedAttackDescription = description;
         targetButton.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = attackName;
 
-        Debug.Log("Assigned basic attack for " + gameObject.name + " to Button " + targetButton.transform.parent.parent.parent.name);
+        //Debug.Log("Assigned basic attack for " + gameObject.name + " to Button " + targetButton.transform.parent.parent.parent.name);
     }
 
     void PrepareAttack()

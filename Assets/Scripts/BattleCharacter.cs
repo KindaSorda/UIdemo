@@ -94,6 +94,7 @@ public class BattleCharacter : MonoBehaviour
 
         myTurnIndicator.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().overrideSprite = thumbnail;
         turnIndicatorStartingScale = myTurnIndicator.transform.localScale;
+        myTurnIndicator.gameObject.name = gameObject.name + " Turn Indicator";
         StartCoroutine(SetCurrentTurnThumbnail(false, 0.0f));
 
         health = startingHealth;
@@ -326,40 +327,43 @@ public class BattleCharacter : MonoBehaviour
 
     public IEnumerator TakeDamage(float damage)
     {
-        Debug.Log("Execute Damage Function");
+        if (damage != 0.0f)
+        {
+            Debug.Log("Execute Damage Function");
 
-        for(int i = 0; i < spritePieces.Count; i++)
-        {
-            spritePieces[i].color = Color.red;
-        }
-        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-        for (int i = 0; i < spritePieces.Count; i++)
-        {
-            spritePieces[i].color = Color.white;
-        }
-        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-        for (int i = 0; i < spritePieces.Count; i++)
-        {
-            spritePieces[i].color = Color.red;
-        }
-        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-        for (int i = 0; i < spritePieces.Count; i++)
-        {
-            spritePieces[i].color = Color.white;
-        }
-        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-        for (int i = 0; i < spritePieces.Count; i++)
-        {
-            spritePieces[i].color = Color.red;
-        }
-        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-        for (int i = 0; i < spritePieces.Count; i++)
-        {
-            spritePieces[i].color = Color.white;
-        }
+            for (int i = 0; i < spritePieces.Count; i++)
+            {
+                spritePieces[i].color = Color.red;
+            }
+            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+            for (int i = 0; i < spritePieces.Count; i++)
+            {
+                spritePieces[i].color = Color.white;
+            }
+            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+            for (int i = 0; i < spritePieces.Count; i++)
+            {
+                spritePieces[i].color = Color.red;
+            }
+            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+            for (int i = 0; i < spritePieces.Count; i++)
+            {
+                spritePieces[i].color = Color.white;
+            }
+            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+            for (int i = 0; i < spritePieces.Count; i++)
+            {
+                spritePieces[i].color = Color.red;
+            }
+            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+            for (int i = 0; i < spritePieces.Count; i++)
+            {
+                spritePieces[i].color = Color.white;
+            }
 
-        health -= damage;
-        UpdateHealthBar();
+            health -= damage;
+            UpdateHealthBar();
+        }
     }
 
     public IEnumerator Heal(float healAmount)
@@ -404,6 +408,7 @@ public class BattleCharacter : MonoBehaviour
         if (myTurnIndicator != null)
         {
             myTurnIndicator.rectTransform.localPosition = Vector3.Lerp(myTurnIndicator.rectTransform.localPosition, new Vector3(turnIndicatorTargetX, 0.0f, 0.0f), Time.deltaTime * GameManager.gm.turnIndicatorUpdateSpeed);
+            Debug.Log(myTurnIndicator.transform.GetSiblingIndex());
             myTurnIndicator.rectTransform.localScale = new Vector3(
                 turnIndicatorStartingScale.x + (turnValue / GameManager.gm.turnIndicatorScaleByProgressOffset), 
                 turnIndicatorStartingScale.y + (turnValue / GameManager.gm.turnIndicatorScaleByProgressOffset), 

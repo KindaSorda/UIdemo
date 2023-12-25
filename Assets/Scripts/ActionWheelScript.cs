@@ -63,7 +63,7 @@ public class ActionWheelScript : MonoBehaviour
    public IEnumerator ResetWheel()
     {
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("Reset Wheel");
+        //Debug.Log("Reset Wheel");
         targetRot.eulerAngles = new Vector3(0.0f, 0.0f, 357.11f);
         numClicksDown = 0;
         SetDescriptionText(GameManager.gm.currentTurnCharacter.myAttackButtons[numClicksDown].assignedAttackDescription);

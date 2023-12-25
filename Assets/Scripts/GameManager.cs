@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject cursorRevealObject;
 
     public GameObject currentTurnIndicatorWorldSpace;
+    public GameObject turnIndicatorsParent;
+    public List<TurnIndicatorScript> characterTurnIndicators = new List<TurnIndicatorScript>();
     public List<TargetingLineScript> lineScripts;
     public float currentTurnIndicatorWorldSpaceMovementSpeed;
     public Color enemyTurnColor, partyTurnColor;
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public int numPartyMembersInScene;
 
-    public List<GameObject> characters = new List<GameObject>();
+    public List<BattleCharacter> characters = new List<BattleCharacter>();
     public List<BattleCharacter> party = new List<BattleCharacter>();
     public List<BattleCharacter> enemies = new List<BattleCharacter>();
     public List<Image> turnIndicators = new List<Image>();
@@ -105,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < GameObject.FindGameObjectsWithTag(tag).Length; i++)
         {
-            characters.Add(GameObject.FindGameObjectsWithTag(tag)[i]);
+            characters.Add(GameObject.FindGameObjectsWithTag(tag)[i].GetComponent<BattleCharacter>());
 
             BattleCharacter thisCharacter = characters[i + offset].GetComponent<BattleCharacter>();
 
@@ -189,6 +191,8 @@ public class GameManager : MonoBehaviour
         {
             characters[i].GetComponent<BattleCharacter>().ApplyStatusEffects();
         }*/
+
+        SetTurnIndicatorSiblingOrder();
 
         nextTurnButton.interactable = false;
         nextTurnButton.interactable = true;
@@ -286,6 +290,27 @@ public class GameManager : MonoBehaviour
     {
         Animator trAnim = targetingMouseReticle.GetComponent<Animator>();
         trAnim.SetBool("Expand", state);
+    }
+
+    void SetTurnIndicatorSiblingOrder()
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            characters[i].myTurnIndicator.GetComponent<TurnIndicatorScript>().turnValue = characters[i].turnValue;
+        }
+
+        for(int i = 0; i < characterTurnIndicators.Count; i++)
+        {
+            int numBefore = 0;
+            for (int j = 0; j < characterTurnIndicators.Count; j++)
+            {
+                if (characterTurnIndicators[i].turnValue > characterTurnIndicators[j].turnValue)
+                {
+                    numBefore++;
+                }
+            }
+            characterTurnIndicators[i].transform.SetSiblingIndex(numBefore);
+        }
     }
 
     // Update is called once per frame
@@ -396,5 +421,10 @@ public class GameManager : MonoBehaviour
             party[1].uiParentScript.scaleUpFromGameManager = false;
             party[2].uiParentScript.scaleUpFromGameManager = false;
         }
+
+
+        //SetTurnIndicatorSiblingOrder();
+        //for (int i = 0; i < characterTurnIndicators.Count; i++)
+        //    Debug.Log(characterTurnIndicators[i].transform.GetSiblingIndex());
     }
 }
