@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
 
     public GameObject mainCombatUI;
+    public GameObject comicBordersUI;
     public GameObject cursorRevealObject;
 
     public GameObject currentTurnIndicatorWorldSpace;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     public int currentTurnUIOrder = 1;
 
     public Button nextTurnButton;
+    public Button soulGuageButton;
     public SoulGuageScript soulGuage;
     public float turnIndicatorUpdateSpeed;
     public float turnIndicatorPosMultiplier;
@@ -311,6 +313,13 @@ public class GameManager : MonoBehaviour
             }
             characterTurnIndicators[i].transform.SetSiblingIndex(numBefore);
         }
+    }
+
+    public void VictoryState()
+    {
+        Debug.Log("VICTORY");
+        GameObject title = Instantiate(Resources.Load("Prefabs/VictoryTitle") as GameObject, comicBordersUI.transform);
+        title.transform.SetAsLastSibling();
     }
 
     // Update is called once per frame

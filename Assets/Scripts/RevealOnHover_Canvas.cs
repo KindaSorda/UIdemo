@@ -15,6 +15,10 @@ public class RevealOnHover_Canvas : MonoBehaviour
     GameObject cursorElement;
     TextMeshProUGUI cursorText;
 
+    public List<GameObject> mouseDistanceObjects = new List<GameObject>();
+
+    public float mouseDistanceThresholdMod;
+
     private void Start()
     {
         cursorElement = GameManager.gm.cursorRevealObject;
@@ -25,6 +29,8 @@ public class RevealOnHover_Canvas : MonoBehaviour
     {
         //if (gameObject.GetComponent<StatusEffectIconControl>().active == true)
         //{
+        Debug.Log("Set Reveal state " + state);
+
             if (!revealCursorElement)
                 revealTarget.SetActive(state);
             else
@@ -33,6 +39,47 @@ public class RevealOnHover_Canvas : MonoBehaviour
                 cursorText.text = addTextForCursorElement;
             }
         //}
+    }
+    void MouseDistanceCheck()
+    {
+        bool withinADistance = false;
+        string text = "";
+
+        for(int i = 0; i < mouseDistanceObjects.Count; i++)
+        {
+            if (mouseDistanceObjects[i].GetComponent<RevealTargetByMouseDistanceToThis>().viable)
+            {
+                float distance;
+                distance = Vector2.Distance(mouseDistanceObjects[i].GetComponent<RectTransform>().position, Input.mousePosition);
+
+                if (distance <= ((Screen.width - Screen.height) / mouseDistanceThresholdMod))
+                {
+                    mouseDistanceObjects[i].GetComponent<RevealTargetByMouseDistanceToThis>().inDistance = true;
+                }
+                else
+                {
+                    mouseDistanceObjects[i].GetComponent<RevealTargetByMouseDistanceToThis>().inDistance = false;
+                }
+            }
+        }
+
+        for (int i = 0; i < mouseDistanceObjects.Count; i++)
+        {
+            if (mouseDistanceObjects[i].GetComponent<RevealTargetByMouseDistanceToThis>().inDistance == true)
+            {
+                Debug.Log("Cursor within distance of " + mouseDistanceObjects[i].name);
+                withinADistance = true;
+                text = mouseDistanceObjects[i].GetComponent<RevealTargetByMouseDistanceToThis>().textForReveal;
+            }
+        }
+
+        if (withinADistance)
+        {
+            addTextForCursorElement = text;
+            Reveal(true);
+        }
+        else
+            Reveal(false);
     }
 
     public void RevealHealthText(bool state)
@@ -46,6 +93,8 @@ public class RevealOnHover_Canvas : MonoBehaviour
 
     private void Update()
     {
+        MouseDistanceCheck();
+
         if (GameManager.gm.mouseOver == gameObject)
             Debug.Log("Mouse Over " + gameObject.name);
     }

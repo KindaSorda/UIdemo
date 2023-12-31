@@ -32,6 +32,8 @@ public class SoulGuageScript : MonoBehaviour
 
         fog1.color = fogGradient.Evaluate(0.0f);
         treeLighting1.color = lightingGradient.Evaluate(0.0f);
+
+        GameManager.gm.soulGuageButton.interactable = false;
     }
 
     public void fillGuage(int amount)
@@ -49,6 +51,17 @@ public class SoulGuageScript : MonoBehaviour
     {
         maxGuage.SetActive(true);
         maxGuageAnim.speed *= maxGuageAnimSpeedMultiplier;
+        GameManager.gm.soulGuageButton.interactable = true;
+    }
+
+    public void EmptyGuage()
+    {
+        currentFill = 0;
+        fog1.color = fogGradient.Evaluate(0.0f);
+        treeLighting1.color = lightingGradient.Evaluate(0.0f);
+        maxGuage.SetActive(false);
+
+        GameManager.gm.soulGuageButton.interactable = false;
     }
 
     // Update is called once per frame

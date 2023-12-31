@@ -54,7 +54,7 @@ public class AttackScript_Overload : MonoBehaviour
             if (GameManager.gm.mouseOver != null && GameManager.gm.mouseOver.tag == "Enemy")
             {
                 //Debug.Log("Party -> " + GameManager.gm.mouseOver.name);
-                Debug.Log("Successful Click");
+                //Debug.Log("Successful Click");
                 StartCoroutine(ExecuteAttack());
                 GameManager.gm.targetingModeAllEnemies = false;
                 thisAttackActive = false;

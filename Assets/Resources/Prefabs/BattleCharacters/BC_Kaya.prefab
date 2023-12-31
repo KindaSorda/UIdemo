@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3219677593510891713}
   - component: {fileID: 2500920922887634006}
   - component: {fileID: 3333857640979074333}
+  - component: {fileID: 6089792000726053}
   m_Layer: 6
   m_Name: BC_Kaya
   m_TagString: Party
@@ -192,6 +193,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numAttacks: 5
+--- !u!114 &6089792000726053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212117806128216796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf6a7bfd3f4afa4b9aed1d222e2a329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: 
+  description: 
+  damage: 350
+  breathCost: 0
+  animTime: 0
+  effectDelay: 0
+  assignedButton: 0
 --- !u!1001 &8829207220822075304
 PrefabInstance:
   m_ObjectHideFlags: 0

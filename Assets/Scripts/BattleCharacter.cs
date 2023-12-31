@@ -189,7 +189,7 @@ public class BattleCharacter : MonoBehaviour
 
     public void InflictStatusEffect(SO_StatusEffect effect)
     {
-        Debug.Log("Triggered Inflict of " + effect.name);
+        //Debug.Log("Triggered Inflict of " + effect.name);
         if (effect.isBuff)
         {
             bool alreadyInflicted = false;
@@ -207,7 +207,7 @@ public class BattleCharacter : MonoBehaviour
                 buffs.Add(effect);
 
             UpdateBuffIcons();
-            Debug.Log("Inflicted " + effect.name);
+            //Debug.Log("Inflicted " + effect.name);
         }
         else
         {
@@ -331,38 +331,52 @@ public class BattleCharacter : MonoBehaviour
         {
             Debug.Log("Execute Damage Function");
 
-            for (int i = 0; i < spritePieces.Count; i++)
-            {
-                spritePieces[i].color = Color.red;
-            }
-            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-            for (int i = 0; i < spritePieces.Count; i++)
-            {
-                spritePieces[i].color = Color.white;
-            }
-            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-            for (int i = 0; i < spritePieces.Count; i++)
-            {
-                spritePieces[i].color = Color.red;
-            }
-            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-            for (int i = 0; i < spritePieces.Count; i++)
-            {
-                spritePieces[i].color = Color.white;
-            }
-            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-            for (int i = 0; i < spritePieces.Count; i++)
-            {
-                spritePieces[i].color = Color.red;
-            }
-            yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
-            for (int i = 0; i < spritePieces.Count; i++)
-            {
-                spritePieces[i].color = Color.white;
-            }
+            GameObject damageEffect = Instantiate(Resources.Load("Prefabs/DamageEFfect") as GameObject, UIFollowsHere.position, UIFollowsHere.rotation);
+            damageEffect.transform.localScale = new Vector3(damageEffect.transform.localScale.x, damageEffect.transform.localScale.y, damageEffect.transform.localScale.z) * 1.75f;
 
             health -= damage;
-            UpdateHealthBar();
+
+            if (health <= 0.0f)
+            {
+                UpdateHealthBar();
+                StartCoroutine(CharacterDeath());
+            }
+            else
+            {
+                for (int i = 0; i < spritePieces.Count; i++)
+                {
+                    spritePieces[i].color = Color.red;
+                }
+                yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+                for (int i = 0; i < spritePieces.Count; i++)
+                {
+                    spritePieces[i].color = Color.white;
+                }
+                yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+                for (int i = 0; i < spritePieces.Count; i++)
+                {
+                    spritePieces[i].color = Color.red;
+                }
+                yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+                for (int i = 0; i < spritePieces.Count; i++)
+                {
+                    spritePieces[i].color = Color.white;
+                }
+                yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+                for (int i = 0; i < spritePieces.Count; i++)
+                {
+                    spritePieces[i].color = Color.red;
+                }
+                yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+                for (int i = 0; i < spritePieces.Count; i++)
+                {
+                    spritePieces[i].color = Color.white;
+                }
+                UpdateHealthBar();
+            }
+
+            yield return new WaitForSeconds(5.0f);
+            Destroy(damageEffect);
         }
     }
 
@@ -370,10 +384,12 @@ public class BattleCharacter : MonoBehaviour
     {
         Debug.Log("Healed " + gameObject.name + " for " + healAmount + "health");
 
+        GameObject healEffect = Instantiate(Resources.Load("Prefabs/HealingEffect") as GameObject, transform.position, transform.rotation);
+
         yield return new WaitForSeconds(0.0f);
         for (int i = 0; i < spritePieces.Count; i++)
         {
-            spritePieces[i].color = Color.green;
+            spritePieces[i].color = Color.yellow;
             yield return new WaitForSeconds(0.01f);
         }
         for (int i = 0; i < spritePieces.Count; i++)
@@ -386,12 +402,53 @@ public class BattleCharacter : MonoBehaviour
         if (health > startingHealth)
             health = startingHealth;
         UpdateHealthBar();
+
+        yield return new WaitForSeconds(1.0f);
+        Destroy(healEffect);
     }
 
     void UpdateHealthBar()
     {
         healthBar.fillAmount = health / startingHealth;
         healthBarFillBacking.fillAmount = health / startingHealth;
+    }
+
+    IEnumerator CharacterDeath()
+    {
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.clear;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.clear;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.clear;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.clear;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.clear;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        for (int i = 0; i < spritePieces.Count; i++)
+        {
+            spritePieces[i].color = Color.clear;
+        }
+        yield return new WaitForSeconds(GameManager.gm.damageRedFlashTime);
+        //Destroy(uiParent);
+        //Destroy(gameObject);
+        uiParent.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

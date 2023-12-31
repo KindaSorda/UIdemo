@@ -25,7 +25,9 @@ public class StatusEffectIconControl : MonoBehaviour
 
         myUiParent = transform.parent.parent.parent.gameObject.GetComponent<CharacterUIControlScript>();
         revealScript = GameManager.gm.GetComponent<RevealOnHover_Canvas>();
+        //revealScript = gameObject.GetComponent<RevealOnHover_Canvas>();
         rt = GetComponent<RectTransform>();
+        GetComponent<RevealTargetByMouseDistanceToThis>().viable = false;
     }
 
     public void AssignEffect(SO_StatusEffect effect)
@@ -33,7 +35,9 @@ public class StatusEffectIconControl : MonoBehaviour
         active = true;
         assigned = effect;
         displayIcon.sprite = effect.thumbnailSprite;
-        descriptionTextBox.text = effect.description;
+        gameObject.GetComponent<RevealTargetByMouseDistanceToThis>().textForReveal = effect.description;
+        GetComponent<RevealTargetByMouseDistanceToThis>().viable = true;
+        //descriptionTextBox.text = effect.description;
 
         if (assigned.stacks < 2)
             stackDisplay.text = "";
@@ -53,6 +57,7 @@ public class StatusEffectIconControl : MonoBehaviour
         Debug.Log("Called Empty()");
         displayIcon.sprite = Resources.Load<Sprite>("Empty");
         stackDisplay.text = "";
+        GetComponent<RevealTargetByMouseDistanceToThis>().viable = false;
         active = false;
     }
 
@@ -64,16 +69,13 @@ public class StatusEffectIconControl : MonoBehaviour
 
         if (distance <= ((Screen.width - Screen.height) / mouseDistanceThresholdMod))
         {
-            Debug.Log("Triggered Mouse Distance Check On Status Effect On " + myUiParent.name);
-            Debug.Log("Target to scale: " + myUiParent.name);
+            //Debug.Log("Triggered Mouse Distance Check On Status Effect On " + myUiParent.name);
+            //Debug.Log("Target to scale: " + myUiParent.name);
             myUiParent.scaleUpFromStatusIcon = true;
-            revealScript.addTextForCursorElement = assigned.description;
-            revealScript.Reveal(true);
         }
         else
         {
             myUiParent.scaleUpFromStatusIcon = false;
-            revealScript.Reveal(false);
         }
     }
 

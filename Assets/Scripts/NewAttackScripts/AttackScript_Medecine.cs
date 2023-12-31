@@ -86,7 +86,6 @@ public class AttackScript_Medecine : MonoBehaviour
         Destroy(attackAnim);
 
         yield return new WaitForSeconds(effectDelay);
-        GameManager.gm.CameraShakePlayer();
         for (int i = 0; i < GameManager.gm.party.Count; i++)
         {
             StartCoroutine(GameManager.gm.party[i].Heal(healAmount));
