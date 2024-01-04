@@ -10,6 +10,8 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
     public float animTime;
     public float endTurnDelay;
     public float damage;
+    public bool isTargeted;
+    public int setTarget;
 
     [Header("Basic Attack Variables")]
     bool isBasicAttacking = false;
@@ -52,9 +54,18 @@ public class EnemyAbilitiesAndControl : MonoBehaviour
         me.isMyTurn = false;
 
         Random.InitState((int)System.DateTime.Now.Ticks);
-        int target = Random.Range(0, GameManager.gm.party.Count);
-        BattleCharacter attackTarget = GameManager.gm.party[target];
-        Debug.Log("Enemy -> " + attackTarget.name);
+
+        BattleCharacter attackTarget;
+
+        if(isTargeted)
+        {
+            attackTarget = GameManager.gm.party[setTarget];
+        }
+        else
+        {
+            int randTarget = Random.Range(0, GameManager.gm.party.Count);
+            attackTarget = GameManager.gm.party[randTarget];
+        }
 
         yield return new WaitForSeconds(startDelay);
 

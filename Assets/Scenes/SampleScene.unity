@@ -31594,6 +31594,14 @@ PrefabInstance:
       value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: setTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: isTargeted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
       propertyPath: endTurnDelay
       value: 2.5
       objectReference: {fileID: 0}
@@ -32477,6 +32485,14 @@ PrefabInstance:
     - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
       propertyPath: animTime
       value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: setTarget
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: isTargeted
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
       propertyPath: endTurnDelay
@@ -40771,6 +40787,14 @@ PrefabInstance:
     - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
       propertyPath: animTime
       value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: setTarget
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
+      propertyPath: isTargeted
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1703853927642844911, guid: 9bd1c571fbddf3e41b3569a3c4c037ba, type: 3}
       propertyPath: endTurnDelay
