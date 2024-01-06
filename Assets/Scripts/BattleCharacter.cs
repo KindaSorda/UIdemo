@@ -136,6 +136,7 @@ public class BattleCharacter : MonoBehaviour
 
         int up = breathsSpentThisTurn;
         int numNegativeBreaths = 0;
+        bool spentNegative = false;
 
         for (int i = 0; i < cost; i++)
         {
@@ -149,6 +150,8 @@ public class BattleCharacter : MonoBehaviour
             }
             else
             {
+                spentNegative = true;
+
                 numNegativeBreaths++;
                 GameObject newNegativeBreath = Instantiate(Resources.Load("Prefabs/NegativeBreathContainer") as GameObject, breathsUIContainer.transform);
                 Vector3 startingRot = newNegativeBreath.GetComponent<Transform>().eulerAngles;
@@ -159,8 +162,12 @@ public class BattleCharacter : MonoBehaviour
 
                 SO_StatusEffect newEffect = Instantiate(Resources.Load("StatusEffects/OutOfBreath") as SO_StatusEffect);
                 InflictStatusEffect(newEffect);
-                StartCoroutine(GameManager.gm.EndTurn(delay));
             }
+        }
+
+        if(spentNegative)
+        {
+            StartCoroutine(GameManager.gm.EndTurn(1.25f));
         }
 
         breathsSpentThisTurn += cost;
