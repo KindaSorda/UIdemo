@@ -46399,7 +46399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7049940478002459731, guid: 10236a28327a60a42b6c4e2bf9e7394f, type: 3}
       propertyPath: guageCap
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7049940478002459731, guid: 10236a28327a60a42b6c4e2bf9e7394f, type: 3}
       propertyPath: maxGuage

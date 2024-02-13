@@ -17,6 +17,8 @@ public class AttackButtonScript : MonoBehaviour
     public List<BreathUINode> targetBreathNodes = new List<BreathUINode>();
     public BattleCharacter assignedCharacter;
 
+    public List<GameObject> myCostIndicators = new List<GameObject>();
+
     RectTransform rt;
     Animator anim;
 
@@ -33,6 +35,19 @@ public class AttackButtonScript : MonoBehaviour
         offHoverParent = transform.parent.parent;
         onHoverParent = offHoverParent.parent;
         //Debug.Log(targetBreathNodes.Count);
+
+        StartCoroutine(SetCostIndicators());
+    }
+
+    IEnumerator SetCostIndicators()
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        for (int i = 0; i < myCostIndicators.Count; i++)
+        {
+            if (i >= assignedAttackBreathCost)
+                myCostIndicators[i].SetActive(false);
+        }
     }
 
     public void OnHover(bool state)
